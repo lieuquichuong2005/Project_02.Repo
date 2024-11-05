@@ -61,6 +61,8 @@
     <Analyzer Include="C:\Users\Chuong\Desktop\6000.0.25f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\UiManager.cs" />
+    <Compile Include="Assets\_Scripts\PlayerStats.cs" />
     <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>

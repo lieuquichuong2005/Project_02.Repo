@@ -457,6 +457,8 @@
 -analyzer:"C:/Users/Chuong/Desktop/6000.0.25f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Users/Chuong/Desktop/6000.0.25f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/_Scripts/PlayerMovement.cs"
+"Assets/_Scripts/PlayerStats.cs"
+"Assets/_Scripts/UiManager.cs"
 -langversion:9.0
 /deterministic
 /optimize+
