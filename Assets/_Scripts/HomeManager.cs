@@ -15,6 +15,8 @@ public class HomeManager : MonoBehaviour
     public Button quitButton;
     public Button closeButton;
 
+    public GameObject listButton;
+
     [Header("Panel")]
     public List<GameObject> panels;
     public GameObject logInPanel;
@@ -33,7 +35,11 @@ public class HomeManager : MonoBehaviour
     public Button switchToRegister;
     public Button Register;
 
-    public GameObject listButton;
+    [Header("SettingPanel")]
+    public TMP_Dropdown graphicsDropdown;
+    public Toggle fullscreenToggle;
+    //public Dropdown languageDropdown;
+
     private void Awake()
     {
         startGameButton.onClick.AddListener(OnStartButton);
@@ -43,62 +49,83 @@ public class HomeManager : MonoBehaviour
         creditButton.onClick.AddListener(OnCreditsButton);
         quitButton.onClick.AddListener(OnQuitButton);
         closeButton.onClick.AddListener(OnCloseButton);
+        switchToLogIn.onClick.AddListener(OnSwitchToLogin);
+        switchToRegister.onClick.AddListener(OnSwitchToRegister);
 
     }
 
     void Start()
     {
+        graphicsDropdown.value = PlayerPrefs.GetInt("GraphicsQuality", 1); 
+        fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
+        //languageDropdown.value = PlayerPrefs.GetInt("Language", 0); 
+
+        graphicsDropdown.onValueChanged.AddListener(OnGraphicsQualityChange);
+        fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggle);
+        //languageDropdown.onValueChanged.AddListener(OnLanguageChange);
+
         SetActivePanel(null);
+
     }
 
     public void OnStartButton()
     {
-        SceneManager.LoadScene("GameScene"); 
+        AudioManager.instance.PlayClickSound();
+        SceneManager.LoadScene(1);
+        
     }
 
     public void OnAccountManagementButton()
     {
+        AudioManager.instance.PlayClickSound();
         SetActivePanel(panels[0]);
         closeButton.gameObject.SetActive(true);
     }
 
     public void OnSettingsButton()
     {
+        AudioManager.instance.PlayClickSound();
         SetActivePanel(panels[1]);
         closeButton.gameObject.SetActive(true);
     }
 
     public void OnHelpButton()
     {
+        AudioManager.instance.PlayClickSound();
         SetActivePanel(panels[2]);
         closeButton.gameObject.SetActive(true);
     }
 
     public void OnCreditsButton()
     {
+        AudioManager.instance.PlayClickSound();
         SetActivePanel(panels[3]);
         closeButton.gameObject.SetActive(true);
     }
 
     public void OnQuitButton()
     {
+        AudioManager.instance.PlayClickSound();
         Application.Quit(); 
     }
 
     public void OnSwitchToRegister()
     {
+        AudioManager.instance.PlayClickSound();
         logInPanel.SetActive(false);
         registerPanel.SetActive(true);
     }
 
-    public void OnLoginWithFacebook()
+    public void OnSwitchToLogin()
     {
+        AudioManager.instance.PlayClickSound();
         registerPanel.SetActive(false);
         logInPanel.SetActive(true);
     }
 
     public void OnLoginWithEmail()
     {
+        AudioManager.instance.PlayClickSound();
         string username = usernameInput.text;
         string password = passwordInput.text;
 
@@ -110,6 +137,10 @@ public class HomeManager : MonoBehaviour
         {
 
         }
+    }
+    public void OnLogInWithFacebook()
+    {
+        AudioManager.instance.PlayClickSound();
     }
     public void SetActivePanel(GameObject panelToActivate)
     {
@@ -130,7 +161,32 @@ public class HomeManager : MonoBehaviour
     }
     void OnCloseButton()
     {
+        AudioManager.instance.PlayClickSound();
         SetActivePanel(null);
-    }    
+    }
+    public void OnGraphicsQualityChange(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefs.SetInt("GraphicsQuality", qualityIndex);
+        PlayerPrefs.Save();
+    }
+    public void OnFullscreenToggle(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+        PlayerPrefs.SetInt("Fullscreen", isFullscreen ? 1 : 0);
+        PlayerPrefs.Save();
+    }
 
+    public void OnLanguageChange(int languageIndex)
+    {
+        PlayerPrefs.SetInt("Language", languageIndex);
+        PlayerPrefs.Save();
+        //UpdateLanguage(languageIndex);
+    }
+
+    /*private void UpdateLanguage(int languageIndex)
+    {
+        // Logic để cập nhật ngôn ngữ trong game
+        // Ví dụ: sử dụng một bảng từ điển để lấy văn bản
+    }*/
 }
