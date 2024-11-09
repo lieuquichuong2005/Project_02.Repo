@@ -5,9 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonRealtime", "PhotonRea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Editor", "PhotonUnityNetworking.Editor.csproj", "{37D10662-7241-44A1-3FB2-CFADDFDBFC10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking", "PhotonUnityNetworking.csproj", "{D3F69801-7696-834D-D8F4-CC5ABE7AE739}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{B7940401-C28E-B77E-5AB8-5698A3FA0D66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking", "PhotonUnityNetworking.csproj", "{D3F69801-7696-834D-D8F4-CC5ABE7AE739}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Demos", "PhotonUnityNetworking.Demos.csproj", "{9030E253-0D33-D9DF-3AE8-AEA7E2FE6656}"
 EndProject
@@ -39,14 +39,14 @@ Global
 		{37D10662-7241-44A1-3FB2-CFADDFDBFC10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37D10662-7241-44A1-3FB2-CFADDFDBFC10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37D10662-7241-44A1-3FB2-CFADDFDBFC10}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D3F69801-7696-834D-D8F4-CC5ABE7AE739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3F69801-7696-834D-D8F4-CC5ABE7AE739}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3F69801-7696-834D-D8F4-CC5ABE7AE739}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3F69801-7696-834D-D8F4-CC5ABE7AE739}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7940401-C28E-B77E-5AB8-5698A3FA0D66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7940401-C28E-B77E-5AB8-5698A3FA0D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7940401-C28E-B77E-5AB8-5698A3FA0D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7940401-C28E-B77E-5AB8-5698A3FA0D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3F69801-7696-834D-D8F4-CC5ABE7AE739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F69801-7696-834D-D8F4-CC5ABE7AE739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F69801-7696-834D-D8F4-CC5ABE7AE739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F69801-7696-834D-D8F4-CC5ABE7AE739}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9030E253-0D33-D9DF-3AE8-AEA7E2FE6656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9030E253-0D33-D9DF-3AE8-AEA7E2FE6656}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9030E253-0D33-D9DF-3AE8-AEA7E2FE6656}.Release|Any CPU.ActiveCfg = Release|Any CPU
