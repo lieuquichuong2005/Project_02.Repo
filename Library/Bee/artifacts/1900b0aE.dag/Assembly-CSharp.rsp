@@ -551,6 +551,8 @@
 "Assets/_Scripts/PlayerMovement.cs"
 "Assets/_Scripts/PlayerStats.cs"
 "Assets/_Scripts/UiManager.cs"
+"Assets/_Sprites/UI/Free UI build package/Script/Slide.cs"
+"Assets/_Sprites/UI/Free UI build package/Script/Togglescript.cs"
 -langversion:9.0
 /deterministic
 /optimize+
