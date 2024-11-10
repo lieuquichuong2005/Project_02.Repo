@@ -140,6 +140,7 @@
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -define:UNITY_EDITOR_ONLY_COMPILATION
+-r:"Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll"
 -r:"C:/Users/Chuong/Desktop/6000.0.25f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Users/Chuong/Desktop/6000.0.25f1/Editor/Data/Managed/UnityEngine/UnityEditor.AccessibilityModule.dll"
 -r:"C:/Users/Chuong/Desktop/6000.0.25f1/Editor/Data/Managed/UnityEngine/UnityEditor.AdaptivePerformanceModule.dll"
