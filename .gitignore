@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 *.sv# This .gitignore file should be placed at the root of your Unity project directory
+=======
+# This .gitignore file should be placed at the root of your Unity project directory
+>>>>>>> 965185b747e6a771f4a4bfde0e25a5a8527bf74e
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 
 # Unity generated folders
@@ -10,8 +14,11 @@
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
 
+<<<<<<< HEAD
 /Library/
 
+=======
+>>>>>>> 965185b747e6a771f4a4bfde0e25a5a8527bf74e
 # MemoryCaptures can get excessive in size and could contain sensitive data
 [Mm]emoryCaptures/
 
@@ -54,6 +61,7 @@ ExportedObj/
 *.mdb.meta
 
 # Unity generated file on crash reports
+<<<<<<< HEAD
 sysinfo.txt
 
 # Builds
@@ -85,6 +93,8 @@ crashlytics-build.properties
 *.mdb.meta
 
 # Unity generated file on crash reports
+=======
+>>>>>>> 965185b747e6a771f4a4bfde0e25a5a8527bf74e
 sysinfo.txt
 
 # Builds
@@ -102,3 +112,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Ignore the temp folder for Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/temp/*
