@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 211
     height: 314
   m_SerializedDataModeController:
@@ -408,8 +408,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 212
-    y: 79
+    x: 213
+    y: 24
     width: 886
     height: 314
   m_SerializedDataModeController:
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 419
+    y: 364
     width: 1099
     height: 263
   m_SerializedDataModeController:
@@ -1372,7 +1372,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: d6de0000
     m_LastClickedID: 57046
-    m_ExpandedIDs: 0000000076ce000078ce00007ace00007cce00007ece000080ce00003ede000000ca9a3b
+    m_ExpandedIDs: 0000000070df000002ff000004ff000006ff000008ff00000aff00000cff0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1401,7 +1401,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000076ce000078ce00007ace00007cce00007ece000080ce0000
+    m_ExpandedIDs: 0000000070df000002ff000004ff000006ff000008ff00000aff00000cff0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1516,8 +1516,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1100
-    y: 79
+    x: 1101
+    y: 24
     width: 265
     height: 603
   m_SerializedDataModeController:
