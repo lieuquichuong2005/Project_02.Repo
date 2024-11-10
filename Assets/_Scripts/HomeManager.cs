@@ -142,24 +142,45 @@ public class HomeManager : MonoBehaviour
     {
         AudioManager.instance.PlayClickSound();
     }
-    public void SetActivePanel(GameObject panelToActivate)
-    {
-        foreach (GameObject panel in panels)
-        {
-            panel.SetActive(panel == panelToActivate); 
 
-        }
-        if (panelToActivate != null)
+public void SetActivePanel(GameObject panelToActivate)
+{
+    foreach (GameObject panel in panels)
+    {
+        panel.SetActive(panel == panelToActivate);
+
+        // Lấy nút tương ứng với panel
+        Button button = GetButtonForPanel(panel);
+        TMP_Text buttonText = button.GetComponentInChildren<TMP_Text>(); // Hoặc Text nếu bạn dùng UI Text
+
+        if (buttonText != null)
         {
-            listButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(-430, -100);
-        }
-        else
-        {
-            listButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -100);
-            closeButton.gameObject.SetActive(false);
+            buttonText.color = panel == panelToActivate ? Color.green : Color.red; // Xanh lá cây nếu đang hoạt động, đỏ nếu không
         }
     }
-    void OnCloseButton()
+
+    if (panelToActivate != null)
+    {
+        listButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(-430, -100);
+    }
+    else
+    {
+        listButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -100);
+        closeButton.gameObject.SetActive(false);
+    }
+}
+
+// Phương thức để tìm nút tương ứng với mỗi panel
+private Button GetButtonForPanel(GameObject panel)
+{
+    if (panel == panels[0]) return accountManagerButton;
+    if (panel == panels[1]) return settingButton;
+    if (panel == panels[2]) return helpButton;
+    if (panel == panels[3]) return creditButton;
+
+    return null; // Trả về null nếu không tìm thấy
+}
+void OnCloseButton()
     {
         AudioManager.instance.PlayClickSound();
         SetActivePanel(null);
