@@ -3,9 +3,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using TMPro;
+using Firebase.Auth;
+using Firebase;
+using Firebase.Extensions;
 
 public class HomeManager : MonoBehaviour
 {
+    FirebaseAuth auth;
+
     [Header("Button")]
     public Button startGameButton;
     public Button accountManagerButton;
@@ -23,17 +28,17 @@ public class HomeManager : MonoBehaviour
     public GameObject registerPanel;
 
     [Header("LogIn")]
-    public TMP_InputField usernameInput;
-    public TMP_InputField passwordInput;
-    public Button switchToLogIn;
-    public Button LogIn;
+    public TMP_InputField emailInputLogIn;
+    public TMP_InputField passwordInputLogIn;
+    public Button switchToLogInButton;
+    public Button logInButton;
 
     [Header("Register")]
-    public TMP_InputField usernameInputRegister;
+    public TMP_InputField emailInputRegister;
     public TMP_InputField passwordInputRegister;
     public TMP_InputField confirmPasswordInputRegister;
-    public Button switchToRegister;
-    public Button Register;
+    public Button switchToRegisterButton;
+    public Button registerButton;
 
     [Header("SettingPanel")]
     public TMP_Dropdown graphicsDropdown;
@@ -42,6 +47,14 @@ public class HomeManager : MonoBehaviour
 
     private void Awake()
     {
+        // Khởi tạo Firebase
+        auth = FirebaseAuth.DefaultInstance;
+        // Kiểm tra xem auth đã được khởi tạo chưa
+        if (auth == null)
+        {
+            Debug.LogError("FirebaseAuth has not been initialized.");
+        }
+
         startGameButton.onClick.AddListener(OnStartButton);
         accountManagerButton.onClick.AddListener(OnAccountManagementButton);
         settingButton.onClick.AddListener(OnSettingsButton);
@@ -49,13 +62,19 @@ public class HomeManager : MonoBehaviour
         creditButton.onClick.AddListener(OnCreditsButton);
         quitButton.onClick.AddListener(OnQuitButton);
         closeButton.onClick.AddListener(OnCloseButton);
-        switchToLogIn.onClick.AddListener(OnSwitchToLogin);
-        switchToRegister.onClick.AddListener(OnSwitchToRegister);
+
+        switchToLogInButton.onClick.AddListener(OnSwitchToLogin);
+        switchToRegisterButton.onClick.AddListener(OnSwitchToRegister);
+        logInButton.onClick.AddListener(LoginAccout);
+        registerButton.onClick.AddListener(RegisterAccout);
+
 
     }
 
     void Start()
     {
+        
+
         graphicsDropdown.value = PlayerPrefs.GetInt("GraphicsQuality", 1); 
         fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
         //languageDropdown.value = PlayerPrefs.GetInt("Language", 0); 
@@ -123,21 +142,6 @@ public class HomeManager : MonoBehaviour
         logInPanel.SetActive(true);
     }
 
-    public void OnLoginWithEmail()
-    {
-        AudioManager.instance.PlayClickSound();
-        string username = usernameInput.text;
-        string password = passwordInput.text;
-
-        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-        {
-
-        }
-        else
-        {
-
-        }
-    }
     public void OnLogInWithFacebook()
     {
         AudioManager.instance.PlayClickSound();
@@ -210,4 +214,60 @@ void OnCloseButton()
         // Logic để cập nhật ngôn ngữ trong game
         // Ví dụ: sử dụng một bảng từ điển để lấy văn bản
     }*/
+
+    public void RegisterAccout()
+    {
+        string email = emailInputRegister.text;
+        string password = passwordInputRegister.text;
+        string confirmpassword = confirmPasswordInputRegister.text;
+
+        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Đăng ký thất bại: " + task.Exception);
+                return;
+            }
+            if(task.IsCanceled)
+            {
+                Debug.LogError("Đăng ký bị từ chối: " + task.Exception);
+                return;
+            }
+            if (task.IsCompleted)
+            {
+                Debug.LogError("Đăng ký thành công");
+            }
+                
+
+            FirebaseUser newUser = task.Result.User; // Sửa ở đây
+            Debug.Log("Đăng ký thành công: " + newUser.Email);
+        });
+    }
+
+    public void LoginAccout()
+    {
+        string email = emailInputLogIn.text;
+        string password = passwordInputLogIn.text;
+
+        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Đăng ký thất bại: " + task.Exception);
+                return;
+            }
+            if (task.IsCanceled)
+            {
+                Debug.LogError("Đăng ký bị từ chối: " + task.Exception);
+                return;
+            }
+            if (task.IsCompleted)
+            {
+                Debug.LogError("Đăng ký thành công");
+            }
+
+            FirebaseUser newUser = task.Result.User; // Sửa ở đây
+            Debug.Log("Đăng nhập thành công: " + newUser.Email);
+        });
+    }
 }
