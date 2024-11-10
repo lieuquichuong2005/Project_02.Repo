@@ -496,6 +496,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+
       Axolotl_down_0: 5546671543968653177
       Axolotl_down_1: -689520407193891599
       Axolotl_down_2: -344630127
@@ -512,6 +513,7 @@ TextureImporter:
       Axolotl_up_1: 160890277334083914
       Axolotl_up_2: 1429886758
       Axolotl_up_3: -773698161
+
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
