@@ -12,8 +12,12 @@ public class PlayerMovement : MonoBehaviour
     public bool isCanMove = true;
 
     public float moveSpeed;
+    public float weaponSpeed;
     private float moveX;
     private float moveY;
+
+    float timeUntilWeapon;
+    public GameObject WeaponRotate;
 
     //public List<PlayerItems> items = new List<PlayerItems>();
 
@@ -31,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        
+
         if (isCanMove)
         {
             moveSpeed = (Input.GetKey(KeyCode.LeftShift)) ? 7f : 3f;
@@ -52,25 +58,54 @@ public class PlayerMovement : MonoBehaviour
                 rb2d.linearVelocity = Vector2.zero; // Dừng di chuyển khi không có input   
             }
         }
+
+        if (timeUntilWeapon <= 0f)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                animator.SetTrigger("Attack");
+                timeUntilWeapon = weaponSpeed;
+            }
+        }
+        else
+        {
+            timeUntilWeapon -= Time.deltaTime;
+        }
     }
 
     private void UpdateSprite()
     {
+        var rotationVector = transform.rotation.eulerAngles;
+
         if (moveY > 0) // Hướng lên
         {
             animator.SetFloat("MoveY", 0);
+            rotationVector.z = 0f;
         }
         else if (moveY < 0) // Hướng xuống
         {
             animator.SetFloat("MoveY", 0);
+            rotationVector.z = 180f;
         }
         else if (moveX < 0) // Hướng trái
         {
             animator.SetFloat("MoveX", 0);
+            rotationVector.z = 90f;
         }
         else if (moveX > 0) // Hướng phải
         {
             animator.SetFloat("MoveX", 0);
+            rotationVector.z = -90f;
+        }
+
+        WeaponRotate.transform.rotation = Quaternion.Euler(rotationVector);
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "enemy")
+        {
+            Debug.Log("Hit");
         }
     }
 
