@@ -6633,8 +6633,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -9542,7 +9542,7 @@ GameObject:
   - component: {fileID: 1133600490}
   - component: {fileID: 1133600491}
   m_Layer: 0
-  m_Name: HomeManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9590,15 +9590,15 @@ MonoBehaviour:
   - {fileID: 1667025058}
   logInPanel: {fileID: 1949542497}
   registerPanel: {fileID: 143473492}
-  usernameInput: {fileID: 1082742375}
-  passwordInput: {fileID: 959505054}
-  switchToLogIn: {fileID: 603861725}
-  LogIn: {fileID: 1036156545}
-  usernameInputRegister: {fileID: 1093473126}
+  emailInputLogIn: {fileID: 1082742375}
+  passwordInputLogIn: {fileID: 959505054}
+  switchToLogInButton: {fileID: 603861725}
+  logInButton: {fileID: 1036156545}
+  emailInputRegister: {fileID: 1093473126}
   passwordInputRegister: {fileID: 391527382}
   confirmPasswordInputRegister: {fileID: 747909991}
-  switchToRegister: {fileID: 722603671}
-  Register: {fileID: 2077680158}
+  switchToRegisterButton: {fileID: 722603671}
+  registerButton: {fileID: 2077680158}
   graphicsDropdown: {fileID: 1932581763}
   fullscreenToggle: {fileID: 848736384}
 --- !u!1 &1144801347
