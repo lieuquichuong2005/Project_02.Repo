@@ -6,6 +6,7 @@ using TMPro;
 using Firebase.Auth;
 using Firebase;
 using Firebase.Extensions;
+using System.Collections;
 
 public class HomeManager : MonoBehaviour
 {
@@ -110,7 +111,6 @@ public class HomeManager : MonoBehaviour
             logOutButton.gameObject.SetActive(true); // Hiện nút đăng xuất
 
             SetActivePanel(panels[0]); // Chuyển đến panel trò chơi
-            notifyPanel.SetActive(true);
             DisplayPlayerName(displayName); // Gọi hàm hiển thị tên
             closeButton.gameObject.SetActive(true);
         }
@@ -118,6 +118,7 @@ public class HomeManager : MonoBehaviour
         {
             notifyPanel.SetActive(true);
             notifyText.text = "Please log in to start the game!";
+            StartCoroutine(HideNotify());
         }
 
     }
@@ -334,5 +335,11 @@ void OnCloseButton()
         nameTextPanel.SetActive(true);
 
         accountNameText.text = $"Welcome, {name}!"; // Hiển thị tên người chơi
+    }
+    IEnumerator HideNotify()
+    {
+        yield return new WaitForSeconds(2);
+        notifyPanel.SetActive(false);
+        notifyText.text = " ";
     }
 }
