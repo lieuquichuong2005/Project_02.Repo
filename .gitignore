@@ -22,6 +22,7 @@
 *.opendb
 *.tmp
 *.bak
+.vs/
 
 # Các file của Unity
 *.unity
