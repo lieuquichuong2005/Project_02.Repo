@@ -22,10 +22,13 @@ public class HomeManager : MonoBehaviour
 
     public GameObject listButton;
 
+    public TMP_Text notifyText;
+
     [Header("Panel")]
     public List<GameObject> panels;
     public GameObject logInPanel;
     public GameObject registerPanel;
+    public GameObject playerNamePanel;
 
     [Header("LogIn")]
     public TMP_InputField emailInputLogIn;
@@ -90,8 +93,22 @@ public class HomeManager : MonoBehaviour
     public void OnStartButton()
     {
         AudioManager.instance.PlayClickSound();
-        SceneManager.LoadScene(1);
-        
+        if (auth.CurrentUser != null)
+        {
+            // Nếu đã đăng nhập, bắt đầu trò chơi
+            Debug.Log("Game started!");
+            // Gọi hàm bắt đầu trò chơi ở đây
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            // Nếu chưa đăng nhập, hiển thị cảnh báo
+            Debug.LogWarning("Please log in to start the game!");
+            // Có thể sử dụng một UI Alert khác nếu cần
+            // Ví dụ: sử dụng một Text để hiển thị cảnh báo
+            notifyText.text = "Please log in to start the game!";
+        }
+
     }
 
     public void OnAccountManagementButton()
@@ -240,7 +257,8 @@ void OnCloseButton()
                 
 
             FirebaseUser newUser = task.Result.User; // Sửa ở đây
-            Debug.Log("Đăng ký thành công: " + newUser.Email);
+            string displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
+            DisplayPlayerName(displayName);
         });
     }
 
@@ -267,7 +285,13 @@ void OnCloseButton()
             }
 
             FirebaseUser newUser = task.Result.User; // Sửa ở đây
-            Debug.Log("Đăng nhập thành công: " + newUser.Email);
+            string displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
+            DisplayPlayerName(displayName);
         });
+    }
+    private void DisplayPlayerName(string name)
+    {
+        playerNamePanel.SetActive(true);
+        notifyText.text = $"Welcome, {name}!"; // Hiển thị tên người chơi
     }
 }

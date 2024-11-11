@@ -1,27 +1,25 @@
 ﻿using Photon.Pun;
-using Photon.Realtime;
 using UnityEngine;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     void Start()
     {
-        PhotonNetwork.ConnectUsingSettings(); // Kết nối đến Photon
+        PhotonNetwork.ConnectUsingSettings();
     }
 
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinLobby(); // Tham gia lobby
+        PhotonNetwork.JoinLobby();
     }
 
-    public void CreateRoom(string roomName)
+    public override void OnJoinedLobby()
     {
-        RoomOptions roomOptions = new RoomOptions { MaxPlayers = 4 }; // Số người chơi tối đa
-        PhotonNetwork.CreateRoom(roomName, roomOptions); // Tạo phòng mới
+        PhotonNetwork.JoinOrCreateRoom("Room1", new Photon.Realtime.RoomOptions { MaxPlayers =6 }, null);
     }
 
-    public void JoinRoom(string roomName)
+    public override void OnJoinedRoom()
     {
-        PhotonNetwork.JoinRoom(roomName); // Tham gia phòng
+        PhotonNetwork.Instantiate("PlayerPrefab", Vector3.zero, Quaternion.identity, 0);
     }
 }

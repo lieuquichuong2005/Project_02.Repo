@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviourPun
 {
     //public static PlayerMovement instance;
 
@@ -31,25 +32,28 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (isCanMove)
+        if (photonView.IsMine)
         {
-            moveSpeed = (Input.GetKey(KeyCode.LeftShift)) ? 7f : 3f;
-            moveX = Input.GetAxis("Horizontal");
-            moveY = Input.GetAxis("Vertical");
-
-            // Di chuyển và cập nhật hoạt ảnh
-            if (moveX != 0 || moveY != 0)
+            if (isCanMove)
             {
-                rb2d.linearVelocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
-                animator.SetFloat("MoveX", moveX);
-                animator.SetFloat("MoveY", moveY);
-                animator.speed = 1f; // Bật hoạt ảnh khi di chuyển
+                moveSpeed = (Input.GetKey(KeyCode.LeftShift)) ? 7f : 3f;
+                moveX = Input.GetAxis("Horizontal");
+                moveY = Input.GetAxis("Vertical");
 
-                UpdateSprite(); // Cập nhật sprite theo hướng
-            }
-            else
-            {
-                rb2d.linearVelocity = Vector2.zero; // Dừng di chuyển khi không có input   
+                // Di chuyển và cập nhật hoạt ảnh
+                if (moveX != 0 || moveY != 0)
+                {
+                    rb2d.linearVelocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
+                    animator.SetFloat("MoveX", moveX);
+                    animator.SetFloat("MoveY", moveY);
+                    animator.speed = 1f; // Bật hoạt ảnh khi di chuyển
+
+                    UpdateSprite(); // Cập nhật sprite theo hướng
+                }
+                else
+                {
+                    rb2d.linearVelocity = Vector2.zero; // Dừng di chuyển khi không có input   
+                }
             }
         }
     }
