@@ -1,16 +1,27 @@
+﻿using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-public class NetworkManager : MonoBehaviour
+public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        PhotonNetwork.ConnectUsingSettings(); // Kết nối đến Photon
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnConnectedToMaster()
     {
-        
+        PhotonNetwork.JoinLobby(); // Tham gia lobby
+    }
+
+    public void CreateRoom(string roomName)
+    {
+        RoomOptions roomOptions = new RoomOptions { MaxPlayers = 4 }; // Số người chơi tối đa
+        PhotonNetwork.CreateRoom(roomName, roomOptions); // Tạo phòng mới
+    }
+
+    public void JoinRoom(string roomName)
+    {
+        PhotonNetwork.JoinRoom(roomName); // Tham gia phòng
     }
 }
