@@ -19,16 +19,20 @@ public class HomeManager : MonoBehaviour
     public Button creditButton;
     public Button quitButton;
     public Button closeButton;
+    public Button logOutButton;
 
     public GameObject listButton;
 
     public TMP_Text notifyText;
+    public TMP_Text accountNameText;
+    private string displayName;
 
     [Header("Panel")]
     public List<GameObject> panels;
     public GameObject logInPanel;
     public GameObject registerPanel;
-    public GameObject playerNamePanel;
+    public GameObject notifyPanel;
+    public GameObject nameTextPanel;
 
     [Header("LogIn")]
     public TMP_InputField emailInputLogIn;
@@ -65,12 +69,15 @@ public class HomeManager : MonoBehaviour
         creditButton.onClick.AddListener(OnCreditsButton);
         quitButton.onClick.AddListener(OnQuitButton);
         closeButton.onClick.AddListener(OnCloseButton);
+        logOutButton.onClick.AddListener(LogOutAccount);
 
         switchToLogInButton.onClick.AddListener(OnSwitchToLogin);
         switchToRegisterButton.onClick.AddListener(OnSwitchToRegister);
         logInButton.onClick.AddListener(LoginAccout);
         registerButton.onClick.AddListener(RegisterAccout);
 
+        InitializeFirebase();
+        Debug.Log(displayName);
 
     }
 
@@ -97,15 +104,19 @@ public class HomeManager : MonoBehaviour
         {
             // Nếu đã đăng nhập, bắt đầu trò chơi
             Debug.Log("Game started!");
-            // Gọi hàm bắt đầu trò chơi ở đây
-            SceneManager.LoadScene(1);
+            // Đặt tên người chơi và hiển thị thông tin
+            accountNameText.text = $"Logged in as: {displayName}"; // Hiển thị tên người dùng
+            nameTextPanel.gameObject.SetActive(true); // Hiện panel hiển thị tên
+            logOutButton.gameObject.SetActive(true); // Hiện nút đăng xuất
+
+            SetActivePanel(panels[0]); // Chuyển đến panel trò chơi
+            notifyPanel.SetActive(true);
+            DisplayPlayerName(displayName); // Gọi hàm hiển thị tên
+            closeButton.gameObject.SetActive(true);
         }
         else
         {
-            // Nếu chưa đăng nhập, hiển thị cảnh báo
-            Debug.LogWarning("Please log in to start the game!");
-            // Có thể sử dụng một UI Alert khác nếu cần
-            // Ví dụ: sử dụng một Text để hiển thị cảnh báo
+            notifyPanel.SetActive(true);
             notifyText.text = "Please log in to start the game!";
         }
 
@@ -114,28 +125,28 @@ public class HomeManager : MonoBehaviour
     public void OnAccountManagementButton()
     {
         AudioManager.instance.PlayClickSound();
-        SetActivePanel(panels[0]);
+        SetActivePanel(panels[1]);
         closeButton.gameObject.SetActive(true);
     }
 
     public void OnSettingsButton()
     {
         AudioManager.instance.PlayClickSound();
-        SetActivePanel(panels[1]);
+        SetActivePanel(panels[2]);
         closeButton.gameObject.SetActive(true);
     }
 
     public void OnHelpButton()
     {
         AudioManager.instance.PlayClickSound();
-        SetActivePanel(panels[2]);
+        SetActivePanel(panels[3]);
         closeButton.gameObject.SetActive(true);
     }
 
     public void OnCreditsButton()
     {
         AudioManager.instance.PlayClickSound();
-        SetActivePanel(panels[3]);
+        SetActivePanel(panels[4]);
         closeButton.gameObject.SetActive(true);
     }
 
@@ -194,10 +205,11 @@ public void SetActivePanel(GameObject panelToActivate)
 // Phương thức để tìm nút tương ứng với mỗi panel
 private Button GetButtonForPanel(GameObject panel)
 {
-    if (panel == panels[0]) return accountManagerButton;
-    if (panel == panels[1]) return settingButton;
-    if (panel == panels[2]) return helpButton;
-    if (panel == panels[3]) return creditButton;
+    if (panel == panels[0]) return startGameButton;
+    if (panel == panels[1]) return accountManagerButton;
+    if (panel == panels[2]) return settingButton;
+    if (panel == panels[3]) return helpButton;
+    if (panel == panels[4]) return creditButton;
 
     return null; // Trả về null nếu không tìm thấy
 }
@@ -252,13 +264,13 @@ void OnCloseButton()
             }
             if (task.IsCompleted)
             {
-                Debug.LogError("Đăng ký thành công");
+                Debug.Log("Đăng ký thành công");
+                FirebaseUser newUser = task.Result.User; // Sửa ở đây
+                displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
+                DisplayPlayerName(displayName);
             }
                 
 
-            FirebaseUser newUser = task.Result.User; // Sửa ở đây
-            string displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
-            DisplayPlayerName(displayName);
         });
     }
 
@@ -281,17 +293,46 @@ void OnCloseButton()
             }
             if (task.IsCompleted)
             {
-                Debug.LogError("Đăng ký thành công");
+                Debug.Log("Đăng ký thành công");
+                FirebaseUser newUser = task.Result.User; // Sửa ở đây
+                displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
+                DisplayPlayerName(displayName);
             }
 
-            FirebaseUser newUser = task.Result.User; // Sửa ở đây
-            string displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
-            DisplayPlayerName(displayName);
+        });
+    }
+    public void LogOutAccount()
+    {
+        auth.SignOut(); // Đăng xuất khỏi Firebase
+        displayName = null; // Xóa tên tài khoản
+        nameTextPanel.gameObject.SetActive(true);
+        accountNameText.gameObject.SetActive(false); // Ẩn tên tài khoản
+        logOutButton.gameObject.SetActive(false); // Ẩn nút đăng xuất
+        Debug.Log("Logged out successfully.");
+    }
+    private void InitializeFirebase()
+    {
+        Firebase.FirebaseApp.LogLevel = Firebase.LogLevel.Debug; // Tùy chọn để xem log
+        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Failed to initialize Firebase: " + task.Exception);
+            }
+            else
+            {
+                // Khởi tạo FirebaseAuth
+                auth = FirebaseAuth.DefaultInstance;
+                if (auth == null)
+                {
+                    Debug.LogError("FirebaseAuth has not been initialized.");
+                }
+            }
         });
     }
     private void DisplayPlayerName(string name)
     {
-        playerNamePanel.SetActive(true);
-        notifyText.text = $"Welcome, {name}!"; // Hiển thị tên người chơi
+        nameTextPanel.SetActive(true);
+
+        accountNameText.text = $"Welcome, {name}!"; // Hiển thị tên người chơi
     }
 }
