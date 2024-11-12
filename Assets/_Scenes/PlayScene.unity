@@ -2842,6 +2842,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd03a5aa6a2a656439fa4c5f47eb26c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  sprites:
+  - {fileID: -7385789195546760866, guid: 0711faf7eb6f5a84f9a42c97989efb73, type: 3}
+  - {fileID: 4723107735738678597, guid: 0711faf7eb6f5a84f9a42c97989efb73, type: 3}
+  - {fileID: 3234629978573100161, guid: 0711faf7eb6f5a84f9a42c97989efb73, type: 3}
+  - {fileID: 6373048116405451881, guid: 0711faf7eb6f5a84f9a42c97989efb73, type: 3}
   animator: {fileID: 252162403}
   isCanMove: 1
   moveSpeed: 5

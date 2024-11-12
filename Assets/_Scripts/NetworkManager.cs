@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    public GameObject lobbyPanel;
+    public GameObject loadingServerPanel;
+
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -14,8 +17,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
-    void OnChooseCharacter()
+    public override void OnJoinedLobby()
     {
-        SceneManager.LoadScene(1);
+        loadingServerPanel.gameObject.SetActive(false);
+        lobbyPanel.gameObject.SetActive(true);
     }
 }
