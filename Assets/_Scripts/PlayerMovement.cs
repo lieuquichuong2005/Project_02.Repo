@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviourPun
 {
     //public static PlayerMovement instance;
 
+
+
     private Rigidbody2D rb2d;
     public Animator animator;
 
@@ -43,21 +45,21 @@ public class PlayerMovement : MonoBehaviourPun
                 moveSpeed = (Input.GetKey(KeyCode.LeftShift)) ? 7f : 3f;
                 moveX = Input.GetAxis("Horizontal");
                 moveY = Input.GetAxis("Vertical");
-
+            Debug.Log("moveX: " + moveX + "moveY: " + moveY);
                 // Di chuyển và cập nhật hoạt ảnh
-                if (moveX != 0 || moveY != 0)
-                {
+                //if (moveX != 0 || moveY != 0)
+                //{
                     rb2d.linearVelocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
                     animator.SetFloat("MoveX", moveX);
                     animator.SetFloat("MoveY", moveY);
                     animator.speed = 1f; // Bật hoạt ảnh khi di chuyển
 
-                    UpdateSprite(); // Cập nhật sprite theo hướng
-                }
-                else
+                    //UpdateSprite(); // Cập nhật sprite theo hướng
+                //}
+                /*else
                 {
                     rb2d.linearVelocity = Vector2.zero; // Dừng di chuyển khi không có input   
-                }
+                }*/
             }
         //}
 
