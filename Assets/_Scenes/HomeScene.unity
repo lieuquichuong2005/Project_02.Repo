@@ -10866,6 +10866,7 @@ MonoBehaviour:
   quitButton: {fileID: 293419939}
   closeButton: {fileID: 630620807}
   logOutButton: {fileID: 650838340}
+  chooseCharacterButton: {fileID: 561440618}
   listButton: {fileID: 113167996}
   notifyText: {fileID: 1766698465}
   accountNameText: {fileID: 2064619566}

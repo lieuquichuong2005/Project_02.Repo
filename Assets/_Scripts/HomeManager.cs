@@ -21,6 +21,7 @@ public class HomeManager : MonoBehaviour
     public Button quitButton;
     public Button closeButton;
     public Button logOutButton;
+    public Button chooseCharacterButton;
 
     public GameObject listButton;
 
@@ -71,6 +72,7 @@ public class HomeManager : MonoBehaviour
         quitButton.onClick.AddListener(OnQuitButton);
         closeButton.onClick.AddListener(OnCloseButton);
         logOutButton.onClick.AddListener(LogOutAccount);
+        chooseCharacterButton.onClick.AddListener(OnChooseCharacterScene);
 
         switchToLogInButton.onClick.AddListener(OnSwitchToLogin);
         switchToRegisterButton.onClick.AddListener(OnSwitchToRegister);
@@ -113,7 +115,7 @@ public class HomeManager : MonoBehaviour
             SetActivePanel(panels[0]); // Chuyển đến panel trò chơi
             DisplayPlayerName(displayName); // Gọi hàm hiển thị tên
             closeButton.gameObject.SetActive(true);
-            SceneManager.LoadScene(1);
+            //SceneManager.LoadScene(1);
         }
         else
         {
@@ -346,4 +348,9 @@ void OnCloseButton()
         notifyPanel.SetActive(false);
         notifyText.text = " ";
     }
+    void OnChooseCharacterScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+        
 }
