@@ -113,6 +113,7 @@ public class HomeManager : MonoBehaviour
             SetActivePanel(panels[0]); // Chuyển đến panel trò chơi
             DisplayPlayerName(displayName); // Gọi hàm hiển thị tên
             closeButton.gameObject.SetActive(true);
+            SceneManager.LoadScene(1);
         }
         else
         {
@@ -306,10 +307,13 @@ void OnCloseButton()
     {
         auth.SignOut(); // Đăng xuất khỏi Firebase
         displayName = null; // Xóa tên tài khoản
-        nameTextPanel.gameObject.SetActive(true);
+        nameTextPanel.gameObject.SetActive(false);
         accountNameText.gameObject.SetActive(false); // Ẩn tên tài khoản
         logOutButton.gameObject.SetActive(false); // Ẩn nút đăng xuất
         Debug.Log("Logged out successfully.");
+        emailInputLogIn.text = null;
+        passwordInputLogIn = null;
+
     }
     private void InitializeFirebase()
     {

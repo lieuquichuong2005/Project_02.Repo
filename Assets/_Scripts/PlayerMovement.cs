@@ -36,8 +36,8 @@ public class PlayerMovement : MonoBehaviourPun
 
     void Update()
     {
-        if (photonView.IsMine)
-        {
+        //if (photonView.IsMine)
+        //{
             if (isCanMove)
             {
                 moveSpeed = (Input.GetKey(KeyCode.LeftShift)) ? 7f : 3f;
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviourPun
                     rb2d.linearVelocity = Vector2.zero; // Dừng di chuyển khi không có input   
                 }
             }
-        }
+        //}
 
         if (timeUntilWeapon <= 0f)
         {
