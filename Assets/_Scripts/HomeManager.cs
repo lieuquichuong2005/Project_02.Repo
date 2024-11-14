@@ -126,7 +126,6 @@ public class HomeManager : MonoBehaviour
 
             //SetActivePanel(panels[0]); 
             DisplayPlayerName(displayName); 
-            closeButton.gameObject.SetActive(true);
             //SceneManager.LoadScene(1);
             SceneManager.LoadScene("ChooseCharacterScene");
         }
@@ -284,6 +283,7 @@ void OnCloseButton()
                 FirebaseUser newUser = task.Result.User; // Sửa ở đây
                 displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
                 DisplayPlayerName(displayName);
+                logOutButton.gameObject.SetActive(true);
             }
                 
 
@@ -313,6 +313,7 @@ void OnCloseButton()
                 FirebaseUser newUser = task.Result.User; // Sửa ở đây
                 displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
                 DisplayPlayerName(displayName);
+                logOutButton.gameObject.SetActive(true);
             }
 
         });
@@ -351,7 +352,7 @@ void OnCloseButton()
     private void DisplayPlayerName(string name)
     {
         nameTextPanel.SetActive(true);
-
+        accountNameText.gameObject.SetActive(true);
         accountNameText.text = $"Welcome, {name}!"; // Hiển thị tên người chơi
     }
     IEnumerator HideNotify()

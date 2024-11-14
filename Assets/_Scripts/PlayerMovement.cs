@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviourPun
 {
     //public static PlayerMovement instance;
 
-    public SpriteRenderer sprite;
+    private SpriteRenderer sprite;
     public Sprite[] sprites;
 
     private Rigidbody2D rb2d;
@@ -21,26 +21,22 @@ public class PlayerMovement : MonoBehaviourPun
     private float moveY;
 
     float timeUntilWeapon;
-    public GameObject WeaponRotate;
+    //public GameObject WeaponRotate;
 
     //public List<PlayerItems> items = new List<PlayerItems>();
-
-    void Awake()
-    {
-
-    }
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         DontDestroyOnLoad(this.gameObject);
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        //if (photonView.IsMine)
-        //{
+        if (photonView.IsMine)
+        {
             if (isCanMove)
             {
                 moveSpeed = (Input.GetKey(KeyCode.LeftShift)) ? 7f : 3f;
@@ -61,21 +57,21 @@ public class PlayerMovement : MonoBehaviourPun
                     animator.speed = 0f;
                     rb2d.linearVelocity = Vector2.zero; // Dừng di chuyển khi không có input   
                 }
+                if (timeUntilWeapon <= 0f)
+                {
+                    if (Input.GetKey(KeyCode.Space))
+                    {
+                        animator.SetTrigger("Attack");
+                        timeUntilWeapon = weaponSpeed;
+                    }
+                }
+                else
+                {
+                    timeUntilWeapon -= Time.deltaTime;
+                }
             }
-        //}
+        }
 
-        if (timeUntilWeapon <= 0f)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                animator.SetTrigger("Attack");
-                timeUntilWeapon = weaponSpeed;
-            }
-        }
-        else
-        {
-            timeUntilWeapon -= Time.deltaTime;
-        }
     }
 
     private void UpdateSprite()
@@ -102,7 +98,7 @@ public class PlayerMovement : MonoBehaviourPun
             rotationVector.z = -90f;
             sprite.sprite = sprites[3];
         }
-        WeaponRotate.transform.rotation = Quaternion.Euler(rotationVector);
+        //WeaponRotate.transform.rotation = Quaternion.Euler(rotationVector);
     }
 
     void OnTriggerEnter2D(Collider2D collider)

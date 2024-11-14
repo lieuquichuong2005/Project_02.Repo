@@ -5866,7 +5866,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 620759690}
-  - component: {fileID: 620759691}
   m_Layer: 5
   m_Name: LoadingServerPanel
   m_TagString: Untagged
@@ -5894,19 +5893,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &620759691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620759689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61db8731bf39657449de70a50b071135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lobbyPanel: {fileID: 1313973591}
 --- !u!1 &630620803
 GameObject:
   m_ObjectHideFlags: 0
@@ -14011,7 +13997,6 @@ GameObject:
   - component: {fileID: 1568066723}
   - component: {fileID: 1568066726}
   - component: {fileID: 1568066725}
-  - component: {fileID: 1568066724}
   m_Layer: 5
   m_Name: LoadingServer
   m_TagString: Untagged
@@ -14038,19 +14023,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1568066724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1568066722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61db8731bf39657449de70a50b071135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lobbyPanel: {fileID: 0}
 --- !u!114 &1568066725
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Photon.Pun;
 using System.Collections.Generic;
 using Photon.Realtime;
@@ -9,11 +9,16 @@ public class RoomList : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        for(int i = 0; i < allRooms.Length; i++)
+        if (allRooms == null)
         {
-            if (allRooms[i] == null)
-                Destroy(allRooms[i]);
+            allRooms = new GameObject[0]; // Khởi tạo với mảng rỗng nếu chưa có
         }
+        for (int i = 0; i < allRooms.Length; i++)
+            {
+                if (allRooms[i] != null)
+                    Destroy(allRooms[i]);
+            }
+
         allRooms = new GameObject[roomList.Count];
 
         for(int i = 0; i < roomList.Count; i++)
