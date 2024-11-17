@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -146,13 +146,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSheet_0
+      name: butterfly_down_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 47
-        width: 33
-        height: 17
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,12 +168,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_1
+      name: butterfly_up_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 31
-        width: 33
+        x: 16
+        y: 48
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -190,13 +190,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_2
+      name: butterfly_right_0
       rect:
         serializedVersion: 2
         x: 32
-        y: 47
+        y: 48
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,13 +212,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_3
+      name: butterfly_left_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 31
+        x: 48
+        y: 48
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,13 +234,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_4
+      name: butterfly_down_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 47
+        x: 0
+        y: 32
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,13 +256,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_5
+      name: butterfly_up_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 31
+        x: 16
+        y: 32
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,12 +278,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_6
+      name: butterfly_right_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 15
-        width: 33
+        x: 32
+        y: 32
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -300,12 +300,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_7
+      name: butterfly_left_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 33
+        x: 48
+        y: 32
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -322,13 +322,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_8
+      name: butterfly_down_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 15
+        x: 0
+        y: 16
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,11 +344,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_9
+      name: butterfly_up_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 16
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -366,13 +366,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_10
+      name: butterfly_right_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 15
+        x: 32
+        y: 16
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,11 +388,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_11
+      name: butterfly_left_2
       rect:
         serializedVersion: 2
         x: 48
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -409,11 +409,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: butterfly_down_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2358f38844fe72c489f10e6e6f7de7bd
+      internalID: 2034687968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: butterfly_up_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abcfc0fa26db15241b7afec1a2daf8bd
+      internalID: 824913223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: butterfly_right_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c4d12e95c8fb844ab4c93762ed7371
+      internalID: -1126079787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: butterfly_left_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77aa4ce3a9cd73d4ea0255498e849baa
+      internalID: -658511809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dee05cf35cfc3ad42b37f66922697dde
     internalID: 0
     vertices: []
     indices: 
@@ -423,18 +511,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SpriteSheet_0: 5546671543968653177
-      SpriteSheet_1: 8755591262435691780
-      SpriteSheet_10: -5540648042656198855
-      SpriteSheet_11: 3929453942698372637
-      SpriteSheet_2: -3459558614108198297
-      SpriteSheet_3: 659797372610145418
-      SpriteSheet_4: -689520407193891599
-      SpriteSheet_5: 160890277334083914
-      SpriteSheet_6: 1026407549584056185
-      SpriteSheet_7: -3086720242725003937
-      SpriteSheet_8: -4556197565260342421
-      SpriteSheet_9: -2764029711273647405
+      butterfly_down_0: 5546671543968653177
+      butterfly_down_1: -689520407193891599
+      butterfly_down_2: -4556197565260342421
+      butterfly_down_3: 2034687968
+      butterfly_left_0: 659797372610145418
+      butterfly_left_1: -3086720242725003937
+      butterfly_left_2: 3929453942698372637
+      butterfly_left_3: -658511809
+      butterfly_right_0: -3459558614108198297
+      butterfly_right_1: 1026407549584056185
+      butterfly_right_2: -5540648042656198855
+      butterfly_right_3: -1126079787
+      butterfly_up_0: 8755591262435691780
+      butterfly_up_1: 160890277334083914
+      butterfly_up_2: -2764029711273647405
+      butterfly_up_3: 824913223
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

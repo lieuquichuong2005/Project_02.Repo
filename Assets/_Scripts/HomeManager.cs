@@ -3,9 +3,15 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using TMPro;
+using Firebase.Auth;
+using Firebase;
+using Firebase.Extensions;
+using System.Collections;
 
 public class HomeManager : MonoBehaviour
 {
+    FirebaseAuth auth;
+
     [Header("Button")]
     public Button startGameButton;
     public Button accountManagerButton;
@@ -14,26 +20,34 @@ public class HomeManager : MonoBehaviour
     public Button creditButton;
     public Button quitButton;
     public Button closeButton;
+    public Button logOutButton;
+    public Button chooseCharacterButton;
 
     public GameObject listButton;
+
+    public TMP_Text notifyText;
+    public TMP_Text accountNameText;
+    private string displayName;
 
     [Header("Panel")]
     public List<GameObject> panels;
     public GameObject logInPanel;
     public GameObject registerPanel;
+    public GameObject notifyPanel;
+    public GameObject nameTextPanel;
 
     [Header("LogIn")]
-    public TMP_InputField usernameInput;
-    public TMP_InputField passwordInput;
-    public Button switchToLogIn;
-    public Button LogIn;
+    public TMP_InputField emailInputLogIn;
+    public TMP_InputField passwordInputLogIn;
+    public Button switchToLogInButton;
+    public Button logInButton;
 
     [Header("Register")]
-    public TMP_InputField usernameInputRegister;
+    public TMP_InputField emailInputRegister;
     public TMP_InputField passwordInputRegister;
     public TMP_InputField confirmPasswordInputRegister;
-    public Button switchToRegister;
-    public Button Register;
+    public Button switchToRegisterButton;
+    public Button registerButton;
 
     [Header("SettingPanel")]
     public TMP_Dropdown graphicsDropdown;
@@ -42,6 +56,14 @@ public class HomeManager : MonoBehaviour
 
     private void Awake()
     {
+        // Khởi tạo Firebase
+        auth = FirebaseAuth.DefaultInstance;
+        // Kiểm tra xem auth đã được khởi tạo chưa
+        if (auth == null)
+        {
+            Debug.LogError("FirebaseAuth has not been initialized.");
+        }
+
         startGameButton.onClick.AddListener(OnStartButton);
         accountManagerButton.onClick.AddListener(OnAccountManagementButton);
         settingButton.onClick.AddListener(OnSettingsButton);
@@ -49,13 +71,23 @@ public class HomeManager : MonoBehaviour
         creditButton.onClick.AddListener(OnCreditsButton);
         quitButton.onClick.AddListener(OnQuitButton);
         closeButton.onClick.AddListener(OnCloseButton);
-        switchToLogIn.onClick.AddListener(OnSwitchToLogin);
-        switchToRegister.onClick.AddListener(OnSwitchToRegister);
+        logOutButton.onClick.AddListener(LogOutAccount);
+        chooseCharacterButton.onClick.AddListener(OnChooseCharacterScene);
+
+        switchToLogInButton.onClick.AddListener(OnSwitchToLogin);
+        switchToRegisterButton.onClick.AddListener(OnSwitchToRegister);
+        logInButton.onClick.AddListener(LoginAccout);
+        registerButton.onClick.AddListener(RegisterAccout);
+
+        InitializeFirebase();
+        Debug.Log(displayName);
 
     }
 
     void Start()
     {
+        
+
         graphicsDropdown.value = PlayerPrefs.GetInt("GraphicsQuality", 1); 
         fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
         //languageDropdown.value = PlayerPrefs.GetInt("Language", 0); 
@@ -71,35 +103,54 @@ public class HomeManager : MonoBehaviour
     public void OnStartButton()
     {
         AudioManager.instance.PlayClickSound();
-        SceneManager.LoadScene(1);
-        
+        if (auth.CurrentUser != null)
+        {
+            // Nếu đã đăng nhập, bắt đầu trò chơi
+            Debug.Log("Game started!");
+            // Đặt tên người chơi và hiển thị thông tin
+            accountNameText.text = $"Logged in as: {displayName}"; // Hiển thị tên người dùng
+            nameTextPanel.gameObject.SetActive(true); // Hiện panel hiển thị tên
+            logOutButton.gameObject.SetActive(true); // Hiện nút đăng xuất
+
+            SetActivePanel(panels[0]); // Chuyển đến panel trò chơi
+            DisplayPlayerName(displayName); // Gọi hàm hiển thị tên
+            closeButton.gameObject.SetActive(true);
+            //SceneManager.LoadScene(1);
+        }
+        else
+        {
+            notifyPanel.SetActive(true);
+            notifyText.text = "Please log in to start the game!";
+            StartCoroutine(HideNotify());
+        }
+
     }
 
     public void OnAccountManagementButton()
-    {
-        AudioManager.instance.PlayClickSound();
-        SetActivePanel(panels[0]);
-        closeButton.gameObject.SetActive(true);
-    }
-
-    public void OnSettingsButton()
     {
         AudioManager.instance.PlayClickSound();
         SetActivePanel(panels[1]);
         closeButton.gameObject.SetActive(true);
     }
 
-    public void OnHelpButton()
+    public void OnSettingsButton()
     {
         AudioManager.instance.PlayClickSound();
         SetActivePanel(panels[2]);
         closeButton.gameObject.SetActive(true);
     }
 
-    public void OnCreditsButton()
+    public void OnHelpButton()
     {
         AudioManager.instance.PlayClickSound();
         SetActivePanel(panels[3]);
+        closeButton.gameObject.SetActive(true);
+    }
+
+    public void OnCreditsButton()
+    {
+        AudioManager.instance.PlayClickSound();
+        SetActivePanel(panels[4]);
         closeButton.gameObject.SetActive(true);
     }
 
@@ -123,21 +174,6 @@ public class HomeManager : MonoBehaviour
         logInPanel.SetActive(true);
     }
 
-    public void OnLoginWithEmail()
-    {
-        AudioManager.instance.PlayClickSound();
-        string username = usernameInput.text;
-        string password = passwordInput.text;
-
-        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-        {
-
-        }
-        else
-        {
-
-        }
-    }
     public void OnLogInWithFacebook()
     {
         AudioManager.instance.PlayClickSound();
@@ -173,10 +209,11 @@ public void SetActivePanel(GameObject panelToActivate)
 // Phương thức để tìm nút tương ứng với mỗi panel
 private Button GetButtonForPanel(GameObject panel)
 {
-    if (panel == panels[0]) return accountManagerButton;
-    if (panel == panels[1]) return settingButton;
-    if (panel == panels[2]) return helpButton;
-    if (panel == panels[3]) return creditButton;
+    if (panel == panels[0]) return startGameButton;
+    if (panel == panels[1]) return accountManagerButton;
+    if (panel == panels[2]) return settingButton;
+    if (panel == panels[3]) return helpButton;
+    if (panel == panels[4]) return creditButton;
 
     return null; // Trả về null nếu không tìm thấy
 }
@@ -210,4 +247,110 @@ void OnCloseButton()
         // Logic để cập nhật ngôn ngữ trong game
         // Ví dụ: sử dụng một bảng từ điển để lấy văn bản
     }*/
+
+    public void RegisterAccout()
+    {
+        string email = emailInputRegister.text;
+        string password = passwordInputRegister.text;
+        string confirmpassword = confirmPasswordInputRegister.text;
+
+        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Đăng ký thất bại: " + task.Exception);
+                return;
+            }
+            if(task.IsCanceled)
+            {
+                Debug.LogError("Đăng ký bị từ chối: " + task.Exception);
+                return;
+            }
+            if (task.IsCompleted)
+            {
+                Debug.Log("Đăng ký thành công");
+                FirebaseUser newUser = task.Result.User; // Sửa ở đây
+                displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
+                DisplayPlayerName(displayName);
+            }
+                
+
+        });
+    }
+
+    public void LoginAccout()
+    {
+        string email = emailInputLogIn.text;
+        string password = passwordInputLogIn.text;
+
+        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Đăng ký thất bại: " + task.Exception);
+                return;
+            }
+            if (task.IsCanceled)
+            {
+                Debug.LogError("Đăng ký bị từ chối: " + task.Exception);
+                return;
+            }
+            if (task.IsCompleted)
+            {
+                Debug.Log("Đăng ký thành công");
+                FirebaseUser newUser = task.Result.User; // Sửa ở đây
+                displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
+                DisplayPlayerName(displayName);
+            }
+
+        });
+    }
+    public void LogOutAccount()
+    {
+        auth.SignOut(); // Đăng xuất khỏi Firebase
+        displayName = null; // Xóa tên tài khoản
+        nameTextPanel.gameObject.SetActive(false);
+        accountNameText.gameObject.SetActive(false); // Ẩn tên tài khoản
+        logOutButton.gameObject.SetActive(false); // Ẩn nút đăng xuất
+        Debug.Log("Logged out successfully.");
+        emailInputLogIn.text = null;
+        passwordInputLogIn = null;
+
+    }
+    private void InitializeFirebase()
+    {
+        Firebase.FirebaseApp.LogLevel = Firebase.LogLevel.Debug; // Tùy chọn để xem log
+        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Failed to initialize Firebase: " + task.Exception);
+            }
+            else
+            {
+                // Khởi tạo FirebaseAuth
+                auth = FirebaseAuth.DefaultInstance;
+                if (auth == null)
+                {
+                    Debug.LogError("FirebaseAuth has not been initialized.");
+                }
+            }
+        });
+    }
+    private void DisplayPlayerName(string name)
+    {
+        nameTextPanel.SetActive(true);
+
+        accountNameText.text = $"Welcome, {name}!"; // Hiển thị tên người chơi
+    }
+    IEnumerator HideNotify()
+    {
+        yield return new WaitForSeconds(2);
+        notifyPanel.SetActive(false);
+        notifyText.text = " ";
+    }
+    void OnChooseCharacterScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+        
 }
