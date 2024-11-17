@@ -50,19 +50,19 @@ TagManager:
   - name: OnBackGroundLayer
     uniqueID: 3809815291
     locked: 0
-  - name: ObjectLayer
+  - name: ColliderObjectPlayer
     uniqueID: 1613492847
     locked: 0
   - name: CharacterLayer
     uniqueID: 3248128295
     locked: 0
-  - name: OnObjectLayer
+  - name: ForeGroundPlayer
     uniqueID: 1655864077
     locked: 0
   - name: Onforeground
     uniqueID: 3547928009
     locked: 0
-  - name: U
+  - name: UI
     uniqueID: 2525739005
     locked: 0
   m_RenderingLayers:
