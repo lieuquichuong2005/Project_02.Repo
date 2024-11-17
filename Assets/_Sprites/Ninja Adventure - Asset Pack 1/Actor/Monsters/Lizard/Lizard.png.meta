@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -146,13 +146,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lizard_0
+      name: lizard_down_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 31
-        width: 15
-        height: 17
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,13 +168,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_1
+      name: lizard_up_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 47
-        width: 14
-        height: 17
+        x: 16
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,13 +190,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_2
+      name: lizard_left_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 47
-        width: 14
-        height: 15
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,12 +212,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_3
+      name: lizard_right_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 31
-        width: 15
+        x: 48
+        y: 48
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -234,13 +234,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_4
+      name: lizard_down_1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 47
-        width: 33
-        height: 17
+        x: 0
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,12 +256,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_5
+      name: lizard_up_1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 31
-        width: 33
+        x: 16
+        y: 32
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -278,13 +278,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_6
+      name: lizard_left_1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 15
-        width: 14
-        height: 17
+        x: 32
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,12 +300,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_7
+      name: lizard_right_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 14
+        x: 48
+        y: 32
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -322,13 +322,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_8
+      name: lizard_down_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 15
-        height: 15
+        x: 0
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,13 +344,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_9
+      name: lizard_up_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 15
-        width: 14
-        height: 15
+        x: 16
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -366,12 +366,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_10
+      name: lizard_left_2
       rect:
         serializedVersion: 2
-        x: 31
-        y: 15
-        width: 33
+        x: 32
+        y: 16
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -388,13 +388,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lizard_11
+      name: lizard_right_2
       rect:
         serializedVersion: 2
-        x: 31
-        y: 0
-        width: 33
-        height: 14
+        x: 48
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -409,11 +409,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: lizard_down_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a04e4b7d9569034db459e08010c5434
+      internalID: -84393916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lizard_up_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bac77e568fb36a446b7d7fdb77879004
+      internalID: -275086642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lizard_left_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c56aabac9a2e0c4f8bc7f5ffd163d73
+      internalID: -348549820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lizard_right_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d6a0c5cce18ec458f56aa601fb6d1f
+      internalID: -1570250977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 105018e4b3cfd0c44a9ca7213b891cb1
     internalID: 0
     vertices: []
     indices: 
@@ -423,18 +511,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lizard_0: 1769036553957449704
-      Lizard_1: -6733174200419151310
-      Lizard_10: 7075276809258125448
-      Lizard_11: 7443515512081373405
-      Lizard_2: 1003212474510802115
-      Lizard_3: 5141789113320903921
-      Lizard_4: 3219637971312397983
-      Lizard_5: -3008333464245668560
-      Lizard_6: -1556888748303501760
-      Lizard_7: 8550352668096675460
-      Lizard_8: -4307951548172461433
-      Lizard_9: -5306251540658922802
+      lizard_down_0: 1769036553957449704
+      lizard_down_1: 3219637971312397983
+      lizard_down_2: -4307951548172461433
+      lizard_down_3: -84393916
+      lizard_left_0: 1003212474510802115
+      lizard_left_1: -1556888748303501760
+      lizard_left_2: 7075276809258125448
+      lizard_left_3: -348549820
+      lizard_right_0: 5141789113320903921
+      lizard_right_1: 8550352668096675460
+      lizard_right_2: 7443515512081373405
+      lizard_right_3: -1570250977
+      lizard_up_0: -6733174200419151310
+      lizard_up_1: -3008333464245668560
+      lizard_up_2: -5306251540658922802
+      lizard_up_3: -275086642
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

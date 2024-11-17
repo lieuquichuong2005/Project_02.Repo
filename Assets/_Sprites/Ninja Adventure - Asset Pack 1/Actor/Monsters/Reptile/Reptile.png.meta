@@ -73,7 +73,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -87,7 +87,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Reptile_0
+      name: reptile_down_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 47
-        width: 33
-        height: 17
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,11 +171,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_1
+      name: reptile_up_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 31
+        x: 16
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -193,12 +193,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_2
+      name: reptile_left_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 31
-        width: 17
+        x: 32
+        y: 48
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -215,13 +215,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_3
+      name: reptile_right_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 47
+        x: 48
+        y: 48
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,11 +237,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_4
+      name: reptile_down_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 31
+        x: 0
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -259,13 +259,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_5
+      name: reptile_up_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 47
+        x: 16
+        y: 32
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,11 +281,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_6
+      name: reptile_left_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 31
+        x: 32
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -303,13 +303,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_7
+      name: reptile_right_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 15
-        width: 33
-        height: 17
+        x: 48
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -325,13 +325,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_8
+      name: reptile_down_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 17
-        height: 15
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,13 +347,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_9
+      name: reptile_up_2
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
-        width: 17
-        height: 15
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,13 +369,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_10
+      name: reptile_left_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 15
+        y: 16
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,13 +391,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_11
+      name: reptile_right_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 15
+        x: 48
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -413,13 +413,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reptile_12
+      name: reptile_down_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 15
+        x: 0
+        y: 0
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,11 +434,77 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: reptile_up_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a2d81c5577a7c14f9870700100b2e74
+      internalID: 1000266768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: reptile_left_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919a5a8d4a2ae6e4b8c1d0712f2d7242
+      internalID: -981521060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: reptile_right_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94f2020182db14b47babd634a8a48d52
+      internalID: -2086683268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 363cab72ea576744a8ca51c005267c16
     internalID: 0
     vertices: []
     indices: 
@@ -448,19 +514,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Reptile_0: 6156032726297556276
-      Reptile_1: -1430511401354620805
-      Reptile_10: -416449663515335173
-      Reptile_11: 6441235684894231443
-      Reptile_12: 5151097888386605578
-      Reptile_2: -613766231379400643
-      Reptile_3: -3624197258180533149
-      Reptile_4: -8588256460174210935
-      Reptile_5: 6880475154457748703
-      Reptile_6: 9138485257646618351
-      Reptile_7: 9199568416701599017
-      Reptile_8: -935550634455398301
-      Reptile_9: -4123151536764360774
+      reptile_down_0: 6156032726297556276
+      reptile_down_1: -8588256460174210935
+      reptile_down_2: -935550634455398301
+      reptile_down_3: 5151097888386605578
+      reptile_left_0: -613766231379400643
+      reptile_left_1: 9138485257646618351
+      reptile_left_2: -416449663515335173
+      reptile_left_3: -981521060
+      reptile_right_0: -3624197258180533149
+      reptile_right_1: 9199568416701599017
+      reptile_right_2: 6441235684894231443
+      reptile_right_3: -2086683268
+      reptile_up_0: -1430511401354620805
+      reptile_up_1: 6880475154457748703
+      reptile_up_2: -4123151536764360774
+      reptile_up_3: 1000266768
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

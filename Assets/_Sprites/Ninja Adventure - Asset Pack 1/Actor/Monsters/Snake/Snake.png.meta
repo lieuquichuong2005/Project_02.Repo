@@ -76,7 +76,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -90,7 +90,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -152,13 +152,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Snake_0
+      name: snake_down_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 47
+        y: 48
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,13 +174,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_1
+      name: snake_up_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 31
+        x: 16
+        y: 48
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,13 +196,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_2
+      name: snake_left_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 47
-        width: 17
-        height: 17
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,13 +218,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_3
+      name: snake_right_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 31
-        width: 17
-        height: 17
+        x: 48
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,13 +240,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_4
+      name: snake_down_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 47
+        x: 0
+        y: 32
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,13 +262,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_5
+      name: snake_up_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 31
+        x: 16
+        y: 32
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,13 +284,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_6
+      name: snake_left_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 47
+        x: 32
+        y: 32
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,13 +306,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_7
+      name: snake_right_1
       rect:
         serializedVersion: 2
         x: 48
-        y: 31
+        y: 32
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,11 +328,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_8
+      name: snake_down_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 15
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -350,11 +350,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_9
+      name: snake_up_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 16
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -372,12 +372,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_10
+      name: snake_left_2
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 17
+        x: 32
+        y: 16
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -394,12 +394,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_11
+      name: snake_right_2
       rect:
         serializedVersion: 2
-        x: 15
-        y: 0
-        width: 17
+        x: 48
+        y: 16
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -416,13 +416,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_12
+      name: snake_down_3
       rect:
         serializedVersion: 2
-        x: 31
+        x: 0
         y: 0
-        width: 17
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -438,13 +438,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake_13
+      name: snake_up_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 16
         y: 0
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,11 +459,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: snake_left_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3748ef0cebb88c54cb09829e99ac2e49
+      internalID: 2039917004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snake_right_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8e920c4c01b044c8b91f6a468e9f8b
+      internalID: 1831375178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3aa9612f3693d9d4ba05115b0c38cde2
     internalID: 0
     vertices: []
     indices: 
@@ -473,20 +517,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Snake_0: -7766637424382265647
-      Snake_1: 4149926256698089342
-      Snake_10: -3292946999294238328
-      Snake_11: -336086199481993170
-      Snake_12: -2354273539815467924
-      Snake_13: 8956071965056261681
-      Snake_2: 2808559760237250731
-      Snake_3: -4538063122725819375
-      Snake_4: -2636964912942924883
-      Snake_5: -3134699034832272974
-      Snake_6: 6399331963451676913
-      Snake_7: 6032570337874119228
-      Snake_8: 947445684813171307
-      Snake_9: -7651582872812898948
+      snake_down_0: -7766637424382265647
+      snake_down_1: -2636964912942924883
+      snake_down_2: 947445684813171307
+      snake_down_3: -2354273539815467924
+      snake_left_0: 2808559760237250731
+      snake_left_1: 6399331963451676913
+      snake_left_2: -3292946999294238328
+      snake_left_3: 2039917004
+      snake_right_0: -4538063122725819375
+      snake_right_1: 6032570337874119228
+      snake_right_2: -336086199481993170
+      snake_right_3: 1831375178
+      snake_up_0: 4149926256698089342
+      snake_up_1: -3134699034832272974
+      snake_up_2: -7651582872812898948
+      snake_up_3: 8956071965056261681
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

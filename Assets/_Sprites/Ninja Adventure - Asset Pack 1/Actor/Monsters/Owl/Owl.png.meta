@@ -67,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -81,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -143,13 +143,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Owl_0
+      name: owl_down_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 47
-        width: 33
-        height: 17
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,12 +165,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owl_1
+      name: owl_up_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 33
+        x: 16
+        y: 48
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -187,13 +187,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owl_2
+      name: owl_left_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 31
-        width: 17
-        height: 17
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,13 +209,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owl_3
+      name: owl_right_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 47
-        width: 12
-        height: 17
+        x: 48
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,13 +231,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owl_4
+      name: owl_down_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 31
+        x: 0
+        y: 32
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,13 +253,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owl_5
+      name: owl_up_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 47
-        width: 12
-        height: 17
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,13 +275,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owl_6
+      name: owl_left_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 15
-        width: 33
-        height: 18
+        x: 32
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,12 +297,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owl_7
+      name: owl_right_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 48
+        x: 48
+        y: 32
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -319,13 +319,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owl_8
+      name: owl_down_2
       rect:
         serializedVersion: 2
-        x: 34
-        y: 15
-        width: 12
-        height: 18
+        x: 0
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,11 +341,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owl_9
+      name: owl_up_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 16
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -363,13 +363,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owl_10
+      name: owl_left_2
       rect:
         serializedVersion: 2
-        x: 50
-        y: 15
-        width: 12
-        height: 18
+        x: 32
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,11 +384,121 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: owl_right_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33712ce3dcc03504b94bea0731bf026a
+      internalID: 1600983910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_down_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 521f7e02698a69a4cb47c6fa1b613427
+      internalID: 211095162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_up_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dda8bd5563bd1049ad9b96086e251b4
+      internalID: -1991312648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_left_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc090a812d3e2ce45a27bdc0a03ab8cb
+      internalID: 2133314130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_right_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b9b29f62d3dd2428b1371d9c5756a3
+      internalID: -867910423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ffc5fde2c953c0848a6b02213dd0ed99
     internalID: 0
     vertices: []
     indices: 
@@ -398,17 +508,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Owl_0: -1788626132936788117
-      Owl_1: -6547531000066942689
-      Owl_10: 556069731842956920
-      Owl_2: 1696435273948115360
-      Owl_3: -2957158296051965490
-      Owl_4: -5453227911411083704
-      Owl_5: 5943547782214203409
-      Owl_6: -4973822385572961100
-      Owl_7: 2224797283100166942
-      Owl_8: 7406778163035628280
-      Owl_9: -1245350860645931380
+      owl_down_0: -1788626132936788117
+      owl_down_1: -5453227911411083704
+      owl_down_2: 7406778163035628280
+      owl_down_3: 211095162
+      owl_left_0: 1696435273948115360
+      owl_left_1: -4973822385572961100
+      owl_left_2: 556069731842956920
+      owl_left_3: 2133314130
+      owl_right_0: -2957158296051965490
+      owl_right_1: 2224797283100166942
+      owl_right_2: 1600983910
+      owl_right_3: -867910423
+      owl_up_0: -6547531000066942689
+      owl_up_1: 5943547782214203409
+      owl_up_2: -1245350860645931380
+      owl_up_3: -1991312648
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
