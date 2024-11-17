@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Photon/PhotonLibs/Metro/Photon3Unity3D.pdb.meta
+guid: ceaf3c270b0c23c44b43fa13cee2675b
+timeCreated: 1460035811
+licenseType: Store
+=======
+guid: 426e59107c1845040813820f588457e2
+folderAsset: yes
+>>>>>>> Stashed changes:Assets/_Scripts/Monster Spawner Scripts.meta
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119922
+  packageName: PUN 2 - FREE
+  packageVersion: 2.47
+  assetPath: Assets/Photon/PhotonLibs/Metro/Photon3Unity3D.pdb
+  uploadId: 689049

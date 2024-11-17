@@ -16,6 +16,8 @@ public class MonsterInteract : MonoBehaviour
     public int max_damage;
     public int damage;
 
+    bool isDead = false;
+
     System.Random random = new System.Random();
 
     void Start()
@@ -27,9 +29,9 @@ public class MonsterInteract : MonoBehaviour
 
     void Update()
     {
-        if (current_health == 0)
+        if (current_health < 0)
         {
-            Debug.Log("Dead");
+            this.transform.parent.gameObject.SetActive(false);
         }
     }
 
@@ -38,9 +40,22 @@ public class MonsterInteract : MonoBehaviour
         return damage;
     }
 
+    public bool Status()
+    {
+        return isDead;
+    }
+
     public void ReceiveDamage(int damage)
     {
         current_health -= damage;
+        healthBar.SetHealth(current_health);
+    }
+
+    public void Revive()
+    {
+        current_health = random.Next(min_randHealth, max_randHealth);
+        damage = random.Next(min_damage, max_damage);
+        healthBar.SetMaxHealth(current_health);
         healthBar.SetHealth(current_health);
     }
 
