@@ -25,7 +25,6 @@
 .vs/
 
 # Các file của Unity
-*.unity
 *.mat
 *.asset
 *.controller
