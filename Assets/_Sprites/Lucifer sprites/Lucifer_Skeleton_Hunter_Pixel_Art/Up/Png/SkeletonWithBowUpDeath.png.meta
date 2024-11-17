@@ -132,6 +132,45 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -434,7 +473,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SkeletonWithBowUpDeath_0: -2651038651205459223
+      SkeletonWithBowUpDeath_1: 4008413931267550087
+      SkeletonWithBowUpDeath_10: 6908861759498004251
+      SkeletonWithBowUpDeath_11: -5558382913910199740
+      SkeletonWithBowUpDeath_12: -4675069405159955306
+      SkeletonWithBowUpDeath_2: -4934501656081856209
+      SkeletonWithBowUpDeath_3: 8581482946297505689
+      SkeletonWithBowUpDeath_4: 4261787946735701488
+      SkeletonWithBowUpDeath_5: -936632082084847780
+      SkeletonWithBowUpDeath_6: 3716497822445756897
+      SkeletonWithBowUpDeath_7: 8300884039670084389
+      SkeletonWithBowUpDeath_8: -2857482905573130712
+      SkeletonWithBowUpDeath_9: -5779365437133718562
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -59,5 +59,11 @@ TagManager:
   - name: OnObjectLayer
     uniqueID: 1655864077
     locked: 0
+  - name: Onforeground
+    uniqueID: 3547928009
+    locked: 0
+  - name: U
+    uniqueID: 2525739005
+    locked: 0
   m_RenderingLayers:
   - Default

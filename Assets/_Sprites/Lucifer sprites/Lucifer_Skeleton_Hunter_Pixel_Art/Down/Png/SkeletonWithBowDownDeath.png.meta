@@ -129,6 +129,45 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -409,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SkeletonWithBowDownDeath_0: 1127026946622919315
+      SkeletonWithBowDownDeath_1: 7364944819522494577
+      SkeletonWithBowDownDeath_10: 7099430540298569709
+      SkeletonWithBowDownDeath_11: -5268439624418108042
+      SkeletonWithBowDownDeath_2: 7404202600821935258
+      SkeletonWithBowDownDeath_3: -4930373869302395969
+      SkeletonWithBowDownDeath_4: 5800930600711231783
+      SkeletonWithBowDownDeath_5: 5731105465385544333
+      SkeletonWithBowDownDeath_6: 7491611251241789996
+      SkeletonWithBowDownDeath_7: -9172220563954801742
+      SkeletonWithBowDownDeath_8: -5469557049238692268
+      SkeletonWithBowDownDeath_9: 8262542638050899056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
