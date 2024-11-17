@@ -14,6 +14,7 @@ public class PlayerInteract : MonoBehaviour
         healthBar.SetMaxHealth(100);
     }
 
+
     void Update()
     {
 
@@ -23,9 +24,11 @@ public class PlayerInteract : MonoBehaviour
     {
         if (collision.gameObject.tag == "enemy")
         {
+
             int damage = collision.gameObject.GetComponent<MonsterInteract>().GetDamage();
 
             current_health -= damage;
+
             healthBar.SetHealth(current_health);
         }
     }

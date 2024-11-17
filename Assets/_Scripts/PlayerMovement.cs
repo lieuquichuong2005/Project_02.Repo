@@ -6,6 +6,8 @@ using Photon.Pun;
 public class PlayerMovement : MonoBehaviourPun
 {
     //public static PlayerMovement instance;
+
+
     private Rigidbody2D rb2d;
     public Animator animator;
 
@@ -13,6 +15,7 @@ public class PlayerMovement : MonoBehaviourPun
     bool isMove;
 
     public float moveSpeed;
+
     //public float weaponSpeed;
     private float moveX;
     private float moveY;
@@ -39,11 +42,14 @@ public class PlayerMovement : MonoBehaviourPun
         animator = GetComponent<Animator>();
         DontDestroyOnLoad(this.gameObject);
 
+
         isMove = false;
+
     }
 
     void Update()
     {
+
             moveSpeed = (Input.GetKey(KeyCode.LeftShift)) ? 8f : 4f;
             moveX = Input.GetAxis("Horizontal");
             moveY = Input.GetAxis("Vertical");
@@ -126,12 +132,14 @@ public class PlayerMovement : MonoBehaviourPun
         }
     }*/
 
+
     /*private void UpdateSprite()
     {
         var rotationVector = transform.rotation.eulerAngles;
 
         if (moveY > 0) // Hướng lên
         {
+
             animator.SetFloat("MoveY", 0);
             rotationVector.z = 0f;
         }
@@ -159,6 +167,7 @@ public class PlayerMovement : MonoBehaviourPun
         if (collider.tag == "enemy")
         {
             Debug.Log("Hit");
+
         }
     }
 

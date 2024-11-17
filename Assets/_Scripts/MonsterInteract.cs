@@ -2,11 +2,14 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+
 using System;
+
 
 public class MonsterInteract : MonoBehaviour
 {
     public HealthBar healthBar;
+
     //public int current_health;
     public int min_randHealth;
     public int max_randHealth;
@@ -33,6 +36,7 @@ public class MonsterInteract : MonoBehaviour
         }
     }
 
+
     public int GetDamage()
     {
         return damage;
@@ -51,6 +55,7 @@ public class MonsterInteract : MonoBehaviour
             current_health -= 5;
             healthBar.SetHealth(current_health);
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D collider)

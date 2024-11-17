@@ -21,7 +21,9 @@ public class HomeManager : MonoBehaviour
     public Button quitButton;
     public Button closeButton;
     public Button logOutButton;
-    public Button chooseCharacterButton;
+
+    //public Button chooseCharacterButton;
+
 
     public GameObject listButton;
 
@@ -72,7 +74,9 @@ public class HomeManager : MonoBehaviour
         quitButton.onClick.AddListener(OnQuitButton);
         closeButton.onClick.AddListener(OnCloseButton);
         logOutButton.onClick.AddListener(LogOutAccount);
-        chooseCharacterButton.onClick.AddListener(OnChooseCharacterScene);
+
+        //chooseCharacterButton.onClick.AddListener(OnChooseCharacterScene);
+
 
         switchToLogInButton.onClick.AddListener(OnSwitchToLogin);
         switchToRegisterButton.onClick.AddListener(OnSwitchToRegister);
@@ -86,7 +90,23 @@ public class HomeManager : MonoBehaviour
 
     void Start()
     {
-        
+
+        // Kiểm tra người dùng đã đăng nhập hay chưa
+        if (auth.CurrentUser != null)
+        {
+            displayName = auth.CurrentUser.Email.Split('@')[0];
+            DisplayPlayerName(displayName);
+            logOutButton.gameObject.SetActive(true);
+            nameTextPanel.SetActive(true);
+
+            //OnStartButton();
+        }
+        else
+        {
+            logOutButton.gameObject.SetActive(false);
+            nameTextPanel.SetActive(false);
+        }
+
 
         graphicsDropdown.value = PlayerPrefs.GetInt("GraphicsQuality", 1); 
         fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
@@ -103,19 +123,19 @@ public class HomeManager : MonoBehaviour
     public void OnStartButton()
     {
         AudioManager.instance.PlayClickSound();
+
+        Debug.Log("Current user: " + (auth.CurrentUser != null ? auth.CurrentUser.Email : "No user logged in"));
         if (auth.CurrentUser != null)
         {
-            // Nếu đã đăng nhập, bắt đầu trò chơi
-            Debug.Log("Game started!");
-            // Đặt tên người chơi và hiển thị thông tin
-            accountNameText.text = $"Logged in as: {displayName}"; // Hiển thị tên người dùng
-            nameTextPanel.gameObject.SetActive(true); // Hiện panel hiển thị tên
-            logOutButton.gameObject.SetActive(true); // Hiện nút đăng xuất
+            accountNameText.text = $"Logged in as: {displayName}"; 
+            nameTextPanel.gameObject.SetActive(true);
+            logOutButton.gameObject.SetActive(true); 
 
-            SetActivePanel(panels[0]); // Chuyển đến panel trò chơi
-            DisplayPlayerName(displayName); // Gọi hàm hiển thị tên
-            closeButton.gameObject.SetActive(true);
+            //SetActivePanel(panels[0]); 
+            DisplayPlayerName(displayName); 
             //SceneManager.LoadScene(1);
+            SceneManager.LoadScene("ChooseCharacterScene");
+
         }
         else
         {
@@ -272,6 +292,9 @@ void OnCloseButton()
                 FirebaseUser newUser = task.Result.User; // Sửa ở đây
                 displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
                 DisplayPlayerName(displayName);
+
+                logOutButton.gameObject.SetActive(true);
+
             }
                 
 
@@ -301,6 +324,9 @@ void OnCloseButton()
                 FirebaseUser newUser = task.Result.User; // Sửa ở đây
                 displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
                 DisplayPlayerName(displayName);
+
+                logOutButton.gameObject.SetActive(true);
+
             }
 
         });
@@ -314,7 +340,9 @@ void OnCloseButton()
         logOutButton.gameObject.SetActive(false); // Ẩn nút đăng xuất
         Debug.Log("Logged out successfully.");
         emailInputLogIn.text = null;
-        passwordInputLogIn = null;
+
+        passwordInputLogIn.text = null;
+
 
     }
     private void InitializeFirebase()
@@ -340,6 +368,8 @@ void OnCloseButton()
     {
         nameTextPanel.SetActive(true);
 
+        accountNameText.gameObject.SetActive(true);
+
         accountNameText.text = $"Welcome, {name}!"; // Hiển thị tên người chơi
     }
     IEnumerator HideNotify()
@@ -348,9 +378,6 @@ void OnCloseButton()
         notifyPanel.SetActive(false);
         notifyText.text = " ";
     }
-    void OnChooseCharacterScene()
-    {
-        SceneManager.LoadScene(1);
-    }
+
         
 }

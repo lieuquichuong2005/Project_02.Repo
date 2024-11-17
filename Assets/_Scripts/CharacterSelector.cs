@@ -40,7 +40,9 @@ public class CharacterSelector : MonoBehaviourPunCallbacks
         Debug.Log($"Bạn đã chọn nhân vật thứ {currentIndex + 1}"); // Xác nhận nhân vật đã chọn
         // Có thể thêm hành động khác ở đây
         PlayerPrefs.SetInt("SelectedCharacter", currentIndex); // Lưu lựa chọn nhân vật
-        SceneManager.LoadScene(2); // Chuyển sang GameScene
+
+        SceneManager.LoadScene("LobbyScene"); 
+
     }
 
     private void UpdateDisplay()
