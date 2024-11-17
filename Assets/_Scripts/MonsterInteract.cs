@@ -3,15 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+using System;
+
+
 public class MonsterInteract : MonoBehaviour
 {
     public HealthBar healthBar;
-    int current_health;
+
+    //public int current_health;
+    public int min_randHealth;
+    public int max_randHealth;
+    public int current_health;
+
+    public int min_damage;
+    public int max_damage;
+    public int damage;
+
+    System.Random random = new System.Random();
 
     void Start()
     {
-        current_health = 100;
-        healthBar.SetMaxHealth(100);
+        current_health = random.Next(min_randHealth, max_randHealth);
+        damage = random.Next(min_damage, max_damage);
+        healthBar.SetMaxHealth(current_health);
     }
 
     void Update()
@@ -22,6 +36,18 @@ public class MonsterInteract : MonoBehaviour
         }
     }
 
+
+    public int GetDamage()
+    {
+        return damage;
+    }
+
+    public void ReceiveDamage(int damage)
+    {
+        current_health -= damage;
+        healthBar.SetHealth(current_health);
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "player")
@@ -30,7 +56,6 @@ public class MonsterInteract : MonoBehaviour
             healthBar.SetHealth(current_health);
         }
 
-        
     }
 
     void OnTriggerEnter2D(Collider2D collider)

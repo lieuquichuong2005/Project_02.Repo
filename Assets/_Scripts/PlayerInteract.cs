@@ -14,11 +14,21 @@ public class PlayerInteract : MonoBehaviour
         healthBar.SetMaxHealth(100);
     }
 
+
+    void Update()
+    {
+
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemy")
         {
-            current_health -= 10;
+
+            int damage = collision.gameObject.GetComponent<MonsterInteract>().GetDamage();
+
+            current_health -= damage;
+
             healthBar.SetHealth(current_health);
         }
     }
