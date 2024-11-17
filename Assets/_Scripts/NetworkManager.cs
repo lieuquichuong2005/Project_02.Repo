@@ -1,10 +1,12 @@
 ﻿using Photon.Pun;
+
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+
     public GameObject lobbyPanel;
     public GameObject loadingServerPanel;
 
