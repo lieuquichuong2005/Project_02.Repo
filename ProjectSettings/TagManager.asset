@@ -7,6 +7,9 @@ TagManager:
   - enemy
   - player
   - weapon
+  - HealthSlider
+  - ManaSlider
+  - LevelText
   layers:
   - Default
   - TransparentFX

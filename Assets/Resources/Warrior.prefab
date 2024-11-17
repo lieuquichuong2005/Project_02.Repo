@@ -269,8 +269,8 @@ GameObject:
   - component: {fileID: 8590957237757192040}
   - component: {fileID: 3019584470302503953}
   - component: {fileID: 8583204193693630161}
-  - component: {fileID: 1437625861043211593}
   - component: {fileID: 1528785545495676123}
+  - component: {fileID: 2460424559866375976}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: player
@@ -445,19 +445,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1437625861043211593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5045524638178047381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c2c81bb55fdfd43901ef74fc451f5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 4754321396102149829}
 --- !u!114 &1528785545495676123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,14 +457,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd03a5aa6a2a656439fa4c5f47eb26c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites: []
   animator: {fileID: 8583204193693630161}
-  moveSpeed: 5
+  isCanMove: 1
   attackPoint: {fileID: 1420350689198503068}
   attackRange: 1.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1
   damage: 20
+--- !u!114 &2460424559866375976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5045524638178047381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5497865e6458f44bf5b31b0ce85d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  manaSlider: {fileID: 0}
+  levelText: {fileID: 0}
+  currentHealth: 0
+  currentMana: 0
+  maxHealth: 0
+  maxMana: 0
+  moveSpeed: 0
+  level: 0
 --- !u!1 &5704167928680857495
 GameObject:
   m_ObjectHideFlags: 0

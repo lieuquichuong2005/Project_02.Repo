@@ -88,8 +88,8 @@ GameObject:
   - component: {fileID: 6801789932640297840}
   - component: {fileID: 7899172298181166103}
   - component: {fileID: 8958293968270093823}
-  - component: {fileID: 4229076322324535487}
   - component: {fileID: 6814081666882722196}
+  - component: {fileID: 277228129394872125}
   m_Layer: 0
   m_Name: Sorceress
   m_TagString: player
@@ -264,19 +264,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4229076322324535487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4590942131802814460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c2c81bb55fdfd43901ef74fc451f5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1916278425758534265}
 --- !u!114 &6814081666882722196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,14 +276,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd03a5aa6a2a656439fa4c5f47eb26c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites: []
   animator: {fileID: 8958293968270093823}
-  moveSpeed: 5
+  isCanMove: 1
   attackPoint: {fileID: 6989661310471430432}
   attackRange: 1.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1
   damage: 20
+--- !u!114 &277228129394872125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590942131802814460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5497865e6458f44bf5b31b0ce85d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  manaSlider: {fileID: 0}
+  levelText: {fileID: 0}
+  currentHealth: 0
+  currentMana: 0
+  maxHealth: 0
+  maxMana: 0
+  moveSpeed: 0
+  level: 0
 --- !u!1 &5063103476344143573
 GameObject:
   m_ObjectHideFlags: 0

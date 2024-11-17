@@ -475,8 +475,8 @@ GameObject:
   - component: {fileID: 6836058434950331831}
   - component: {fileID: 8034692626407225094}
   - component: {fileID: 7958037026850931647}
-  - component: {fileID: 5044377059582881332}
   - component: {fileID: 8507002542352155192}
+  - component: {fileID: 9193526780670225706}
   m_Layer: 0
   m_Name: Hunter
   m_TagString: player
@@ -651,19 +651,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5044377059582881332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9036140935566509347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c2c81bb55fdfd43901ef74fc451f5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 7769139494607188275}
 --- !u!114 &8507002542352155192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,11 +663,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd03a5aa6a2a656439fa4c5f47eb26c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites: []
   animator: {fileID: 7958037026850931647}
-  moveSpeed: 5
+  isCanMove: 1
   attackPoint: {fileID: 6509784040391721064}
   attackRange: 1.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1
   damage: 20
+--- !u!114 &9193526780670225706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9036140935566509347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5497865e6458f44bf5b31b0ce85d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  manaSlider: {fileID: 0}
+  levelText: {fileID: 0}
+  currentHealth: 0
+  currentMana: 0
+  maxHealth: 0
+  maxMana: 0
+  moveSpeed: 0
+  level: 0

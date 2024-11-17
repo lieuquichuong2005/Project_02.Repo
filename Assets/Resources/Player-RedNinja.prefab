@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8123223543416404180}
   - component: {fileID: 8502049640053834801}
   - component: {fileID: 7948650710236276975}
+  - component: {fileID: 4760335723622149150}
   m_Layer: 0
   m_Name: Player-RedNinja
   m_TagString: Untagged
@@ -171,14 +172,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259972205348017743}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd03a5aa6a2a656439fa4c5f47eb26c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites: []
   animator: {fileID: 0}
-  isCanMove: 1
   moveSpeed: 0
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  damage: 20
 --- !u!114 &7948650710236276975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +193,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259972205348017743}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
@@ -201,3 +208,15 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &4760335723622149150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259972205348017743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5497865e6458f44bf5b31b0ce85d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
