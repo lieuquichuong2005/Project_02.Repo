@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7462094467811533982}
   m_Layer: 0
   m_Name: 6_mouse
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

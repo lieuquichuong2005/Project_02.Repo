@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 3172222754211708918}
   - component: {fileID: 751330894646673030}
   - component: {fileID: 5749033486206956030}
-  - component: {fileID: 1956360029190322744}
   - component: {fileID: 7260151874141535674}
   - component: {fileID: 1177727067998940452}
+  - component: {fileID: 2015022293141891285}
   m_Layer: 0
   m_Name: Player-Knight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,31 +188,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1956360029190322744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529464770433039168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd03a5aa6a2a656439fa4c5f47eb26c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: -7385789195546760866, guid: 0711faf7eb6f5a84f9a42c97989efb73, type: 3}
-  - {fileID: 4723107735738678597, guid: 0711faf7eb6f5a84f9a42c97989efb73, type: 3}
-  - {fileID: 3234629978573100161, guid: 0711faf7eb6f5a84f9a42c97989efb73, type: 3}
-  - {fileID: 6373048116405451881, guid: 0711faf7eb6f5a84f9a42c97989efb73, type: 3}
-  animator: {fileID: 5749033486206956030}
-  isCanMove: 1
-  attackPoint: {fileID: 0}
-  attackRange: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  damage: 20
 --- !u!114 &7260151874141535674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +208,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents: []
   sceneViewId: 0
-  InstantiationId: 0
+  InstantiationId: 1
   isRuntimeInstantiated: 0
 --- !u!114 &1177727067998940452
 MonoBehaviour:
@@ -249,5 +224,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 0}
   manaSlider: {fileID: 0}
+  expSlider: {fileID: 0}
   levelText: {fileID: 0}
   moveSpeed: 0
+--- !u!114 &2015022293141891285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529464770433039168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd03a5aa6a2a656439fa4c5f47eb26c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
+  virtualCamera: {fileID: 0}
+  animator: {fileID: 0}
+  isCanMove: 1
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  damage: 20

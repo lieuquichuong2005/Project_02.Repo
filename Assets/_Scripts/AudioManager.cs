@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour
 
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
         soundEffectSlider.onValueChanged.AddListener(SetSoundEffectVolume);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void SetMusicVolume(float volume)

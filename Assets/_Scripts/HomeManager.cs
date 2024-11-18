@@ -131,9 +131,7 @@ public class HomeManager : MonoBehaviour
             nameTextPanel.gameObject.SetActive(true);
             logOutButton.gameObject.SetActive(true); 
 
-            //SetActivePanel(panels[0]); 
             DisplayPlayerName(displayName); 
-            //SceneManager.LoadScene(1);
             SceneManager.LoadScene("ChooseCharacterScene");
 
         }
@@ -149,28 +147,28 @@ public class HomeManager : MonoBehaviour
     public void OnAccountManagementButton()
     {
         AudioManager.instance.PlayClickSound();
-        SetActivePanel(panels[1]);
+        SetActivePanel(panels[0]);
         closeButton.gameObject.SetActive(true);
     }
 
     public void OnSettingsButton()
     {
         AudioManager.instance.PlayClickSound();
-        SetActivePanel(panels[2]);
+        SetActivePanel(panels[1]);
         closeButton.gameObject.SetActive(true);
     }
 
     public void OnHelpButton()
     {
         AudioManager.instance.PlayClickSound();
-        SetActivePanel(panels[3]);
+        SetActivePanel(panels[2]);
         closeButton.gameObject.SetActive(true);
     }
 
     public void OnCreditsButton()
     {
         AudioManager.instance.PlayClickSound();
-        SetActivePanel(panels[4]);
+        SetActivePanel(panels[3]);
         closeButton.gameObject.SetActive(true);
     }
 
@@ -229,11 +227,10 @@ public void SetActivePanel(GameObject panelToActivate)
 // Phương thức để tìm nút tương ứng với mỗi panel
 private Button GetButtonForPanel(GameObject panel)
 {
-    if (panel == panels[0]) return startGameButton;
-    if (panel == panels[1]) return accountManagerButton;
-    if (panel == panels[2]) return settingButton;
-    if (panel == panels[3]) return helpButton;
-    if (panel == panels[4]) return creditButton;
+    if (panel == panels[0]) return accountManagerButton;
+    if (panel == panels[1]) return settingButton;
+    if (panel == panels[2]) return helpButton;
+    if (panel == panels[3]) return creditButton;
 
     return null; // Trả về null nếu không tìm thấy
 }

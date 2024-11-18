@@ -4,12 +4,15 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - enemy
-  - player
-  - weapon
   - HealthSlider
   - ManaSlider
   - LevelText
+  - TeleportPositions
+  - PlayerStats
+  - Cinemachine
+  - Enemy
+  - Weapon
+  - ExpSlider
   layers:
   - Default
   - TransparentFX

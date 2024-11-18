@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4760335723622149150}
   m_Layer: 0
   m_Name: Player-RedNinja
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,8 +177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd03a5aa6a2a656439fa4c5f47eb26c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: []
+  playerStats: {fileID: 0}
+  cinemachine: {fileID: 0}
   animator: {fileID: 0}
+  isCanMove: 1
   moveSpeed: 0
   attackPoint: {fileID: 0}
   attackRange: 0.5
@@ -220,3 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5497865e6458f44bf5b31b0ce85d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  manaSlider: {fileID: 0}
+  levelText: {fileID: 0}
+  moveSpeed: 0

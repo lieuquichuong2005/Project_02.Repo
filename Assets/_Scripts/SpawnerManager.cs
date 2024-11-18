@@ -16,6 +16,7 @@ public class SpawnerManager : MonoBehaviour
     private void CreateCameraForPlayer(GameObject player)
     {
         GameObject cameraInstance = Instantiate(cameraPrefab);
+        DontDestroyOnLoad(cameraInstance);
         var cinemachineCamera = cameraInstance.GetComponent<CinemachineVirtualCamera>();
         cinemachineCamera.Follow = player.transform;
         cinemachineCamera.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = GameObject.Find("CinemachineBound").GetComponent<PolygonCollider2D>();

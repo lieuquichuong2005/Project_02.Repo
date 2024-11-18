@@ -1,0 +1,2231 @@
+fileFormatVersion: 2
+guid: 383c375ad8e824a4a93f30ccccd7c7e0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2018581625328033318
+    second: Effect Ice_0
+  - first:
+      213: -6340487832073243745
+    second: Effect Ice_1
+  - first:
+      213: 4961578937372088741
+    second: Effect Ice_2
+  - first:
+      213: 9072051868338435687
+    second: Effect Ice_3
+  - first:
+      213: 433918733407886075
+    second: Effect Ice_4
+  - first:
+      213: 2355721201342551090
+    second: Effect Ice_5
+  - first:
+      213: -9003943084819285745
+    second: Effect Ice_6
+  - first:
+      213: -4848882958290824796
+    second: Effect Ice_7
+  - first:
+      213: -5448131274402601009
+    second: Effect Ice_8
+  - first:
+      213: 6046636612458531974
+    second: Effect Ice_9
+  - first:
+      213: 6566017782071646995
+    second: Effect Ice_10
+  - first:
+      213: -8370458620024809944
+    second: Effect Ice_11
+  - first:
+      213: -6846399181239543090
+    second: Effect Ice_12
+  - first:
+      213: -5626558417632037664
+    second: Effect Ice_13
+  - first:
+      213: -720416764952261897
+    second: Effect Ice_14
+  - first:
+      213: -6247230632248408109
+    second: Effect Ice_15
+  - first:
+      213: 3748086578062030202
+    second: Effect Ice_16
+  - first:
+      213: 637730239940413129
+    second: Effect Ice_17
+  - first:
+      213: 4638015954912254376
+    second: Effect Ice_18
+  - first:
+      213: -4250545647007653630
+    second: Effect Ice_19
+  - first:
+      213: -8896861625171904597
+    second: Effect Ice_20
+  - first:
+      213: -2464187251135698607
+    second: Effect Ice_21
+  - first:
+      213: -4476645189460892682
+    second: Effect Ice_22
+  - first:
+      213: 3482187709334560956
+    second: Effect Ice_23
+  - first:
+      213: 8068260954390152436
+    second: Effect Ice_24
+  - first:
+      213: -437902526644132128
+    second: Effect Ice_25
+  - first:
+      213: -5480595677021293197
+    second: Effect Ice_26
+  - first:
+      213: -5226923054716563170
+    second: Effect Ice_27
+  - first:
+      213: -1759275400889641007
+    second: Effect Ice_28
+  - first:
+      213: -7106933548547866291
+    second: Effect Ice_29
+  - first:
+      213: -3206827202896900710
+    second: Effect Ice_30
+  - first:
+      213: -4457786801241265847
+    second: Effect Ice_31
+  - first:
+      213: -4643714193521198017
+    second: Effect Ice_32
+  - first:
+      213: -9143303049022052458
+    second: Effect Ice_33
+  - first:
+      213: 5946138986942304164
+    second: Effect Ice_34
+  - first:
+      213: 8004360905188180783
+    second: Effect Ice_35
+  - first:
+      213: 2393903807853203065
+    second: Effect Ice_36
+  - first:
+      213: 3598646987164300789
+    second: Effect Ice_37
+  - first:
+      213: 5548927914773475925
+    second: Effect Ice_38
+  - first:
+      213: 4347018302627148517
+    second: Effect Ice_39
+  - first:
+      213: 3326296187276547502
+    second: Effect Ice_40
+  - first:
+      213: -2762520767741989109
+    second: Effect Ice_41
+  - first:
+      213: 2313344822455210387
+    second: Effect Ice_42
+  - first:
+      213: 1192993639519957040
+    second: Effect Ice_43
+  - first:
+      213: 8956041777764128644
+    second: Effect Ice_44
+  - first:
+      213: 7415643385913275466
+    second: Effect Ice_45
+  - first:
+      213: 1602980283820540026
+    second: Effect Ice_46
+  - first:
+      213: 692209738463456949
+    second: Effect Ice_47
+  - first:
+      213: -7738553416613873203
+    second: Effect Ice_48
+  - first:
+      213: 9115573523365038906
+    second: Effect Ice_49
+  - first:
+      213: -9005930205599207892
+    second: Effect Ice_50
+  - first:
+      213: 3884004521476452661
+    second: Effect Ice_51
+  - first:
+      213: -4315490549150565481
+    second: Effect Ice_52
+  - first:
+      213: 3687455535325449524
+    second: Effect Ice_53
+  - first:
+      213: -4463099650712910377
+    second: Effect Ice_54
+  - first:
+      213: -1336596935254819436
+    second: Effect Ice_55
+  - first:
+      213: -9059427912270444130
+    second: Effect Ice_56
+  - first:
+      213: -282790902859632909
+    second: Effect Ice_57
+  - first:
+      213: 44148315374905694
+    second: Effect Ice_58
+  - first:
+      213: -1267430588822512750
+    second: Effect Ice_59
+  - first:
+      213: -7270520997723671075
+    second: Effect Ice_60
+  - first:
+      213: 7196052448312992246
+    second: Effect Ice_61
+  - first:
+      213: 7960125117928784383
+    second: Effect Ice_62
+  - first:
+      213: 870567044232277987
+    second: Effect Ice_63
+  - first:
+      213: 1639930055605323572
+    second: Effect Ice_64
+  - first:
+      213: 114692245838906765
+    second: Effect Ice_65
+  - first:
+      213: -4083055426495214043
+    second: Effect Ice_66
+  - first:
+      213: -1606681212110830885
+    second: Effect Ice_67
+  - first:
+      213: 8059101166189060793
+    second: Effect Ice_68
+  - first:
+      213: 1838108786398525929
+    second: Effect Ice_69
+  - first:
+      213: 8416108263194884659
+    second: Effect Ice_70
+  - first:
+      213: 96564741596835014
+    second: Effect Ice_71
+  - first:
+      213: 8181866216926333372
+    second: Effect Ice_72
+  - first:
+      213: 4208129386658711167
+    second: Effect Ice_73
+  - first:
+      213: 1616381347633139238
+    second: Effect Ice_74
+  - first:
+      213: -3636051696898331922
+    second: Effect Ice_75
+  - first:
+      213: 7761446966936686205
+    second: Effect Ice_76
+  - first:
+      213: -5796872001653149169
+    second: Effect Ice_77
+  - first:
+      213: 1989707695466678932
+    second: Effect Ice_78
+  - first:
+      213: 1646501399124328530
+    second: Effect Ice_79
+  - first:
+      213: 4344269552244717200
+    second: Effect Ice_80
+  - first:
+      213: 8105988387348366250
+    second: Effect Ice_81
+  - first:
+      213: 8894455274081228408
+    second: Effect Ice_82
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Effect Ice_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 711
+        width: 69
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62edec71b41730c10800000000000000
+      internalID: 2018581625328033318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 711
+        width: 70
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93769af8ef0208a0800000000000000
+      internalID: -6340487832073243745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 710
+        width: 69
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a99f1781c11bd440800000000000000
+      internalID: 4961578937372088741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_3
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 731
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7663b34cb1766ed70800000000000000
+      internalID: 9072051868338435687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_4
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 709
+        width: 72
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfa1a2ef9c6950600800000000000000
+      internalID: 433918733407886075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_5
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 709
+        width: 72
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23411e393f331b020800000000000000
+      internalID: 2355721201342551090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_6
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 709
+        width: 73
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f09f28328719b0380800000000000000
+      internalID: -9003943084819285745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_7
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 709
+        width: 72
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a151a1d3ae45bcb0800000000000000
+      internalID: -4848882958290824796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_8
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 708
+        width: 72
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc7698ba8795464b0800000000000000
+      internalID: -5448131274402601009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 609
+        width: 71
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c467b66f7f9e350800000000000000
+      internalID: 6046636612458531974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_10
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 609
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31b5741726e2f1b50800000000000000
+      internalID: 6566017782071646995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_11
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 609
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8269052db3826db80800000000000000
+      internalID: -8370458620024809944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_12
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 609
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca11bbe734bcf0a0800000000000000
+      internalID: -6846399181239543090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_13
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 673
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4fe011ee27ae1b0800000000000000
+      internalID: -5626558417632037664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_14
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 609
+        width: 75
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fac8cae4c09006f0800000000000000
+      internalID: -720416764952261897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_15
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 674
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d705e6d6d06d49a0800000000000000
+      internalID: -6247230632248408109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_16
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 610
+        width: 75
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a75fbc072e0e30430800000000000000
+      internalID: 3748086578062030202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_17
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 674
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c64c2e364ca9d800800000000000000
+      internalID: 637730239940413129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_18
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 610
+        width: 75
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a9932f00fa8d5040800000000000000
+      internalID: 4638015954912254376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_19
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 610
+        width: 75
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 201a68021470305c0800000000000000
+      internalID: -4250545647007653630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_20
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 675
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7f2df4d7ff78480800000000000000
+      internalID: -8896861625171904597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_21
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 509
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159a20c30c27dcdd0800000000000000
+      internalID: -2464187251135698607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_22
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 575
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f3e8b02be2cfd1c0800000000000000
+      internalID: -4476645189460892682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_23
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 509
+        width: 74
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb02e10b547335030800000000000000
+      internalID: 3482187709334560956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_24
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 510
+        width: 72
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f4449d279838ff60800000000000000
+      internalID: 8068260954390152436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_25
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 575
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6612dd8f14ce9f0800000000000000
+      internalID: -437902526644132128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_26
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 509
+        width: 70
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 375ba99e44301f3b0800000000000000
+      internalID: -5480595677021293197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_27
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 509
+        width: 69
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e11d157dc2d3677b0800000000000000
+      internalID: -5226923054716563170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_28
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 508
+        width: 68
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7d3eb085cc597e0800000000000000
+      internalID: -1759275400889641007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_29
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 509
+        width: 68
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d418f7c77991f5d90800000000000000
+      internalID: -7106933548547866291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_30
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 509
+        width: 70
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d454346af0f73d0800000000000000
+      internalID: -3206827202896900710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_31
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 410
+        width: 71
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949e69bc582c222c0800000000000000
+      internalID: -4457786801241265847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_32
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 411
+        width: 70
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3cbab06b863e8fb0800000000000000
+      internalID: -4643714193521198017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_33
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 410
+        width: 71
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6976b49f1567c1180800000000000000
+      internalID: -9143303049022052458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_34
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 410
+        width: 73
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af0cc597ede48250800000000000000
+      internalID: 5946138986942304164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_35
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 410
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2304c795d3351f60800000000000000
+      internalID: 8004360905188180783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_36
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 409
+        width: 74
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97e8b8d64dad83120800000000000000
+      internalID: 2393903807853203065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_37
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 409
+        width: 74
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f535fd4e56f0f130800000000000000
+      internalID: 3598646987164300789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_38
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 408
+        width: 73
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 552725cf980c10d40800000000000000
+      internalID: 5548927914773475925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_39
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 308
+        width: 72
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e276306d16b35c30800000000000000
+      internalID: 4347018302627148517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_40
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 307
+        width: 72
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea5da5442c0692e20800000000000000
+      internalID: 3326296187276547502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_41
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 307
+        width: 71
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0f691a8ffd89a9d0800000000000000
+      internalID: -2762520767741989109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_42
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 308
+        width: 71
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3919e610cd6aa1020800000000000000
+      internalID: 2313344822455210387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_43
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 308
+        width: 71
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03033e6f46d5e8010800000000000000
+      internalID: 1192993639519957040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_44
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 308
+        width: 72
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4875035bb804a4c70800000000000000
+      internalID: 8956041777764128644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_45
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 308
+        width: 73
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a44f556ae58a9e660800000000000000
+      internalID: 7415643385913275466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_46
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 308
+        width: 72
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a70041f331eee3610800000000000000
+      internalID: 1602980283820540026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_47
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 208
+        width: 72
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be2e23f6193b9900800000000000000
+      internalID: 692209738463456949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_48
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 209
+        width: 72
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc9385f0ba22b9490800000000000000
+      internalID: -7738553416613873203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_49
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 209
+        width: 73
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b0128b2d5018e70800000000000000
+      internalID: 9115573523365038906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_50
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 210
+        width: 72
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2e6c478132840380800000000000000
+      internalID: -9005930205599207892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_51
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 209
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5317d90b881c6e530800000000000000
+      internalID: 3884004521476452661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_52
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 274
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b3352c53c4c14c0800000000000000
+      internalID: -4315490549150565481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_53
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 209
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d0f1cb5497c2330800000000000000
+      internalID: 3687455535325449524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_54
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 275
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d54612a382ef02c0800000000000000
+      internalID: -4463099650712910377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_55
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 209
+        width: 72
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49db2424b24737de0800000000000000
+      internalID: -1336596935254819436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_56
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 274
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e998cdc0052764280800000000000000
+      internalID: -9059427912270444130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_57
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 208
+        width: 69
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fee6511c23531cf0800000000000000
+      internalID: -282790902859632909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_58
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 275
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e596a5fa8a8dc9000800000000000000
+      internalID: 44148315374905694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_59
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 250
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b15c7389e296ee0800000000000000
+      internalID: -1267430588822512750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_60
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 108
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd579a66cabe91b90800000000000000
+      internalID: -7270520997723671075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_61
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 175
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f1a6ce43938dd360800000000000000
+      internalID: 7196052448312992246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_62
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 107
+        width: 69
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff14fc5ce9b087e60800000000000000
+      internalID: 7960125117928784383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_63
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 174
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef60a04d10e41c00800000000000000
+      internalID: 870567044232277987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_64
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 170
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43787d462b332c610800000000000000
+      internalID: 1639930055605323572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_65
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 107
+        width: 74
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8548bb6df7779100800000000000000
+      internalID: 114692245838906765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_66
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 108
+        width: 74
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e8589f8b21657c0800000000000000
+      internalID: -4083055426495214043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_67
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 108
+        width: 74
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd207dc33fbe3b9e0800000000000000
+      internalID: -1606681212110830885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_68
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 109
+        width: 74
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b2a2abcfcda7df60800000000000000
+      internalID: 8059101166189060793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_69
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 110
+        width: 72
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e9fec7d336428910800000000000000
+      internalID: 1838108786398525929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_70
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 111
+        width: 70
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33af5faffd50cc470800000000000000
+      internalID: 8416108263194884659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_71
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 172
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cce4b0fe11175100800000000000000
+      internalID: 96564741596835014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_72
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 148
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9c9a399f3db8170800000000000000
+      internalID: 8181866216926333372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_73
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 146
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76ccaca167466a30800000000000000
+      internalID: 4208129386658711167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_74
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 12
+        width: 70
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e8d3f854a8e6610800000000000000
+      internalID: 1616381347633139238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_75
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 72
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea2b6d0f362a8dc0800000000000000
+      internalID: -3636051696898331922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_76
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 13
+        width: 69
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e4b4ff4e236bb60800000000000000
+      internalID: 7761446966936686205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_77
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 72
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f027e0da0af5d8fa0800000000000000
+      internalID: -5796872001653149169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_78
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 13
+        width: 69
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a072b6b9cdc9b10800000000000000
+      internalID: 1989707695466678932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_79
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 72
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2504df88c4c89d610800000000000000
+      internalID: 1646501399124328530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_80
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 12
+        width: 69
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 096771e0422f94c30800000000000000
+      internalID: 4344269552244717200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_81
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 72
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3475dad714e7070800000000000000
+      internalID: 8105988387348366250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect Ice_82
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 11
+        width: 69
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 876163a62f37f6b70800000000000000
+      internalID: 8894455274081228408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

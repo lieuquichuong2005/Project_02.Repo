@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     public Slider healthSlider;
     public Slider manaSlider;
-
+    public Slider expSlider;
     public TMP_Text levelText;
 
     private float currentHealth;
@@ -21,6 +21,7 @@ public class PlayerStats : MonoBehaviour
     {
         healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
         manaSlider = GameObject.FindWithTag("ManaSlider").GetComponent <Slider>();
+        expSlider = GameObject.FindWithTag("ExpSlider").GetComponent<Slider>();
         levelText = GameObject.FindWithTag("LevelText").GetComponent <TMP_Text>();
 
         currentHealth = maxHealth;
