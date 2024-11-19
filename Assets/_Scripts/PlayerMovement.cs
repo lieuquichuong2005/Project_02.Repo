@@ -6,6 +6,8 @@ using Cinemachine;
 
 public class PlayerMovement : MonoBehaviourPun
 {
+    public static int currentScene;
+
     public GameObject playerStats;
     public CinemachineVirtualCamera virtualCamera;
 
@@ -13,10 +15,8 @@ public class PlayerMovement : MonoBehaviourPun
     public Animator animator;
 
     public bool isCanMove = true;
-    bool isMove;
 
     float moveSpeed = 3;
-    public static int currentScene = 3;
 
     //public float weaponSpeed;
     //private float moveX;
@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviourPun
 
         DontDestroyOnLoad (this.gameObject);
         DontDestroyOnLoad(playerStats.gameObject);
+        currentScene = 3;
     }
 
     void Update()
