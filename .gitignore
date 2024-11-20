@@ -30,13 +30,8 @@
 *.controller
 *.anim
 *.fbx
-*.png
-*.jpg
 *.jpeg
 *.tga
-*.wav
-*.mp3
-*.mp4
 *.dll
 *.exe
 *.so

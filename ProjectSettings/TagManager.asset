@@ -12,7 +12,9 @@ TagManager:
   - Cinemachine
   - Enemy
   - Weapon
-  - ExpSlider
+  - enemy
+  - ExpMount
+  - PlayerAvatar
   layers:
   - Default
   - TransparentFX
