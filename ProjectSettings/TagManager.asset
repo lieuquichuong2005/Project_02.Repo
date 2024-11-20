@@ -12,9 +12,10 @@ TagManager:
   - Cinemachine
   - Enemy
   - Weapon
-  - enemy
   - ExpMount
   - PlayerAvatar
+  - Bullet
+  - PlayerMarker
   layers:
   - Default
   - TransparentFX

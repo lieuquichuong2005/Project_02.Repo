@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviourPun
 
     public GameObject playerStats;
     public CinemachineVirtualCamera virtualCamera;
+    public GameObject marker;
 
     private Rigidbody2D rb2d;
     public Animator animator;
@@ -36,6 +37,8 @@ public class PlayerMovement : MonoBehaviourPun
     void Awake()
     {
         playerStats = GameObject.FindWithTag("PlayerStats");
+        marker = GameObject.FindWithTag("PlayerMarker");
+        marker.SetActive(true);
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -46,7 +49,7 @@ public class PlayerMovement : MonoBehaviourPun
 
     void Update()
     {
-        if (photonView.IsMine)
+        if (GetComponent<PhotonView>().IsMine)
         {
             if (isCanMove)
             {
