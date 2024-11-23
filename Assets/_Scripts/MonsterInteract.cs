@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using Pathfinding;
 
 public class MonsterInteract : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class MonsterInteract : MonoBehaviour
         if (current_health < 0)
         {
             this.transform.parent.gameObject.SetActive(false);
+            this.transform.parent.gameObject.GetComponent<Seeker>().enabled = false;
+            this.transform.parent.gameObject.GetComponent<AIPath>().enabled = false;
+            this.transform.parent.gameObject.GetComponent<AIDestinationSetter>().enabled = false;
         }
     }
 
@@ -49,6 +53,9 @@ public class MonsterInteract : MonoBehaviour
     {
         current_health -= damage;
         healthBar.SetHealth(current_health);
+        this.transform.parent.gameObject.GetComponent<Seeker>().enabled = true;
+        this.transform.parent.gameObject.GetComponent<AIPath>().enabled = true;
+        this.transform.parent.gameObject.GetComponent<AIDestinationSetter>().enabled = true;
     }
 
     public void Revive()
@@ -65,6 +72,7 @@ public class MonsterInteract : MonoBehaviour
         {
             current_health -= 5;
             healthBar.SetHealth(current_health);
+            
         }
     }
 

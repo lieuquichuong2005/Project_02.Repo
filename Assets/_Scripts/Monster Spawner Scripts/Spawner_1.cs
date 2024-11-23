@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Pathfinding;
 
 public class Spawner_1 : MonoBehaviour
 {
@@ -91,16 +92,19 @@ public class Spawner_1 : MonoBehaviour
 
     public void Spawn()
     {
-        float minX = -1.5f;
-        float minY = -5f;
-        float maxX = 16f;
-        float maxY = 10f;
+        float minX = 6f;
+        float minY = 1.5f;
+        float maxX = 14.5f;
+        float maxY = 8f;
 
         GameObject enemy = Pool_1.SharedInstance.GetPooledObject();
         if (enemy != null)
         {
             enemy.transform.position = new Vector3(UnityEngine.Random.Range(minX, maxX), UnityEngine.Random.Range(minY, maxY), 0f);
             enemy.transform.rotation = Quaternion.identity;
+            enemy.gameObject.GetComponent<Seeker>().enabled = false;
+            enemy.gameObject.GetComponent<AIPath>().enabled = false;
+            enemy.gameObject.GetComponent<AIDestinationSetter>().enabled = false;
             enemy.SetActive(true);
             if (doneGenerated)
             {

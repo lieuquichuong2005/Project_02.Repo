@@ -9,7 +9,7 @@ public class SpawnerManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameObject player = PhotonNetwork.Instantiate("Player-Knight", new Vector3(Random.Range(-8, 0), Random.Range(-3, -6), 0), Quaternion.identity);
+        GameObject player = PhotonNetwork.Instantiate("Warrior", new Vector3(Random.Range(-8, 0), Random.Range(-3, -6), 0), Quaternion.identity);
         CreateCameraForPlayer(player);
     }
 

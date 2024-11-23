@@ -55,9 +55,17 @@ public class PlayerMovement : MonoBehaviourPun
             {
                 float moveX = Input.GetAxis("Horizontal");
                 float moveY = Input.GetAxis("Vertical");
-                animator.SetFloat("MoveX", moveX);
-                animator.SetFloat("MoveY", moveY);
+                if (moveX == 0f && moveY == 0f)
+                {
+                    animator.SetBool("isMove", false);
+                }
+                else
+                {
+                    animator.SetFloat("moveX", moveX);
+                    animator.SetFloat("moveY", moveY);
                     rb2d.linearVelocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
+                    animator.SetBool("isMove", true);
+                }
 
                     //UpdateSprite(); // Cập nhật sprite theo hướng
 

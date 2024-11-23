@@ -233,6 +233,9 @@ MonoBehaviour:
   manaSlider: {fileID: 0}
   expMount: {fileID: 0}
   levelText: {fileID: 0}
+  currentHealth: 0
+  currentMana: 0
+  currentExperience: 0
   moveSpeed: 0
 --- !u!114 &2015022293141891285
 MonoBehaviour:
