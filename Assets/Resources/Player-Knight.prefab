@@ -385,7 +385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
-  virtualCamera: {fileID: 0}
   marker: {fileID: 0}
   animator: {fileID: 0}
   isCanMove: 1
@@ -395,6 +394,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   damage: 20
+  playerInformationPanel: {fileID: 799501047805413666}
 --- !u!114 &5443267580413022508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 8126591297092716914}
   m_Layer: 0
   m_Name: Marker
-  m_TagString: Untagged
+  m_TagString: PlayerMarker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

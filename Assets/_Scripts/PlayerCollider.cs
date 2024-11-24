@@ -1,26 +1,30 @@
-﻿using UnityEngine;
+﻿using NUnit.Framework;
+using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerCollider : MonoBehaviour
 {
+    public List<PlayerInventory> itemInventory= new List<PlayerInventory>();
     PlayerStats playerStats;
-    InventoryUI inventoryUI;
 
     private void Start()
     {
         playerStats = GetComponent<PlayerStats>();
-        inventoryUI = GetComponent<InventoryUI>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Item"))
         {
-            if (other.CompareTag("Item"))
-            {
-                //Item item = other.GetComponent<ItemPickup>().item; // Giả sử bạn có một script ItemPickup
-                //inventoryUI.AddItemToInventory(item);
+                var item = other.gameObject.GetComponent<Item>();
+                var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID);
+                if (checkItem != null)
+                {
+                    itemInventory.Add(new PlayerInventory { item = item, quanlity = 1 });
+                }
+                else
+                    checkItem.quanlity++;
                 Destroy(other.gameObject); // Xóa vật phẩm khỏi game
-            }
         }
         if(other.gameObject.CompareTag("Monster"))
         {

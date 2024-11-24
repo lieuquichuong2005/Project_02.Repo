@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Cinemachine;
+using UnityEditor.UI;
 
 public class PlayerMovement : MonoBehaviourPun
 {
     public static int currentScene;
 
     public GameObject playerStats;
-    public CinemachineVirtualCamera virtualCamera;
+    //public CinemachineVirtualCamera virtualCamera;
     public GameObject marker;
 
     private Rigidbody2D rb2d;
@@ -19,20 +20,13 @@ public class PlayerMovement : MonoBehaviourPun
 
     float moveSpeed = 3;
 
-    //public float weaponSpeed;
-    //private float moveX;
-    //private float moveY;
-
-    //float timeUntilWeapon;
-    //public GameObject WeaponRotate;
-
-    //public List<PlayerItems> items = new List<PlayerItems>();
-
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
     public int damage = 20;
+
+    public GameObject playerInformationPanel;
 
     void Awake()
     {
@@ -45,6 +39,7 @@ public class PlayerMovement : MonoBehaviourPun
         DontDestroyOnLoad (this.gameObject);
         DontDestroyOnLoad(playerStats.gameObject);
         currentScene = 3;
+        playerInformationPanel.gameObject.SetActive(false);
     }
 
     void Update()
@@ -61,7 +56,7 @@ public class PlayerMovement : MonoBehaviourPun
 
                     //UpdateSprite(); // Cập nhật sprite theo hướng
 
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     animator.SetBool("isAttack", true);
                     /*Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -75,6 +70,10 @@ public class PlayerMovement : MonoBehaviourPun
                             break;
                         }
                     }*/
+                }
+                if(Input.GetKeyDown(KeyCode.Tab))
+                {
+                    playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
                 }
             }
         }

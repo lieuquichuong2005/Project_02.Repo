@@ -16,6 +16,7 @@ TagManager:
   - PlayerAvatar
   - Bullet
   - PlayerMarker
+  - Item
   layers:
   - Default
   - TransparentFX
