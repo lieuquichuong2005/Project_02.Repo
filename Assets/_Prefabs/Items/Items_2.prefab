@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5162279315020185031}
   - component: {fileID: 1185635354348618806}
   - component: {fileID: 6203175066977121307}
+  - component: {fileID: 1766605697463096024}
   m_Layer: 0
   m_Name: Items_2
   m_TagString: Item
@@ -154,7 +155,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.1, y: 0.13}
+    oldSize: {x: 0.625, y: 0.8125}
     newSize: {x: 0.1, y: 0.13}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -162,3 +163,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.1, y: 0.06973927}
   m_EdgeRadius: 0
+--- !u!114 &1766605697463096024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225944354605157167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28bc4c460a34074db163fc4ba855d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 1002
+  itemName: Mana Bottle
+  itemDescription: Recovery Mana Point
+  itemSprite: {fileID: -488721925442295091, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}

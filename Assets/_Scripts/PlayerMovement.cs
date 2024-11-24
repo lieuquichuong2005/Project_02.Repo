@@ -4,12 +4,19 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Cinemachine;
 using UnityEditor.UI;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviourPun
 {
     public static int currentScene;
 
+    [SerializeField] GameObject[] itemButton;
+
     public GameObject playerStats;
+    public PlayerCollider playerCollider;
+
+    public GameObject playerInformationPanel;
     //public CinemachineVirtualCamera virtualCamera;
     public GameObject marker;
 
@@ -26,11 +33,11 @@ public class PlayerMovement : MonoBehaviourPun
 
     public int damage = 20;
 
-    public GameObject playerInformationPanel;
 
     void Awake()
     {
         playerStats = GameObject.FindWithTag("PlayerStats");
+        playerCollider = GetComponent<PlayerCollider>();
         marker = GameObject.FindWithTag("PlayerMarker");
         marker.SetActive(true);
         rb2d = GetComponent<Rigidbody2D>();
@@ -74,6 +81,7 @@ public class PlayerMovement : MonoBehaviourPun
                 if(Input.GetKeyDown(KeyCode.Tab))
                 {
                     playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
+                    ShowItemInInventory();
                 }
             }
         }
@@ -162,6 +170,22 @@ public class PlayerMovement : MonoBehaviourPun
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-    
-    
+    void ShowItemInInventory()
+    {
+        for (int i = 0; i < itemButton.Length; i++)
+        {
+            var oneItemButton = itemButton[i];
+            oneItemButton.transform.GetChild(0).gameObject.SetActive(false);
+            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = " ";
+        }
+
+        var items = playerCollider.itemInventory;
+        for (int i = 0; i < items.Count; i++)
+        {
+            var oneItemButton = items[i];
+            oneItemButton.transform.GetChild(0).gameObject.SetActive(true);
+            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = items[i].item.itemSprite;
+            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = items[i].quanlity.ToString();
+        }
+    }    
 }

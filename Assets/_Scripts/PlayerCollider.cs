@@ -16,15 +16,15 @@ public class PlayerCollider : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Item"))
         {
-                var item = other.gameObject.GetComponent<Item>();
-                var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID);
-                if (checkItem != null)
-                {
-                    itemInventory.Add(new PlayerInventory { item = item, quanlity = 1 });
-                }
-                else
-                    checkItem.quanlity++;
-                Destroy(other.gameObject); // Xóa vật phẩm khỏi game
+            var item = other.gameObject.GetComponent<Item>();
+            var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID);
+            if (checkItem != null)
+            {
+                itemInventory.Add(new PlayerInventory { item = item, quanlity = 1 });
+            }
+            else
+                checkItem.quanlity++;
+            Destroy(other.gameObject); // Xóa vật phẩm khỏi game
         }
         if(other.gameObject.CompareTag("Monster"))
         {
