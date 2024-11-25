@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 218379620}
   m_Layer: 0
   m_Name: CinemachineBound
-  m_TagString: Untagged
+  m_TagString: CinemachineBound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,10 +261,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -17.992062, y: 14.058008}
-      - {x: -18.013287, y: -7.7822595}
-      - {x: 15.832313, y: -7.8018126}
-      - {x: 15.75511, y: 14.101569}
+    - - {x: -18.086676, y: 14.124239}
+      - {x: -18.073112, y: -7.8720016}
+      - {x: 15.892139, y: -7.8915553}
+      - {x: 15.874767, y: 14.101569}
   m_UseDelaunayMesh: 0
 --- !u!4 &218379621
 Transform:
@@ -331,6 +331,7 @@ MonoBehaviour:
   position:
   - {x: -15, y: 0.5}
   - {x: 15, y: -7.5}
+  newScene: 0
 --- !u!1 &854497093
 GameObject:
   m_ObjectHideFlags: 0
@@ -9121,7 +9122,7 @@ Transform:
   m_GameObject: {fileID: 1828355778}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.800218, y: -0.31009, z: -10}
+  m_LocalPosition: {x: -2.1918116, y: -4.038901, z: -24.39592}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

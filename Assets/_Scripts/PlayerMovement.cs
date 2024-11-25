@@ -36,17 +36,18 @@ public class PlayerMovement : MonoBehaviourPun
 
     void Awake()
     {
-        playerStats = GameObject.FindWithTag("PlayerStats");
-        playerCollider = GetComponent<PlayerCollider>();
-        marker = GameObject.FindWithTag("PlayerMarker");
+        //playerStats = GameObject.FindWithTag("PlayerStats");
+        //playerCollider = GetComponent<PlayerCollider>();
+        //marker = GameObject.FindWithTag("PlayerMarker");
         marker.SetActive(true);
         rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
 
         DontDestroyOnLoad (this.gameObject);
-        DontDestroyOnLoad(playerStats.gameObject);
+        //DontDestroyOnLoad(playerStats.gameObject);
         currentScene = 3;
         playerInformationPanel.gameObject.SetActive(false);
+        Debug.Log(currentScene);
     }
 
     void Update()

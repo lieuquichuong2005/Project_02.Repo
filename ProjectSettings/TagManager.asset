@@ -16,6 +16,8 @@ TagManager:
   - PlayerAvatar
   - Bullet
   - PlayerMarker
+  - CinemachineBound
+  - Monster
   - Item
   layers:
   - Default

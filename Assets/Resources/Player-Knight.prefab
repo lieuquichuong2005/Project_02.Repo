@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 2015022293141891285}
   - component: {fileID: 5443267580413022508}
   - component: {fileID: -4829418139060505319}
+  - component: {fileID: 2802721924993051902}
   m_Layer: 0
   m_Name: Player-Knight
   m_TagString: Player
@@ -524,11 +525,11 @@ MonoBehaviour:
   - {fileID: 5578592617175049638}
   - {fileID: 5310373587309279083}
   - {fileID: 8451150683335446426}
-  playerStats: {fileID: 0}
-  playerCollider: {fileID: 0}
+  playerStats: {fileID: 117336726955486185}
+  playerCollider: {fileID: 2802721924993051902}
   playerInformationPanel: {fileID: 799501047805413666}
-  marker: {fileID: 0}
-  animator: {fileID: 0}
+  marker: {fileID: 3474501390938961028}
+  animator: {fileID: 5749033486206956030}
   isCanMove: 1
   attackPoint: {fileID: 0}
   attackRange: 0.5
@@ -579,6 +580,19 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &2802721924993051902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529464770433039168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fde90da9cae6a84f8c8ca4170f10aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemInventory: []
 --- !u!1 &627902187908623554
 GameObject:
   m_ObjectHideFlags: 0
