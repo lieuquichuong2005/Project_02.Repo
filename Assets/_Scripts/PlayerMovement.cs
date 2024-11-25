@@ -3,13 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Cinemachine;
+using UnityEditor.UI;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviourPun
 {
     public static int currentScene;
 
+    [SerializeField] GameObject[] itemButton;
+
     public GameObject playerStats;
-    public CinemachineVirtualCamera virtualCamera;
+    public PlayerCollider playerCollider;
+
+    public GameObject playerInformationPanel;
+    //public CinemachineVirtualCamera virtualCamera;
     public GameObject marker;
 
     private Rigidbody2D rb2d;
@@ -19,32 +27,27 @@ public class PlayerMovement : MonoBehaviourPun
 
     float moveSpeed = 3;
 
-    //public float weaponSpeed;
-    //private float moveX;
-    //private float moveY;
-
-    //float timeUntilWeapon;
-    //public GameObject WeaponRotate;
-
-    //public List<PlayerItems> items = new List<PlayerItems>();
-
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
     public int damage = 20;
 
+
     void Awake()
     {
-        playerStats = GameObject.FindWithTag("PlayerStats");
-        marker = GameObject.FindWithTag("PlayerMarker");
+        //playerStats = GameObject.FindWithTag("PlayerStats");
+        //playerCollider = GetComponent<PlayerCollider>();
+        //marker = GameObject.FindWithTag("PlayerMarker");
         marker.SetActive(true);
         rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
 
         DontDestroyOnLoad (this.gameObject);
-        DontDestroyOnLoad(playerStats.gameObject);
+        //DontDestroyOnLoad(playerStats.gameObject);
         currentScene = 3;
+        playerInformationPanel.gameObject.SetActive(false);
+        Debug.Log(currentScene);
     }
 
     void Update()
@@ -69,7 +72,7 @@ public class PlayerMovement : MonoBehaviourPun
 
                     //UpdateSprite(); // Cập nhật sprite theo hướng
 
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     animator.SetBool("isAttack", true);
                     /*Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -83,6 +86,11 @@ public class PlayerMovement : MonoBehaviourPun
                             break;
                         }
                     }*/
+                }
+                if(Input.GetKeyDown(KeyCode.Tab))
+                {
+                    playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
+                    ShowItemInInventory();
                 }
             }
         }
@@ -171,6 +179,22 @@ public class PlayerMovement : MonoBehaviourPun
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-    
-    
+    void ShowItemInInventory()
+    {
+        for (int i = 0; i < itemButton.Length; i++)
+        {
+            var oneItemButton = itemButton[i];
+            oneItemButton.transform.GetChild(0).gameObject.SetActive(false);
+            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = " ";
+        }
+
+        var items = playerCollider.itemInventory;
+        for (int i = 0; i < items.Count; i++)
+        {
+            var oneItemButton = items[i];
+            oneItemButton.transform.GetChild(0).gameObject.SetActive(true);
+            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = items[i].item.itemSprite;
+            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = items[i].quanlity.ToString();
+        }
+    }    
 }

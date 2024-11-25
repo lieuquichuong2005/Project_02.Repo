@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 119192079}
   m_Layer: 0
   m_Name: CinemachineBound
-  m_TagString: Cinemachine
+  m_TagString: CinemachineBound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,7 +257,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -19.107262, y: 13.145573}
+    - - {x: -19.107262, y: 13.025946}
       - {x: -19.092077, y: -8.889613}
       - {x: 14.927721, y: -8.90414}
       - {x: 14.9440565, y: 13.08775}
@@ -271,7 +271,7 @@ Transform:
   m_GameObject: {fileID: 119192078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0896294, y: -3.121593, z: -0.01689551}
+  m_LocalPosition: {x: 2.07, y: -3.07, z: -0.01689551}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2683,7 +2683,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.129086, y: 2.0555859, z: -10}
+  m_LocalPosition: {x: -10.65, y: -0.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
