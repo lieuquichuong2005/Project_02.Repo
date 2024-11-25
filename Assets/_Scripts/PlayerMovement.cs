@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviourPun
 {
+    public static PlayerMovement instance;
+
     public static int currentScene;
 
     [SerializeField] GameObject[] itemButton;
@@ -36,6 +38,10 @@ public class PlayerMovement : MonoBehaviourPun
 
     void Awake()
     {
+        if(instance == null)
+            instance = this;
+        else 
+            Destroy(instance);
         //playerStats = GameObject.FindWithTag("PlayerStats");
         //playerCollider = GetComponent<PlayerCollider>();
         //marker = GameObject.FindWithTag("PlayerMarker");
@@ -58,17 +64,9 @@ public class PlayerMovement : MonoBehaviourPun
             {
                 float moveX = Input.GetAxis("Horizontal");
                 float moveY = Input.GetAxis("Vertical");
-                if (moveX == 0f && moveY == 0f)
-                {
-                    animator.SetBool("isMove", false);
-                }
-                else
-                {
-                    animator.SetFloat("moveX", moveX);
-                    animator.SetFloat("moveY", moveY);
+                    animator.SetFloat("MoveX", moveX);
+                    animator.SetFloat("MoveY", moveY);
                     rb2d.linearVelocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
-                    animator.SetBool("isMove", true);
-                }
 
                     //UpdateSprite(); // Cập nhật sprite theo hướng
 

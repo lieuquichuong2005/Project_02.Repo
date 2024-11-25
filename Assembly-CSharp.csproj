@@ -112,6 +112,7 @@
     <Compile Include="Assets\_Scripts\RoomManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
+    <Compile Include="Assets\_Scripts\PlayerInformationManager.cs" />
     <Compile Include="Assets\_Scripts\Monster Spawner Scripts\Spawner_1.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
     <Compile Include="Assets\_Scripts\PlayerInventory.cs" />
