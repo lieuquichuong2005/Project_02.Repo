@@ -146,7 +146,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526571620561024750}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 3752135331354515990}
   - component: {fileID: 7188847097915359521}
   - component: {fileID: 5294601541021914015}
+  - component: {fileID: 6145791640465949735}
   m_Layer: 0
   m_Name: 1_bamboo
   m_TagString: Enemy
@@ -593,6 +594,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &6145791640465949735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8308056279565005579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876b9613d0ecc9e4bbb358002abd4594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: 0
+  minY: 0
+  maxX: 0
+  maxY: 0
 --- !u!1 &9085939732009193812
 GameObject:
   m_ObjectHideFlags: 0

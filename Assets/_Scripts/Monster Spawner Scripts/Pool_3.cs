@@ -1,20 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Pool_1 : MonoBehaviour
+public class Pool_3 : MonoBehaviour
 {
-    //public static Pool_1 SharedInstance;
     public List<GameObject> pooledObjects;
-    public GameObject[] lvl1_Pool = new GameObject[4];
-    //public GameObject objectToPool;
+    public GameObject[] lvl2_Pool = new GameObject[3];
     public int amountToPool;
 
     bool doneGeneratePool = false;
-
-    /*void Awake()
-    {
-        SharedInstance = this;
-    }*/
 
     void Start()
     {
@@ -22,8 +15,8 @@ public class Pool_1 : MonoBehaviour
         GameObject tmp;
         for (int i = 0; i < amountToPool; i++)
         {
-            int random_index = UnityEngine.Random.Range(0, 4);
-            tmp = Instantiate(lvl1_Pool[random_index]);
+            int random_index = UnityEngine.Random.Range(0, 3);
+            tmp = Instantiate(lvl2_Pool[random_index]);
             tmp.SetActive(false);
             pooledObjects.Add(tmp);
         }

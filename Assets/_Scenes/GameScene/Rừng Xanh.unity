@@ -8947,7 +8947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1308021984}
-  - component: {fileID: 1308021983}
+  - component: {fileID: 1308021985}
   m_Layer: 0
   m_Name: Object pooling
   m_TagString: Untagged
@@ -8955,21 +8955,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1308021983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308021982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5df91d9b893700e44b39b1bdd3ec9c53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pooledObjects: []
-  objectToPool: {fileID: 1394450875554728478, guid: 10c9c6f5398438943bcd21a3ff1b5d6c, type: 3}
-  amountToPool: 10
 --- !u!4 &1308021984
 Transform:
   m_ObjectHideFlags: 0
@@ -8985,6 +8970,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308021985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308021982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df91d9b893700e44b39b1bdd3ec9c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  lvl1_Pool:
+  - {fileID: 1394450875554728478, guid: 10c9c6f5398438943bcd21a3ff1b5d6c, type: 3}
+  - {fileID: 8308056279565005579, guid: 58a0c19326e632f42829597b2c92ac22, type: 3}
+  - {fileID: 6724709800519768211, guid: 1dc8e51580ae00640b7fb102210270b8, type: 3}
+  - {fileID: 637942716479348948, guid: 9abc5088aab0e1e4a8eff0d24f58ccf7, type: 3}
+  amountToPool: 12
 --- !u!1 &1419433822
 GameObject:
   m_ObjectHideFlags: 0
@@ -9215,8 +9219,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1869577102}
-  - component: {fileID: 1869577101}
-  - component: {fileID: 1869577100}
+  - component: {fileID: 1869577104}
+  - component: {fileID: 1869577103}
   m_Layer: 0
   m_Name: Monster spawner
   m_TagString: Untagged
@@ -9224,35 +9228,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1869577100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869577099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 889c282bc7792b14e88b90bb957ab2a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MonsterSpawner: {fileID: 1869577099}
-  spawnTime: 60
-  currentTime: 0
---- !u!114 &1869577101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869577099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d1d7c95ac6bc042beb986e2086cb1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MonsterSpawner: {fileID: 1869577099}
-  max_spawn: 10
 --- !u!4 &1869577102
 Transform:
   m_ObjectHideFlags: 0
@@ -9268,6 +9243,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1869577103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869577099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889c282bc7792b14e88b90bb957ab2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MonsterSpawner: {fileID: 1869577099}
+  spawnTime: 120
+  currentTime: 0
+--- !u!114 &1869577104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869577099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d1d7c95ac6bc042beb986e2086cb1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MonsterSpawner: {fileID: 1869577099}
+  Pool: {fileID: 1308021982}
+  max_spawn: 0
 --- !u!1 &1982811996
 GameObject:
   m_ObjectHideFlags: 0
@@ -9299,7 +9304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAA4IexIOvlmXQIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziVjDKSht9YQ0gMJE9rJxRdhrbEGWfLog48w/PeuZBu7dHpCvPd29+1q5Qvh0lSQWaWXmrOVYkC+DYg/ky+DjnyBE90pueGf0Go+OLOFF9GgeaeWK8RHPsyoEqzm2Xe5E14cIegkz5UuF2wHiTLWIJxTYQAprayPlghdBuSEP8OZDznjKf7qT594mkWDKx4zkBZ0J22FraxWOZkJWlbAvOVOPJ60aeMgk9hMo/DGMyUEN40TYs9V6DShlXHYBwoYp9hZKD96GCNQAN8V1ifsh7/luQHbmNL0POcaR1TnJT9UPbeSmn3t7ECF85UeJ8FUnXP1Dz0cBTrXqnxpy44iX8IWPNu/03NGje3NtQ/Pe87DfI5U7OlWwEcB8lUttXKSIWm186HOQDzv/t46SwrI9h1eW70DXfX/2/E9XEPzp0Twcuuph0kNbIQKAw93Dxqv5icaDpthmhSIehe/Dfyiu/4KNcQz18Yi1XQpvb2tctpLySLMzHfjbKK0hAA3piuQVNjzGtPY+xu843pl75hn6h9LU7zh2jdwFxLgTh9Fd9RaHW+XZQp1XIEp3pwVXEJn2hOvOKdESVkvWH8mbdjG6ZxmvbCd4+zv1SJbGE2eZjOaTyfR4+QpHsbTmE7z2Wib0XEcRYyE3eMS+6RiXRttxoO3JrvkEves/YYMlppWYdmZpscl/yxVb+Rc5mqTaQD5Vme4GQeNRfBZsgXjOKANWMtluG9ySYlQ2R5YekuUhk4XJ6tp2mVJScUPynokJUn4aKTEw7ddXms4cDj64m2yK7n+AVBLAwQUAAAICAAAOCHsNemqX20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UlKqoYmFpWVimqmJgZmJhZGukalRommapWFScqKxkYFBilIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAOCHsSDr5Zl0CAAATBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAOCHsNemqX20AAAB4AAAACQAkAAAAAAAAAAAAAACqAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGIDAAAAAA==
+    dataString: UEsDBBQAAAgIAAA4Iey3bqHrXQIAABQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziVjDKSht9YQ0gMJE9rJxRdhrbEGWfLog48w/PeuZBu7dHpCvPd29+1q5Qvh0lSQWaWXmrOVYkC+DYg/ky+DjnyBE90pueGf0Go+OLOFF9GgeaeWK8RHPsyoEqzm2Xe5E14cIegkz5UuF2wHiTLWIJxTYQAprayPlghdBuSEP8OZDznjKf7qT594mkWDKx4zkBZ0J22FraxWOZkJWlbAvOVOPJ60aeMgk9hMo/DGMyUEN40TYs9V6DShlXHYBwoYp9hZKD96GCNQAN8V1ifsh7/luQHbmNL0POcaR1TnJT9UPbeSmn3t7ECF85UeJ8FUnXP1Dz0cBTrXqnxpy44iX8IWPNu/03NGje3NtQ/Pe87DfI5U7OlWwEcB8lUttXKSIWm186HOQDzv/t46SwrI9h1eW70DXfX/2/E9XEPzp0Twcuuph0kNbIQKAw93Dxqv5icaDpthmhSIehe/Dfyiu/4KNcQz18Yi1XQpvb2tctpLySLMzHfjbKK0hAA3piuQVNjzGtPY+xu843pl75hn6h9LU7zh2jdwFxLgTh9Fd9RaHW+XZQp1XIEp3pwVXEJn2hOvOKdESVkvWH8mbdjG6ZxmvbCd4+zv1SJbGE2eZjOaTyfR4+QpHsbTmE7z2Wib0XEcRYyE3eMS+6RiXRttxoO3JrvkEves/YYMlppWYdmZpscl/yxV3yCXudpkGkC+1SluzkFjFXyXbME4TmgD1nIZLpxcUiJUtgeW3mqmodXFyWqadllSUvGDsh5JSRK+Ginx8G2Z1xoOHI6+eJvsSq5/AFBLAwQUAAAICAAAOCHsNemqX20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UlKqoYmFpWVimqmJgZmJhZGukalRommapWFScqKxkYFBilIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAOCHst26h610CAAAUBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAOCHsNemqX20AAAB4AAAACQAkAAAAAAAAAAAAAACqAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGIDAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 

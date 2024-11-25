@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 5599094292258599156}
   - component: {fileID: 4589212665061132874}
   - component: {fileID: 8720229921343020845}
+  - component: {fileID: 884669875390401105}
   m_Layer: 0
   m_Name: 3_cyclope
   m_TagString: Enemy
@@ -270,6 +271,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &884669875390401105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5719994063235158372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876b9613d0ecc9e4bbb358002abd4594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: 0
+  minY: 0
+  maxX: 0
+  maxY: 0
 --- !u!1 &6604977105875108374
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +433,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6604977105875108374}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
