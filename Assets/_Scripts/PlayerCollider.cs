@@ -19,13 +19,11 @@ public class PlayerCollider : MonoBehaviour
         {
             var item = other.gameObject.GetComponent<Item>();
             var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID); 
-            if (checkItem != null)
-            {
-                itemInventory.Add(new PlayerInventory { item = item, quanlity = 1 });
-            }
+            if (checkItem == null)
+                itemInventory.Add(new PlayerInventory { item = item, quantity = 1 });
             else
-                checkItem.quanlity++;
-            Destroy(other.gameObject); // Xóa vật phẩm khỏi game
+                checkItem.quantity++;
+            Destroy(other.gameObject);
         }
         if(other.gameObject.CompareTag("Monster"))
         {

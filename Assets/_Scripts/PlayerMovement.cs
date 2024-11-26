@@ -189,10 +189,10 @@ public class PlayerMovement : MonoBehaviourPun
         var items = playerCollider.itemInventory;
         for (int i = 0; i < items.Count; i++)
         {
-            var oneItemButton = items[i];
+            var oneItemButton = itemButton[i];
             oneItemButton.transform.GetChild(0).gameObject.SetActive(true);
             oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = items[i].item.itemSprite;
-            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = items[i].quanlity.ToString();
+            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = items[i].quantity.ToString();
         }
     }    
 }

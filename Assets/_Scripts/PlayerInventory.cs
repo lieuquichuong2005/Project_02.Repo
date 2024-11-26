@@ -1,7 +1,8 @@
 using UnityEngine;
-
-public class PlayerInventory : MonoBehaviour
+using System.Collections;
+using System.Collections.Generic;
+public class PlayerInventory
 {
     public Item item {  get; set; }
-    public int quanlity { get; set; }
+    public int quantity { get; set; }
 }

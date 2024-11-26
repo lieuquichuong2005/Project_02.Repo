@@ -19,6 +19,7 @@ TagManager:
   - CinemachineBound
   - Monster
   - Item
+  - weapon
   layers:
   - Default
   - TransparentFX
