@@ -16,6 +16,10 @@ TagManager:
   - PlayerAvatar
   - Bullet
   - PlayerMarker
+  - CinemachineBound
+  - Monster
+  - Item
+  - weapon
   layers:
   - Default
   - TransparentFX

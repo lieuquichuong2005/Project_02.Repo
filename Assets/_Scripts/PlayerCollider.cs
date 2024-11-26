@@ -1,21 +1,31 @@
+﻿using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerCollider : MonoBehaviour
 {
+    public List<PlayerInventory> itemInventory; 
     PlayerStats playerStats;
 
     private void Start()
     {
+        itemInventory = new List<PlayerInventory>();
         playerStats = GetComponent<PlayerStats>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.CompareTag("Item"))
+        if(other.gameObject.CompareTag("Item"))
         {
-            Destroy(collision.gameObject);
+            var item = other.gameObject.GetComponent<Item>();
+            var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID); 
+            if (checkItem == null)
+                itemInventory.Add(new PlayerInventory { item = item, quantity = 1 });
+            else
+                checkItem.quantity++;
+            Destroy(other.gameObject);
         }
-        if(collision.gameObject.CompareTag("Monster"))
+        if(other.gameObject.CompareTag("Monster"))
         {
             playerStats.currentHealth -= 2;
         }
