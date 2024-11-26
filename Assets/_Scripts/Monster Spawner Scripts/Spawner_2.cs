@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 
-public class Spawner_1 : MonoBehaviour
+public class Spawner_2 : MonoBehaviour
 {
     public GameObject MonsterSpawner;
     public GameObject Pool;
@@ -30,11 +30,10 @@ public class Spawner_1 : MonoBehaviour
 
     public IEnumerator Start()
     {
-        while (!Pool.gameObject.GetComponent<Pool_1>().isDoneGeneratePool())
+        while (!Pool.gameObject.GetComponent<Pool_2>().isDoneGeneratePool())
             yield return null;
 
-        //max_spawn = Pool_1.SharedInstance.getAmountPool();
-        max_spawn = Pool.gameObject.GetComponent<Pool_1>().getAmountPool();
+        max_spawn = Pool.gameObject.GetComponent<Pool_2>().getAmountPool();
         for (int i = 1; i <= max_spawn; i++)
         {
             Spawn();
@@ -74,14 +73,19 @@ public class Spawner_1 : MonoBehaviour
 
     void Update()
     {
-        int current_num = Pool.gameObject.GetComponent<Pool_1>().returnCount();
+        /*if (!Pool.gameObject.GetComponent<Pool_2>().isDoneGeneratePool())
+        {
+            return;
+        }*/
+
+        int current_num = Pool.gameObject.GetComponent<Pool_2>().returnCount();
         if (current_num == max_spawn)
         {
-            MonsterSpawner.gameObject.GetComponent<Timer_1>().timerPause();
+            MonsterSpawner.gameObject.GetComponent<Timer_2>().timerPause();
         }
         else
         {
-            MonsterSpawner.gameObject.GetComponent<Timer_1>().timerContinue();
+            MonsterSpawner.gameObject.GetComponent<Timer_2>().timerContinue();
         }
     }
 
@@ -98,12 +102,12 @@ public class Spawner_1 : MonoBehaviour
 
     public void Spawn()
     {
-        float minX = 5f;
-        float minY = 1f;
-        float maxX = 15f;
-        float maxY = 8.5f;
+        float minX = -12f;
+        float minY = 3f;
+        float maxX = -4.5f;
+        float maxY = 9f;
 
-        GameObject enemy = Pool.gameObject.GetComponent<Pool_1>().GetPooledObject();
+        GameObject enemy = Pool.gameObject.GetComponent<Pool_2>().GetPooledObject();
         if (enemy != null)
         {
             enemy.transform.position = new Vector3(UnityEngine.Random.Range(minX, maxX), UnityEngine.Random.Range(minY, maxY), 0f);

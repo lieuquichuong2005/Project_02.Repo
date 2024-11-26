@@ -2,12 +2,14 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using System;
 using Pathfinding;
+using System;
+
 
 public class MonsterInteract : MonoBehaviour
 {
     public HealthBar healthBar;
+
     //public int current_health;
     public int min_randHealth;
     public int max_randHealth;
@@ -18,6 +20,7 @@ public class MonsterInteract : MonoBehaviour
     public int damage;
 
     bool isDead = false;
+    bool isAIenabled = false;
 
     System.Random random = new System.Random();
 
@@ -36,8 +39,10 @@ public class MonsterInteract : MonoBehaviour
             this.transform.parent.gameObject.GetComponent<Seeker>().enabled = false;
             this.transform.parent.gameObject.GetComponent<AIPath>().enabled = false;
             this.transform.parent.gameObject.GetComponent<AIDestinationSetter>().enabled = false;
+            isAIenabled = false;
         }
     }
+
 
     public int GetDamage()
     {
@@ -49,6 +54,11 @@ public class MonsterInteract : MonoBehaviour
         return isDead;
     }
 
+    public bool AIStatus()
+    {
+        return isAIenabled;
+    }
+
     public void ReceiveDamage(int damage)
     {
         current_health -= damage;
@@ -56,6 +66,7 @@ public class MonsterInteract : MonoBehaviour
         this.transform.parent.gameObject.GetComponent<Seeker>().enabled = true;
         this.transform.parent.gameObject.GetComponent<AIPath>().enabled = true;
         this.transform.parent.gameObject.GetComponent<AIDestinationSetter>().enabled = true;
+        isAIenabled = true;
     }
 
     public void Revive()
@@ -72,8 +83,8 @@ public class MonsterInteract : MonoBehaviour
         {
             current_health -= 5;
             healthBar.SetHealth(current_health);
-            
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D collider)

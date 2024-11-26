@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8621497597321830978}
   - component: {fileID: 2867430840758729842}
   - component: {fileID: 1414347553715648479}
+  - component: {fileID: 3980745171260966360}
   m_Layer: 0
   m_Name: 1_slime
   m_TagString: Enemy
@@ -120,6 +121,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &3980745171260966360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637942716479348948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876b9613d0ecc9e4bbb358002abd4594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: 0
+  minY: 0
+  maxX: 0
+  maxY: 0
 --- !u!1 &740946230351480370
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +563,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5318336180388566204}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1

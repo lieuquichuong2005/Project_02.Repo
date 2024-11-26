@@ -351,7 +351,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5608022868982238565}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
@@ -587,6 +587,7 @@ GameObject:
   - component: {fileID: 6758868691966233961}
   - component: {fileID: 1226270667775652481}
   - component: {fileID: 6941934261464837704}
+  - component: {fileID: 4156883892873922060}
   m_Layer: 0
   m_Name: 1_larva
   m_TagString: Enemy
@@ -695,3 +696,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &4156883892873922060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724709800519768211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876b9613d0ecc9e4bbb358002abd4594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: 0
+  minY: 0
+  maxX: 0
+  maxY: 0
