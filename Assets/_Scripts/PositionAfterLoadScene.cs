@@ -5,9 +5,9 @@ public class PositionAfterLoadScene : MonoBehaviour
 {
     public GameObject player;
     public Vector2[] position; // Thiết lập trong Inspector
-    public int thisSceneNumber;
+    public string thisSceneName;
     public CinemachineVirtualCamera cinemachineVirtual;
-    public int[] oldScene; // Thiết lập trong Inspector
+    public string[] oldScene; // Thiết lập trong Inspector
 
     void Start()
     {
@@ -36,6 +36,6 @@ public class PositionAfterLoadScene : MonoBehaviour
             }
         }
 
-        PlayerMovement.currentScene = thisSceneNumber;
+        PlayerMovement.currentScene = thisSceneName;
     }
 }

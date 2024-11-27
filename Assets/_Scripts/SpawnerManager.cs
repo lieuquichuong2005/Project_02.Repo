@@ -10,7 +10,7 @@ public class SpawnerManager : MonoBehaviour
         // Kiểm tra xem đã có player nào không
         if (GameObject.FindWithTag("Player") == null)
         {
-            GameObject player = PhotonNetwork.Instantiate("Player_Knight", new Vector3(Random.Range(-8, 0), Random.Range(-3, -6), 0), Quaternion.identity);
+            GameObject player = PhotonNetwork.Instantiate("Player_Warrior", new Vector3(Random.Range(-8, 0), Random.Range(-3, -6), 0), Quaternion.identity);
             CreateCameraForPlayer(player);
         }
         else
