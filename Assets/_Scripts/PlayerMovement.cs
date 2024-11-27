@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviourPun
 {
     public static PlayerMovement instance;
 
-    public static int currentScene;
+    public static string currentScene;
 
     [SerializeField] GameObject[] itemButton;
 
@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviourPun
     public Animator animator;
 
     public bool isCanMove = true;
+    bool isMove;
 
     float moveSpeed = 3;
 
@@ -47,11 +48,12 @@ public class PlayerMovement : MonoBehaviourPun
         //marker = GameObject.FindWithTag("PlayerMarker");
         marker.SetActive(true);
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         //animator = GetComponent<Animator>();
 
         DontDestroyOnLoad (this.gameObject);
         //DontDestroyOnLoad(playerStats.gameObject);
-        currentScene = 3;
+        currentScene = "Làng Tân Thủ";
         playerInformationPanel.gameObject.SetActive(false);
         Debug.Log(currentScene);
     }
@@ -64,9 +66,21 @@ public class PlayerMovement : MonoBehaviourPun
             {
                 float moveX = Input.GetAxis("Horizontal");
                 float moveY = Input.GetAxis("Vertical");
-                    animator.SetFloat("MoveX", moveX);
-                    animator.SetFloat("MoveY", moveY);
+
+                if (moveX != 0 || moveY != 0)
+                {
+                    isMove = true;
                     rb2d.linearVelocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
+                    animator.SetFloat("moveX", moveX);
+                    animator.SetFloat("moveY", moveY);
+                }
+                else
+                {
+                    isMove = false;
+                    rb2d.linearVelocity = Vector2.zero;
+                }
+
+                animator.SetBool("isMove", isMove);
 
                     //UpdateSprite(); // Cập nhật sprite theo hướng
 

@@ -897,6 +897,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 59631049484152801}
   - {fileID: 5736077715948981857}
   m_Father: {fileID: 4705347860676423153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1127,6 +1128,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3332570626566059414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59631049484152801}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: weapon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &59631049484152801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3332570626566059414}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4205874780491322725}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3551965373350457447
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,7 +2387,7 @@ Transform:
   m_GameObject: {fileID: 4742731876713005804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.65, y: -0.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2456,7 +2488,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 2.125}
+    oldSize: {x: 1, y: 1.4166666}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2501,7 +2533,7 @@ Animator:
   m_GameObject: {fileID: 4742731876713005804}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 21c47aa74bd4569458d5c060d8e6cccc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 711e1c3b6fc8e1942a54425f4dea401a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2606,11 +2638,11 @@ MonoBehaviour:
   marker: {fileID: 5329544188995951614}
   animator: {fileID: 6795461977108329331}
   isCanMove: 1
-  attackPoint: {fileID: 0}
-  attackRange: 0.5
+  attackPoint: {fileID: 59631049484152801}
+  attackRange: 1.5
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   damage: 20
 --- !u!114 &6412064007862911908
 MonoBehaviour:
@@ -2643,15 +2675,24 @@ MonoBehaviour:
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
   m_SynchronizeParameters:
-  - Type: 1
-    SynchronizeType: 0
-    Name: MoveX
-  - Type: 1
-    SynchronizeType: 0
-    Name: MoveY
   - Type: 9
     SynchronizeType: 0
     Name: Attack
+  - Type: 1
+    SynchronizeType: 0
+    Name: Blend
+  - Type: 1
+    SynchronizeType: 0
+    Name: moveX
+  - Type: 1
+    SynchronizeType: 0
+    Name: moveY
+  - Type: 4
+    SynchronizeType: 0
+    Name: isMove
+  - Type: 4
+    SynchronizeType: 0
+    Name: isAttack
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -2667,7 +2708,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fde90da9cae6a84f8c8ca4170f10aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemInventory: []
 --- !u!1 &4869427930957052996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2906,7 +2946,7 @@ Transform:
   m_GameObject: {fileID: 5329544188995951614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0.074, y: 1.299, z: 0}
   m_LocalScale: {x: 0.2, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
