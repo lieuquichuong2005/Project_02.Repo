@@ -22,6 +22,9 @@ public class MonsterInteract : MonoBehaviour
     bool isDead = false;
     bool isAIenabled = false;
 
+    bool isSlowedDown = false;
+    float timer = 0f;
+
     System.Random random = new System.Random();
 
     void Start()
@@ -40,6 +43,16 @@ public class MonsterInteract : MonoBehaviour
             this.transform.parent.gameObject.GetComponent<AIPath>().enabled = false;
             this.transform.parent.gameObject.GetComponent<AIDestinationSetter>().enabled = false;
             isAIenabled = false;
+        }
+
+        if (isSlowedDown)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0f)
+            {
+                UnSlowDown();
+            }
         }
     }
 
@@ -67,6 +80,19 @@ public class MonsterInteract : MonoBehaviour
         this.transform.parent.gameObject.GetComponent<AIPath>().enabled = true;
         this.transform.parent.gameObject.GetComponent<AIDestinationSetter>().enabled = true;
         isAIenabled = true;
+    }
+
+    public void SlowDown()
+    {
+        isSlowedDown = true;
+        timer = 3f;
+        this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed /= 2f;
+    }
+
+    public void UnSlowDown()
+    {
+        isSlowedDown = false;
+        this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed *= 2f;
     }
 
     public void Revive()
