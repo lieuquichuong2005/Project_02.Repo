@@ -23,6 +23,7 @@ TagManager:
   - enemy
   - board
   - warrior_skill3
+  - warrior_skill2
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,12 @@ public class Skill_Warrior : MonoBehaviour
     //--------------- Skill 1: Slash -----------------------
     //Nhấn phím 1, player sẽ dịch chuyển đến enemy gần nhất và chém. Tạo 100 damage
 
+    //--------------- Skill 2: Tremor ----------------------
+    //Nhấn phím 2, player đánh kiếm xuống và spawn các kiếm nhỏ tấn công từ dưới lên. Tạo 30 damage mỗi lần và stun enemy 4s
+
+    //--------------- Skill 3: Circle ----------------------
+    //Nhấn phím 3, 1 thanh kiếm xuất hiện xoay quanh player trong 5s, tạo 20 damage và làm chậm enemy 3s
+
 
     private Rigidbody2D rb2d;
     public Animator animator;
@@ -26,14 +32,25 @@ public class Skill_Warrior : MonoBehaviour
     // Skill 1 params
     public int slash_damage = 100;
 
+    // Skill 2 params
+    public int tremor_damage = 30;
+    public GameObject knifeTremorPrefab;
+    public float set_timer = 2f;
+    public float timer = 0f;
+    public int numofprefab = 6;
+    public bool skill2Activated = false;
+
     // Skill 3 params
     public GameObject circularWeapon;
-    public int circular_damage = 50;
-    public float set_timer = 5f;
-    public float timer = 0f;
+    public int circular_damage = 20;
+    public float set_timer2 = 5f;
+    public float timer2 = 0f;
     public float rotate_speed = 60f;
     public bool skill3Activated = false;
     public Transform player_obj;
+
+    bool skill2Trigger = false;
+    bool skill3Trigger = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -78,24 +95,49 @@ public class Skill_Warrior : MonoBehaviour
                     }
                 }
 
+                // Skill 2
+                if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) && !animator.GetBool("isMove"))
+                {
+                    skill2Trigger = true;
+                    animator.SetTrigger("Skill2");
+                    timer = set_timer;
+                }
+
                 // Skill 3
                 if ((Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3)) && skill3Activated == false)
                 {
+                    skill3Trigger = true;
                     skill3Activated = true;
-                    timer = set_timer;
+                    timer2 = set_timer2;
                     circularWeapon.SetActive(true);
+                }
+
+                if (skill2Activated)
+                {
+                    timer -= Time.deltaTime;
+                    if (timer <= 0f)
+                    {
+                        GameObject[] knives = GameObject.FindGameObjectsWithTag("warrior_skill2");
+                        foreach (GameObject knife in knives)
+                        {
+                            Destroy(knife);
+                        }
+                        skill2Activated = false;
+                        skill2Trigger = false;
+                    }
                 }
 
                 if (skill3Activated)
                 {
-                    timer -= Time.deltaTime;
+                    timer2 -= Time.deltaTime;
                     circularWeapon.transform.RotateAround(player_obj.position, Vector3.forward, rotate_speed);
                     //circularWeapon.transform.rotation = Quaternion.Euler(0f, 0f, rotate_speed * Time.deltaTime);
 
-                    if (timer <= 0f)
+                    if (timer2 <= 0f)
                     {
                         circularWeapon.SetActive(false);
                         skill3Activated = false;
+                        skill3Trigger = false;
                     }
                 }
             }
@@ -110,9 +152,58 @@ public class Skill_Warrior : MonoBehaviour
         {
             if (enemy.tag == "enemy")
             {
-                Debug.Log("Hit");
                 enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(slash_damage);
             }
+        }
+    }
+
+    public void Tremor()
+    {
+        float x = animator.GetFloat("moveX");
+        float y = animator.GetFloat("moveY");
+
+        if (y == 0f && x > 0f) // Phải
+        {
+            for (float i = 1f; i <= 6f; i = i + 1f)
+            {
+                Instantiate(knifeTremorPrefab, player_obj.position + new Vector3(i, 0f, 0f), Quaternion.Euler(new Vector3(0f, 0f, 0f)));
+            }
+            skill2Activated = true;
+            //Debug.Log("Phải");
+            return;
+        }
+
+        if (y == 0f && x < 0f) // Trái
+        {
+            for (float i = 1f; i <= 6f; i = i + 1f)
+            {
+                Instantiate(knifeTremorPrefab, player_obj.position + new Vector3(-i, 0f, 0f), Quaternion.Euler(new Vector3(0f, 0f, 0f)));
+            }
+            skill2Activated = true;
+            //Debug.Log("Trái");
+            return;
+        }
+
+        if (y > 0f && x == 0f) // Trên
+        {
+            for (float i = 1f; i <= 5f; i = i + 1f)
+            {
+                Instantiate(knifeTremorPrefab, player_obj.position + new Vector3(0f, i, 0f), Quaternion.Euler(new Vector3(0f, 0f, 0f)));
+            }
+            skill2Activated = true;
+            //Debug.Log("Trên");
+            return;
+        }
+
+        if (y < 0f && x == 0f) // Dưới
+        {
+            for (float i = 1f; i <= 5f; i = i + 1f)
+            {
+                Instantiate(knifeTremorPrefab, player_obj.position + new Vector3(0f, -i, 0f), Quaternion.Euler(new Vector3(0f, 0f, 0f)));
+            }
+            skill2Activated = true;
+            //Debug.Log("Dưới");
+            return;
         }
     }
 
@@ -120,8 +211,11 @@ public class Skill_Warrior : MonoBehaviour
     {
         if (collider.gameObject.tag == "enemy")
         {
-            collider.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(circular_damage);
-            collider.gameObject.GetComponent<MonsterInteract>().SlowDown();
+            if (skill3Trigger)
+            {
+                collider.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(circular_damage);
+                collider.gameObject.GetComponent<MonsterInteract>().SlowDown();
+            }
         }
     }
 }

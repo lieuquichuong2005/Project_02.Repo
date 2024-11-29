@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviourPun
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
-    public int damage = 20;
+    public int damage = 30;
 
 
     void Awake()
