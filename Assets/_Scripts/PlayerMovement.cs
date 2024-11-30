@@ -14,28 +14,24 @@ public class PlayerMovement : MonoBehaviourPun
     public static string currentScene;
 
     [SerializeField] GameObject[] itemButton;
-
-    public GameObject playerStats;
-    public PlayerCollider playerCollider;
-
     public GameObject playerInformationPanel;
-    //public CinemachineVirtualCamera virtualCamera;
     public GameObject marker;
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] spriteDirection;
+    public PlayerStats playerStats;
+    public PlayerCollider playerCollider;
 
     private Rigidbody2D rb2d;
     public Animator animator;
 
-    public bool isCanMove = true;
-    bool isMove;
 
-    float moveSpeed = 3;
-
-    public Transform attackPoint;
-    public float attackRange = 0.5f;
     public LayerMask enemyLayers;
-
-    public int damage = 20;
-
+    public Transform attackPoint;
+    public bool isCanMove = true;
+    public float attackRange = 0.5f;
+    private string direction;
+    float moveX;
+    float moveY;
 
     void Awake()
     {
@@ -64,29 +60,29 @@ public class PlayerMovement : MonoBehaviourPun
         {
             if (isCanMove)
             {
-                float moveX = Input.GetAxis("Horizontal");
-                float moveY = Input.GetAxis("Vertical");
-
-                if (moveX != 0 || moveY != 0)
+                moveX = Input.GetAxis("Horizontal");
+                moveY = Input.GetAxis("Vertical");
+                if(moveX == 1 || moveX == -1 || moveY == 1 || moveY == -1)
                 {
-                    isMove = true;
-                    rb2d.linearVelocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
-                    animator.SetFloat("moveX", moveX);
-                    animator.SetFloat("moveY", moveY);
+                    animator.SetFloat("LastMoveX", moveX);
+                    animator.SetFloat("LastMoveY", moveY) ;
                 }
-                else
-                {
-                    isMove = false;
-                    rb2d.linearVelocity = Vector2.zero;
-                }
-
-                animator.SetBool("isMove", isMove);
-
-                    //UpdateSprite(); // Cập nhật sprite theo hướng
-
+            }
+            else
+            {
+                moveX = 0;
+                moveY = 0;
+            } 
+                rb2d.linearVelocity = new Vector2(moveX * playerStats.moveSpeed, moveY * playerStats.moveSpeed);
+                
+                animator.SetFloat("MoveX", moveX);
+                animator.SetFloat("MoveY", moveY);
+                UpdateSprite(); 
+            
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    animator.SetBool("isAttack", true);
+                    if(moveX == 0.1)
+                    animator.SetTrigger("Attack");
                     /*Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
                     foreach(Collider2D enemy in hitenemies)
@@ -103,45 +99,35 @@ public class PlayerMovement : MonoBehaviourPun
                 {
                     playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
                     ShowItemInInventory();
+                    
                 }
-            }
+            
+            isCanMove = playerInformationPanel.activeSelf? false : true;
         }
     }
-    /*private void UpdateSprite()
+    private void UpdateSprite()
     {
-        var rotationVector = transform.rotation.eulerAngles;
-
         if (moveY > 0) // Hướng lên
         {
-
-            animator.SetFloat("MoveY", 0);
-            rotationVector.z = 0f;
+            spriteRenderer.sprite = spriteDirection[0];
+            direction = "Up";
         }
         else if (moveY < 0) // Hướng xuống
         {
-            animator.SetFloat("MoveY", 0);
-            rotationVector.z = 180f;
+            spriteRenderer.sprite = spriteDirection[1];
+            direction = "Down";
         }
         else if (moveX < 0) // Hướng trái
         {
-            animator.SetFloat("MoveX", 0);
-            rotationVector.z = 90f;
+            spriteRenderer.sprite = spriteDirection[2];
+            direction = "Left";
         }
         else if (moveX > 0) // Hướng phải
         {
-            animator.SetFloat("MoveX", 0);
-            rotationVector.z = -90f;
+            spriteRenderer.sprite = spriteDirection[3];
+            direction = "Right";
         }
 
-    }*/
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.tag == "enemy")
-        {
-            Debug.Log("Hit");
-
-        }
     }
 
     public void EndAttack()
@@ -158,7 +144,7 @@ public class PlayerMovement : MonoBehaviourPun
             if (enemy.tag == "enemy")
             {
                 Debug.Log("Hit");
-                enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(damage);
+                enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(playerStats.damage);
             }
         }
     }
@@ -208,5 +194,6 @@ public class PlayerMovement : MonoBehaviourPun
             oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = items[i].item.itemSprite;
             oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = items[i].quantity.ToString();
         }
-    }    
+
+    }
 }
