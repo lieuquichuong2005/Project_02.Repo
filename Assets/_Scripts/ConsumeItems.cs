@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ConsumeItems : Item
 {
-    public float healthAdded;
-    public float manaAdded;
-    public float moveSpeedAdded;
+    public int healthAdded;
+    public int manaAdded;
+    public int moveSpeedAdded;
 }

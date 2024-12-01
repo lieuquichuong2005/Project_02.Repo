@@ -3,21 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Cinemachine;
-using UnityEditor.UI;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviourPun
 {
     public static PlayerMovement instance;
-
+    public PlayerInventoryManager inventoryManager;
     public static string currentScene;
 
-    [SerializeField] GameObject[] itemButton;
     public GameObject playerInformationPanel;
     public GameObject marker;
-    public SpriteRenderer spriteRenderer;
-    public Sprite[] spriteDirection;
     public PlayerStats playerStats;
     public PlayerCollider playerCollider;
 
@@ -35,9 +32,9 @@ public class PlayerMovement : MonoBehaviourPun
 
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
             instance = this;
-        else 
+        else
             Destroy(instance);
         //playerStats = GameObject.FindWithTag("PlayerStats");
         //playerCollider = GetComponent<PlayerCollider>();
@@ -47,7 +44,7 @@ public class PlayerMovement : MonoBehaviourPun
         animator = GetComponent<Animator>();
         //animator = GetComponent<Animator>();
 
-        DontDestroyOnLoad (this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
         //DontDestroyOnLoad(playerStats.gameObject);
         currentScene = "Làng Tân Thủ";
         playerInformationPanel.gameObject.SetActive(false);
@@ -60,79 +57,74 @@ public class PlayerMovement : MonoBehaviourPun
         {
             if (isCanMove)
             {
-                moveX = Input.GetAxis("Horizontal");
-                moveY = Input.GetAxis("Vertical");
-                if(moveX == 1 || moveX == -1 || moveY == 1 || moveY == -1)
+                moveX = Input.GetAxisRaw("Horizontal");
+                moveY = Input.GetAxisRaw("Vertical");
+                if (moveX == 1 || moveX == -1 || moveY == 1 || moveY == -1)
                 {
                     animator.SetFloat("LastMoveX", moveX);
-                    animator.SetFloat("LastMoveY", moveY) ;
+                    animator.SetFloat("LastMoveY", moveY);
                 }
             }
             else
             {
                 moveX = 0;
                 moveY = 0;
-            } 
-                rb2d.linearVelocity = new Vector2(moveX * playerStats.moveSpeed, moveY * playerStats.moveSpeed);
-                
-                animator.SetFloat("MoveX", moveX);
-                animator.SetFloat("MoveY", moveY);
-                UpdateSprite(); 
-            
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if(moveX == 0.1)
-                    animator.SetTrigger("Attack");
-                    /*Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+            }
+            rb2d.linearVelocity = new Vector2(moveX * playerStats.moveSpeed, moveY * playerStats.moveSpeed);
 
-                    foreach(Collider2D enemy in hitenemies)
+            animator.SetFloat("MoveX", moveX);
+            animator.SetFloat("MoveY", moveY);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                animator.SetTrigger("Attack");
+                /*Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+                foreach(Collider2D enemy in hitenemies)
+                {
+                    if (enemy.tag == "enemy")
                     {
-                        if (enemy.tag == "enemy")
-                        {
-                            Debug.Log("Hello");
-                            enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(damage);
-                            break;
-                        }
-                    }*/
-                }
-                if(Input.GetKeyDown(KeyCode.Tab))
+                        Debug.Log("Hello");
+                        enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(damage);
+                        break;
+                    }
+                }*/
+            }
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
+                inventoryManager.ShowItemInInventory();
+
+            }
+            // Kiểm tra xem có item nào dưới con trỏ chuột không
+            if (playerInformationPanel.activeSelf) // Nếu panel đang mở
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+                if (hit.collider != null)
                 {
-                    playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
-                    ShowItemInInventory();
-                    
+                    var item = hit.collider.GetComponent<Item>();
+                    if (item != null)
+                    {
+                        //inventoryManager.hoveredItem = item; // Ghi nhận item đang trỏ vào
+                    }
                 }
-            
-            isCanMove = playerInformationPanel.activeSelf? false : true;
-        }
-    }
-    private void UpdateSprite()
-    {
-        if (moveY > 0) // Hướng lên
-        {
-            spriteRenderer.sprite = spriteDirection[0];
-            direction = "Up";
-        }
-        else if (moveY < 0) // Hướng xuống
-        {
-            spriteRenderer.sprite = spriteDirection[1];
-            direction = "Down";
-        }
-        else if (moveX < 0) // Hướng trái
-        {
-            spriteRenderer.sprite = spriteDirection[2];
-            direction = "Left";
-        }
-        else if (moveX > 0) // Hướng phải
-        {
-            spriteRenderer.sprite = spriteDirection[3];
-            direction = "Right";
-        }
+                else
+                {
+                    //inventoryManager.hoveredItem = null; // Không trỏ vào item nào
+                }
 
-    }
+                /*if (Input.GetKeyDown(KeyCode.E) && inventoryManager.hoveredItem != null)
+                {
+                    inventoryManager.UseItem(inventoryManager.hoveredItem); 
+                   
+                }*/
 
-    public void EndAttack()
-    {
-        animator.SetBool("isAttack", false);
+            }
+
+            isCanMove = playerInformationPanel.activeSelf ? false : true;
+        }
     }
 
     public void Attack()
@@ -177,23 +169,5 @@ public class PlayerMovement : MonoBehaviourPun
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-    void ShowItemInInventory()
-    {
-        for (int i = 0; i < itemButton.Length; i++)
-        {
-            var oneItemButton = itemButton[i];
-            oneItemButton.transform.GetChild(0).gameObject.SetActive(false);
-            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = " ";
-        }
 
-        var items = playerCollider.itemInventory;
-        for (int i = 0; i < items.Count; i++)
-        {
-            var oneItemButton = itemButton[i];
-            oneItemButton.transform.GetChild(0).gameObject.SetActive(true);
-            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = items[i].item.itemSprite;
-            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = items[i].quantity.ToString();
-        }
-
-    }
 }
