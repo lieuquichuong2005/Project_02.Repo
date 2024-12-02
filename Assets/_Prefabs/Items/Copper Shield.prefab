@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3510716260176095579}
   - component: {fileID: 3388956069010039307}
   - component: {fileID: 2953638340711807774}
+  - component: {fileID: 96038185810374033}
   m_Layer: 0
   m_Name: Copper Shield
   m_TagString: Item
@@ -182,3 +183,16 @@ MonoBehaviour:
   itemSprite: {fileID: 1013099012324604318, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}
   armorAdded: 70
   durability: 150
+--- !u!114 &96038185810374033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5008300571854861584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8125f4c68c44d74fa9a9f42903e9810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}

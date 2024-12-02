@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
@@ -18,6 +18,11 @@ public class CreateAndJoinSever : MonoBehaviourPunCallbacks
 
     void OnCreateRoomButton()
     {
+        if (roomNameCreatedInput.text == null || roomNameCreatedInput.text == "")
+        {
+            Debug.LogWarning("Tên Phòng Không Thể Trống.");
+            return;
+        }
         PhotonNetwork.CreateRoom(roomNameCreatedInput.text);
     }
 

@@ -4,28 +4,15 @@ using System.Collections.Generic;
 
 public class PlayerCollider : MonoBehaviour
 {
-    public List<ItemInventory> itemInventory; 
     public PlayerStats playerStats;
-
-    private void Start()
-    {
-        itemInventory = new List<ItemInventory>();
-        playerStats = GetComponent<PlayerStats>();
-    }
+    public PlayerInventoryManager inventoryManager;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Item"))
         {
             var item = other.gameObject.GetComponent<Item>();
-            var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID);
-
-            if (checkItem == null)
-            {
-                itemInventory.Add(new ItemInventory { item = item, quantity = 1 });
-            }
-            else
-                checkItem.quantity++;
+            inventoryManager.AddItem(item);
             Destroy(other.gameObject);
         }
         if(other.gameObject.CompareTag("Monster"))

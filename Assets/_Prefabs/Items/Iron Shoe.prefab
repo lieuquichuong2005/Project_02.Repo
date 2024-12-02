@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7032117668026177429}
   - component: {fileID: 125882955774699327}
   - component: {fileID: 5132524898577009982}
+  - component: {fileID: -3157489236278392586}
   m_Layer: 0
   m_Name: Iron Shoe
   m_TagString: Item
@@ -181,3 +182,16 @@ MonoBehaviour:
   itemSprite: {fileID: 5248844365648247204, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}
   armorAdded: 25
   durability: 100
+--- !u!114 &-3157489236278392586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695643396375883994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8125f4c68c44d74fa9a9f42903e9810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}

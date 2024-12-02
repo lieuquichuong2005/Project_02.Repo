@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5135736780353225742}
   - component: {fileID: 855712621106214187}
   - component: {fileID: -5542347142514357057}
+  - component: {fileID: 2596944534932263543}
   m_Layer: 0
   m_Name: HealthBottle
   m_TagString: Item
@@ -183,3 +184,16 @@ MonoBehaviour:
   healthAdded: 20
   manaAdded: 0
   moveSpeedAdded: 0
+--- !u!114 &2596944534932263543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3195498847661998905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8125f4c68c44d74fa9a9f42903e9810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: -5542347142514357057}

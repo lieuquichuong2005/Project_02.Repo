@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6027741670151571278}
   - component: {fileID: 4780655366047549377}
   - component: {fileID: 1418475762978413372}
+  - component: {fileID: -809538412565432454}
   m_Layer: 0
   m_Name: Iron Sword
   m_TagString: Item
@@ -195,3 +196,16 @@ MonoBehaviour:
   damageAdded: 75
   rangeAdded: 3
   attackSpeedAdded: 2
+--- !u!114 &-809538412565432454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7743416883329251956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8125f4c68c44d74fa9a9f42903e9810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}

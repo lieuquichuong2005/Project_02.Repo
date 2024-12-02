@@ -87,7 +87,7 @@ public class Skill_Warrior : MonoBehaviour
                         }
                         
                         this.transform.position = chosenObj.transform.position;
-                        animator.SetTrigger("Skill1");
+                        animator.SetTrigger("Skill_01");
                     }
                     else
                     {
@@ -96,10 +96,10 @@ public class Skill_Warrior : MonoBehaviour
                 }
 
                 // Skill 2
-                if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) && !animator.GetBool("isMove"))
+                if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)))
                 {
                     skill2Trigger = true;
-                    animator.SetTrigger("Skill2");
+                    animator.SetTrigger("Skill_02");
                     timer = set_timer;
                 }
 

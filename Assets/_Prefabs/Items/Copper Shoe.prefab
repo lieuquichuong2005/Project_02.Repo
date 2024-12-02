@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 861901791958315597}
   - component: {fileID: 1745394991427476817}
   - component: {fileID: 8336846403216857411}
+  - component: {fileID: 8716031607175821801}
   m_Layer: 0
   m_Name: Copper Shoe
   m_TagString: Item
@@ -181,3 +182,16 @@ MonoBehaviour:
   itemSprite: {fileID: -4261047623482395726, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}
   armorAdded: 15
   durability: 50
+--- !u!114 &8716031607175821801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3144513211813227096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8125f4c68c44d74fa9a9f42903e9810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}

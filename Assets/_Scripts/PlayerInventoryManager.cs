@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,9 @@ public class PlayerInventoryManager : MonoBehaviour
     public PlayerMovement playerMovement;
     public PlayerCollider playerCollider;
     public PlayerStats playerStats;
+    public ItemSlotUI itemSlotUI;
 
+    public List<ItemInventory> itemInventory;
     [SerializeField] GameObject[] itemButton;
     public GameObject informationPanel;
     public Button useItemButton;
@@ -17,16 +20,101 @@ public class PlayerInventoryManager : MonoBehaviour
     public TMP_Text itemNameText;
     public TMP_Text itemDescriptionText;
 
-    //public Item hoveredItem;
-
     private void Awake()
     {
         useItemButton.onClick.AddListener(OnUseItemButton);
         upgradeItemButton.onClick.AddListener(OnUpgradeItemButton);
         throwItemButton.onClick.AddListener(OnThrowItemButton);
     }
+    public void AddItem(Item item)
+    {
+        
+        var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID);
+
+        if (checkItem == null)
+        {
+            itemInventory.Add(new ItemInventory (item, 1 ));
+        }
+        else
+            checkItem.quantity++;
+    }
+
+    public void ShowItemInInventory()
+    {
+        Debug.Log(itemInventory);
+        informationPanel.gameObject.SetActive(false);
+
+        for (int i = 0; i < itemButton.Length; i++)
+        {
+            var oneItemButton = itemButton[i];
+            var button = oneItemButton.GetComponent<Button>();
+            button.onClick.RemoveAllListeners(); 
+            oneItemButton.transform.GetChild(0).gameObject.SetActive(false);
+            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = " ";
+        }
+
+        for (int i = 0; i < itemInventory.Count; i++)
+        {
+            var oneItemButton = itemButton[i];
+            var button = oneItemButton.GetComponent<Button>();
+            var currentItem = itemInventory[i];
+
+            itemSlotUI = oneItemButton.GetComponent<ItemSlotUI>();
+            itemSlotUI.SetItem(currentItem.item);
+
+            int temp = i;
+
+            button.onClick.AddListener(() => ShowItemDetails(temp));
+
+            oneItemButton.transform.GetChild(0).gameObject.SetActive(true);
+            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = currentItem.item.itemSprite;
+            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = currentItem.quantity.ToString();
+        }
+    }
 
 
+    public void UseItem(Item item)
+    {
+        if (item is ConsumeItems consumable)
+        {
+            playerStats.currentHealth += consumable.healthAdded;
+            playerStats.currentMana += consumable.manaAdded;
+            playerStats.moveSpeed += consumable.moveSpeedAdded;
+
+            var inventoryEntry = itemInventory.Find(x => x.item.itemID == consumable.itemID);
+            if (inventoryEntry != null)
+            {
+                inventoryEntry.quantity--;
+                if (inventoryEntry.quantity <= 0)
+                {
+                    itemInventory.Remove(inventoryEntry);
+                }
+
+                Debug.Log($"Used item: {item.itemName}, Remaining: {inventoryEntry.quantity}");
+                ShowItemInInventory();
+            }
+        }
+    }
+
+    public void ShowItemDetails(int  index)
+    {
+
+        if (itemInventory.Count <= index) return;
+        var item = itemInventory[index].item;
+        if (item.itemName != null)
+        {
+            itemNameText.text = item.itemName; 
+            itemDescriptionText.text = item.itemDescription; 
+            Debug.Log($"Clicked on item: {item.itemName}, Description: {item.itemDescription}");
+            informationPanel.gameObject.SetActive(true); 
+        }
+        else
+        {
+            itemNameText.text = "No Item";
+            itemDescriptionText.text = "This slot is empty.";
+            Debug.Log("No item found in this slot.");
+        }
+    }
     void OnUseItemButton()
     {
         ShowItemInInventory();
@@ -39,99 +127,5 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         ShowItemInInventory();
     }
-
-    public void ShowItemInInventory()
-    {
-        informationPanel.gameObject.SetActive(false);
-
-        // Ẩn tất cả các nút item trước
-        for (int i = 0; i < itemButton.Length; i++)
-        {
-            var oneItemButton = itemButton[i];
-            var button = oneItemButton.GetComponent<Button>();
-            button.onClick.RemoveAllListeners(); // Xóa sự kiện cũ
-            oneItemButton.transform.GetChild(0).gameObject.SetActive(false);
-            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = " ";
-        }
-
-        // Hiển thị các item trong inventory
-        var items = playerCollider.itemInventory;
-        int maxItemsToShow = Mathf.Min(itemButton.Length, items.Count); // Giới hạn số lượng hiển thị
-
-        for (int i = 0; i < maxItemsToShow; i++)
-        {
-            var oneItemButton = itemButton[i];
-            var button = oneItemButton.GetComponent<Button>();
-            var currentItem = items[i]; // Lấy vật phẩm tương ứng
-
-            // Gắn sự kiện click để hiển thị thông tin item
-            button.onClick.AddListener(() => ShowItemDetails(currentItem.item));
-
-            // Hiển thị thông tin lên giao diện
-            oneItemButton.transform.GetChild(0).gameObject.SetActive(true);
-            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = currentItem.item.itemSprite;
-            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = currentItem.quantity.ToString();
-        }
-    }
-
-
-    public void UseItem(Item item)
-    {
-        if (item is ConsumeItems consumable)
-        {
-            Debug.Log("Dùng Vật Phẩm");
-            // Áp dụng hiệu ứng từ vật phẩm
-            playerStats.currentHealth += consumable.healthAdded;
-            playerStats.currentMana += consumable.manaAdded;
-            playerStats.moveSpeed += consumable.moveSpeedAdded;
-
-            // Tìm vật phẩm trong inventory và giảm số lượng
-            var inventoryEntry = playerCollider.itemInventory.Find(x => x.item.itemID == consumable.itemID);
-            if (inventoryEntry != null)
-            {
-                inventoryEntry.quantity--;
-                if (inventoryEntry.quantity <= 0)
-                {
-                    playerCollider.itemInventory.Remove(inventoryEntry); // Xóa item nếu số lượng bằng 0
-                    //hoveredItem = null; // Xóa hoveredItem nếu vật phẩm bị xóa
-                }
-
-                Debug.Log($"Used item: {item.itemName}, Remaining: {inventoryEntry.quantity}");
-                ShowItemInInventory(); // Cập nhật lại giao diện inventory
-            }
-        }
-    }
-
-
-    public void SetHoveredItem(Item item)
-    {
-        //hoveredItem = item;
-        Debug.Log($"Hovered Item: {item.itemName}");
-    }
-
-
-    public void ClearHoveredItem()
-    {
-
-        //hoveredItem = null; // Xóa item đang trỏ vào
-        Debug.Log("No item hovered");
-    }
-    public void ShowItemDetails(Item item)
-    {
-        if (item != null)
-        {
-            itemNameText.text = item.itemName; // Hiển thị tên vật phẩm
-            itemDescriptionText.text = item.itemDescription; // Hiển thị mô tả vật phẩm
-            Debug.Log($"Clicked on item: {item.itemName}, Description: {item.itemDescription}");
-        }
-        else
-        {
-            itemNameText.text = "No Item";
-            itemDescriptionText.text = "This slot is empty.";
-            Debug.Log("No item found in this slot.");
-        }
-        informationPanel.gameObject.SetActive(true); // Hiển thị bảng thông tin
-    }
-
 
 }

@@ -1922,6 +1922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 59631049484152801}
+  - component: {fileID: 3146289428520970201}
   m_Layer: 0
   m_Name: AttackPoint
   m_TagString: weapon
@@ -1944,6 +1945,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4205874780491322725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &3146289428520970201
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3332570626566059414}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.15568984, y: 0.11136666}
+  - {x: 0.41842318, y: -0.35249394}
+  - {x: 0.41617638, y: -0.4776803}
+  - {x: 0.25757504, y: -0.4663387}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &3705278315304529348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,6 +2624,7 @@ GameObject:
   - component: {fileID: 7010458750164547897}
   - component: {fileID: 6494324856906399353}
   - component: {fileID: 4264393594522691947}
+  - component: {fileID: 8643645646826779314}
   m_Layer: 0
   m_Name: Player_Warrior
   m_TagString: Player
@@ -2828,6 +2875,7 @@ MonoBehaviour:
   attackPoint: {fileID: 59631049484152801}
   isCanMove: 1
   attackRange: 1.5
+  damage: 30
 --- !u!114 &6412064007862911908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2873,18 +2921,6 @@ MonoBehaviour:
     Name: LastMoveY
   - Type: 9
     SynchronizeType: 0
-    Name: LeftAttack
-  - Type: 9
-    SynchronizeType: 0
-    Name: RightAttack
-  - Type: 9
-    SynchronizeType: 0
-    Name: UpAttack
-  - Type: 9
-    SynchronizeType: 0
-    Name: DownAttack
-  - Type: 9
-    SynchronizeType: 0
     Name: Attack
   m_SynchronizeLayers:
   - SynchronizeType: 0
@@ -2901,7 +2937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fde90da9cae6a84f8c8ca4170f10aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 3891956901735826230}
+  inventoryManager: {fileID: 4264393594522691947}
 --- !u!114 &6494324856906399353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2946,6 +2983,8 @@ MonoBehaviour:
   playerMovement: {fileID: 5426768442655003834}
   playerCollider: {fileID: 7010458750164547897}
   playerStats: {fileID: 3891956901735826230}
+  itemSlotUI: {fileID: 8750695589082874698, guid: 2a39c62561166464db5fc241ccaaf0d8, type: 3}
+  itemInventory: []
   itemButton:
   - {fileID: 7555448892572413540}
   - {fileID: 2750992464108720754}
@@ -2983,6 +3022,39 @@ MonoBehaviour:
   throwItemButton: {fileID: 1375076957029273465}
   itemNameText: {fileID: 3466998405118898383}
   itemDescriptionText: {fileID: 6682598191777598632}
+--- !u!114 &8643645646826779314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742731876713005804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef76fb2691a7168438d9a051604e8d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6795461977108329331, guid: ef4018c995008e74cae7609eeeb8cd05, type: 3}
+  attackPoint: {fileID: 59631049484152801}
+  attackRange: 2
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  isCanMove: 1
+  slash_damage: 100
+  tremor_damage: 30
+  knifeTremorPrefab: {fileID: 1499804314254263810, guid: 627b98c029f31d0429fdc4b236b072bd, type: 3}
+  set_timer: 2
+  timer: 0
+  numofprefab: 6
+  skill2Activated: 0
+  circularWeapon: {fileID: 1037295480261810740, guid: ef4018c995008e74cae7609eeeb8cd05, type: 3}
+  circular_damage: 50
+  set_timer2: 5
+  timer2: 0
+  rotate_speed: 2
+  skill3Activated: 0
+  player_obj: {fileID: 4705347860676423153}
 --- !u!1 &4788780890166061499
 GameObject:
   m_ObjectHideFlags: 0
