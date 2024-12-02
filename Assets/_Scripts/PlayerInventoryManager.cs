@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,10 +43,13 @@ public class PlayerInventoryManager : MonoBehaviour
     public void ShowItemInInventory()
     {
         informationPanel.gameObject.SetActive(false);
+
         // Ẩn tất cả các nút item trước
         for (int i = 0; i < itemButton.Length; i++)
         {
             var oneItemButton = itemButton[i];
+            var button = oneItemButton.GetComponent<Button>();
+            button.onClick.RemoveAllListeners(); // Xóa sự kiện cũ
             oneItemButton.transform.GetChild(0).gameObject.SetActive(false);
             oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = " ";
         }
@@ -57,9 +61,16 @@ public class PlayerInventoryManager : MonoBehaviour
         for (int i = 0; i < maxItemsToShow; i++)
         {
             var oneItemButton = itemButton[i];
+            var button = oneItemButton.GetComponent<Button>();
+            var currentItem = items[i]; // Lấy vật phẩm tương ứng
+
+            // Gắn sự kiện click để hiển thị thông tin item
+            button.onClick.AddListener(() => ShowItemDetails(currentItem.item));
+
+            // Hiển thị thông tin lên giao diện
             oneItemButton.transform.GetChild(0).gameObject.SetActive(true);
-            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = items[i].item.itemSprite;
-            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = items[i].quantity.ToString();
+            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = currentItem.item.itemSprite;
+            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = currentItem.quantity.ToString();
         }
     }
 
@@ -105,9 +116,22 @@ public class PlayerInventoryManager : MonoBehaviour
         //hoveredItem = null; // Xóa item đang trỏ vào
         Debug.Log("No item hovered");
     }
-    public void OnItemButtonClick()
+    public void ShowItemDetails(Item item)
     {
-        
-        informationPanel.gameObject.SetActive(true);
+        if (item != null)
+        {
+            itemNameText.text = item.itemName; // Hiển thị tên vật phẩm
+            itemDescriptionText.text = item.itemDescription; // Hiển thị mô tả vật phẩm
+            Debug.Log($"Clicked on item: {item.itemName}, Description: {item.itemDescription}");
+        }
+        else
+        {
+            itemNameText.text = "No Item";
+            itemDescriptionText.text = "This slot is empty.";
+            Debug.Log("No item found in this slot.");
+        }
+        informationPanel.gameObject.SetActive(true); // Hiển thị bảng thông tin
     }
+
+
 }

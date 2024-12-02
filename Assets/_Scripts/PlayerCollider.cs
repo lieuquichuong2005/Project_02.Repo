@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PlayerCollider : MonoBehaviour
 {
     public List<ItemInventory> itemInventory; 
-    PlayerStats playerStats;
+    public PlayerStats playerStats;
 
     private void Start()
     {
@@ -18,9 +18,12 @@ public class PlayerCollider : MonoBehaviour
         if(other.gameObject.CompareTag("Item"))
         {
             var item = other.gameObject.GetComponent<Item>();
-            var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID); 
+            var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID);
+
             if (checkItem == null)
+            {
                 itemInventory.Add(new ItemInventory { item = item, quantity = 1 });
+            }
             else
                 checkItem.quantity++;
             Destroy(other.gameObject);
