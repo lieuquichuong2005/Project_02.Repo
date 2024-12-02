@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public class PlayerCollider : MonoBehaviour
 {
-    public List<PlayerInventory> itemInventory; 
-    PlayerStats playerStats;
+    public List<ItemInventory> itemInventory; 
+    public PlayerStats playerStats;
 
     private void Start()
     {
-        itemInventory = new List<PlayerInventory>();
+        itemInventory = new List<ItemInventory>();
         playerStats = GetComponent<PlayerStats>();
     }
 
@@ -18,9 +18,12 @@ public class PlayerCollider : MonoBehaviour
         if(other.gameObject.CompareTag("Item"))
         {
             var item = other.gameObject.GetComponent<Item>();
-            var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID); 
+            var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID);
+
             if (checkItem == null)
-                itemInventory.Add(new PlayerInventory { item = item, quantity = 1 });
+            {
+                itemInventory.Add(new ItemInventory { item = item, quantity = 1 });
+            }
             else
                 checkItem.quantity++;
             Destroy(other.gameObject);

@@ -9,9 +9,4 @@ public class MonsterSpawner : MonoBehaviour
         Instantiate(monsterPrefab, new Vector3(5f, -7.5f, 0f), Quaternion.identity);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

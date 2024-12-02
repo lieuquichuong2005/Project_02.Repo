@@ -19,8 +19,6 @@ TagManager:
   - CinemachineBound
   - Monster
   - Item
-  - weapon
-  - enemy
   - board
   - warrior_skill3
   - warrior_skill2

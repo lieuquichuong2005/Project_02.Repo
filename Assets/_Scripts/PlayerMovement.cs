@@ -3,45 +3,41 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Cinemachine;
-using UnityEditor.UI;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviourPun
 {
     public static PlayerMovement instance;
-
+    public PlayerInventoryManager inventoryManager;
     public static string currentScene;
 
-    [SerializeField] GameObject[] itemButton;
-
-    public GameObject playerStats;
-    public PlayerCollider playerCollider;
-
     public GameObject playerInformationPanel;
-    //public CinemachineVirtualCamera virtualCamera;
     public GameObject marker;
+    public PlayerStats playerStats;
+    public PlayerCollider playerCollider;
 
     private Rigidbody2D rb2d;
     public Animator animator;
 
-    public bool isCanMove = true;
-    bool isMove;
 
-    float moveSpeed = 3;
-
+    public LayerMask enemyLayers;
     public Transform attackPoint;
+    public bool isCanMove = true;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
     public int damage = 30;
-
+    private string direction;
+    float moveX;
+    float moveY;
 
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
             instance = this;
-        else 
+        else
             Destroy(instance);
         //playerStats = GameObject.FindWithTag("PlayerStats");
         //playerCollider = GetComponent<PlayerCollider>();
@@ -51,7 +47,7 @@ public class PlayerMovement : MonoBehaviourPun
         animator = GetComponent<Animator>();
         //animator = GetComponent<Animator>();
 
-        DontDestroyOnLoad (this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
         //DontDestroyOnLoad(playerStats.gameObject);
         currentScene = "Làng Tân Thủ";
         playerInformationPanel.gameObject.SetActive(false);
@@ -64,89 +60,74 @@ public class PlayerMovement : MonoBehaviourPun
         {
             if (isCanMove)
             {
-                float moveX = Input.GetAxis("Horizontal");
-                float moveY = Input.GetAxis("Vertical");
-
-                if (moveX != 0 || moveY != 0)
+                moveX = Input.GetAxisRaw("Horizontal");
+                moveY = Input.GetAxisRaw("Vertical");
+                if (moveX == 1 || moveX == -1 || moveY == 1 || moveY == -1)
                 {
-                    isMove = true;
-                    rb2d.linearVelocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
-                    animator.SetFloat("moveX", moveX);
-                    animator.SetFloat("moveY", moveY);
+                    animator.SetFloat("LastMoveX", moveX);
+                    animator.SetFloat("LastMoveY", moveY);
+                }
+            }
+            else
+            {
+                moveX = 0;
+                moveY = 0;
+            }
+            rb2d.linearVelocity = new Vector2(moveX * playerStats.moveSpeed, moveY * playerStats.moveSpeed);
+
+            animator.SetFloat("MoveX", moveX);
+            animator.SetFloat("MoveY", moveY);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                animator.SetTrigger("Attack");
+                /*Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+                foreach(Collider2D enemy in hitenemies)
+                {
+                    if (enemy.tag == "enemy")
+                    {
+                        Debug.Log("Hello");
+                        enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(damage);
+                        break;
+                    }
+                }*/
+            }
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
+                inventoryManager.ShowItemInInventory();
+
+            }
+            // Kiểm tra xem có item nào dưới con trỏ chuột không
+            if (playerInformationPanel.activeSelf) // Nếu panel đang mở
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+                if (hit.collider != null)
+                {
+                    var item = hit.collider.GetComponent<Item>();
+                    if (item != null)
+                    {
+                        //inventoryManager.hoveredItem = item; // Ghi nhận item đang trỏ vào
+                    }
                 }
                 else
                 {
-                    isMove = false;
-                    rb2d.linearVelocity = Vector2.zero;
+                    //inventoryManager.hoveredItem = null; // Không trỏ vào item nào
                 }
 
-                animator.SetBool("isMove", isMove);
-
-                    //UpdateSprite(); // Cập nhật sprite theo hướng
-
-                if (Input.GetKeyDown(KeyCode.Space))
+                /*if (Input.GetKeyDown(KeyCode.E) && inventoryManager.hoveredItem != null)
                 {
-                    animator.SetBool("isAttack", true);
-                    /*Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+                    inventoryManager.UseItem(inventoryManager.hoveredItem); 
+                   
+                }*/
 
-                    foreach(Collider2D enemy in hitenemies)
-                    {
-                        if (enemy.tag == "enemy")
-                        {
-                            Debug.Log("Hello");
-                            enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(damage);
-                            break;
-                        }
-                    }*/
-                }
-                if(Input.GetKeyDown(KeyCode.Tab))
-                {
-                    playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
-                    ShowItemInInventory();
-                }
             }
-        }
-    }
-    /*private void UpdateSprite()
-    {
-        var rotationVector = transform.rotation.eulerAngles;
 
-        if (moveY > 0) // Hướng lên
-        {
-
-            animator.SetFloat("MoveY", 0);
-            rotationVector.z = 0f;
+            isCanMove = playerInformationPanel.activeSelf ? false : true;
         }
-        else if (moveY < 0) // Hướng xuống
-        {
-            animator.SetFloat("MoveY", 0);
-            rotationVector.z = 180f;
-        }
-        else if (moveX < 0) // Hướng trái
-        {
-            animator.SetFloat("MoveX", 0);
-            rotationVector.z = 90f;
-        }
-        else if (moveX > 0) // Hướng phải
-        {
-            animator.SetFloat("MoveX", 0);
-            rotationVector.z = -90f;
-        }
-
-    }*/
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.tag == "enemy")
-        {
-            Debug.Log("Hit");
-
-        }
-    }
-
-    public void EndAttack()
-    {
-        animator.SetBool("isAttack", false);
     }
 
     public void Attack()
@@ -158,7 +139,7 @@ public class PlayerMovement : MonoBehaviourPun
             if (enemy.tag == "enemy")
             {
                 Debug.Log("Hit");
-                enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(damage);
+                enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(playerStats.damage);
             }
         }
     }
@@ -191,22 +172,5 @@ public class PlayerMovement : MonoBehaviourPun
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-    void ShowItemInInventory()
-    {
-        for (int i = 0; i < itemButton.Length; i++)
-        {
-            var oneItemButton = itemButton[i];
-            oneItemButton.transform.GetChild(0).gameObject.SetActive(false);
-            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = " ";
-        }
 
-        var items = playerCollider.itemInventory;
-        for (int i = 0; i < items.Count; i++)
-        {
-            var oneItemButton = itemButton[i];
-            oneItemButton.transform.GetChild(0).gameObject.SetActive(true);
-            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = items[i].item.itemSprite;
-            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = items[i].quantity.ToString();
-        }
-    }    
 }
