@@ -22,6 +22,14 @@ public class MonsterInteract : MonoBehaviour
     bool isDead = false;
     bool isAIenabled = false;
 
+    bool isSlowedDown = false;
+    float timer = 0f;
+
+    bool isFrozen = false;
+    float timer2 = 0f;
+
+    float speed = 0f;
+
     System.Random random = new System.Random();
 
     void Start()
@@ -29,6 +37,7 @@ public class MonsterInteract : MonoBehaviour
         current_health = random.Next(min_randHealth, max_randHealth);
         damage = random.Next(min_damage, max_damage);
         healthBar.SetMaxHealth(current_health);
+        speed = this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed;
     }
 
     void Update()
@@ -40,6 +49,26 @@ public class MonsterInteract : MonoBehaviour
             this.transform.parent.gameObject.GetComponent<AIPath>().enabled = false;
             this.transform.parent.gameObject.GetComponent<AIDestinationSetter>().enabled = false;
             isAIenabled = false;
+        }
+
+        if (isSlowedDown)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0f)
+            {
+                UnSlowDown();
+            }
+        }
+
+        if (isFrozen)
+        {
+            timer2 -= Time.deltaTime;
+
+            if (timer2 <= 0f)
+            {
+                UnFreeze();
+            }
         }
     }
 
@@ -67,6 +96,32 @@ public class MonsterInteract : MonoBehaviour
         this.transform.parent.gameObject.GetComponent<AIPath>().enabled = true;
         this.transform.parent.gameObject.GetComponent<AIDestinationSetter>().enabled = true;
         isAIenabled = true;
+    }
+
+    public void SlowDown()
+    {
+        isSlowedDown = true;
+        timer = 3f;
+        this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed /= 2f;
+    }
+
+    public void UnSlowDown()
+    {
+        isSlowedDown = false;
+        this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed *= 2f;
+    }
+
+    public void Freeze()
+    {
+        isFrozen = true;
+        timer2 = 4f;
+        this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed = 0f;
+    }
+
+    public void UnFreeze()
+    {
+        isFrozen = false;
+        this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed = speed;
     }
 
     public void Revive()
