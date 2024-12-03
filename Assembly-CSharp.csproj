@@ -92,7 +92,6 @@
     <Compile Include="Assets\_Scripts\Monster Spawner Scripts\Spawner_7.cs" />
     <Compile Include="Assets\_Scripts\RoomList.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-    <Compile Include="Assets\_Scripts\Test.cs" />
     <Compile Include="Assets\_Scripts\SpawnerManager.cs" />
     <Compile Include="Assets\_Scripts\Board.cs" />
     <Compile Include="Assets\_Scripts\HealthBar.cs" />
@@ -122,7 +121,6 @@
     <Compile Include="Assets\_Scripts\Monster Spawner Scripts\Pool_5.cs" />
     <Compile Include="Assets\_Scripts\Timer Scripts\Timer_4.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
-    <Compile Include="Assets\_Scripts\ItemPickUp.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />

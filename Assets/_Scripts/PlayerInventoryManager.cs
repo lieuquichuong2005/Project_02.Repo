@@ -42,7 +42,6 @@ public class PlayerInventoryManager : MonoBehaviour
 
     public void ShowItemInInventory()
     {
-        Debug.Log(itemInventory);
         informationPanel.gameObject.SetActive(false);
 
         for (int i = 0; i < itemButton.Length; i++)
