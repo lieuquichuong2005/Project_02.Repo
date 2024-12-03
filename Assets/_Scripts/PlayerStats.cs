@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     public Slider manaSlider;
     public Image expMount;
     public TMP_Text levelText;
-
+ 
     public int level = 1;
     public int maxHealth;
     public int currentHealth;

@@ -364,7 +364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9156375015538074205
 Transform:
   m_ObjectHideFlags: 0
@@ -373,8 +373,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037295480261810740}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.98159635, w: -0.1909675}
+  m_LocalPosition: {x: 10.728735, y: -8.069578, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2780,7 +2780,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   playerInformationPanel: {fileID: 7841868717434571711}
   marker: {fileID: 5329544188995951614}
-  playerStats: {fileID: 2759513769316316534}
+  playerStats: {fileID: 0}
   playerCollider: {fileID: 7010458750164547897}
   animator: {fileID: 6795461977108329331}
   enemyLayers:

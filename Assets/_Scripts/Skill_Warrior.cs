@@ -18,16 +18,10 @@ public class Skill_Warrior : MonoBehaviour
 
     //--------------- Skill 3: Circle ----------------------
     //Nhấn phím 3, 1 thanh kiếm xuất hiện xoay quanh player trong 5s, tạo 20 damage và làm chậm enemy 3s
-
-
-    private Rigidbody2D rb2d;
-    public Animator animator;
-
+    public PlayerMovement playerMovement;
     public Transform attackPoint;
     public float attackRange = 1f;
     public LayerMask enemyLayers;
-
-    public bool isCanMove = true;
 
     // Skill 1 params
     public int slash_damage = 100;
@@ -55,9 +49,6 @@ public class Skill_Warrior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-
         circularWeapon.SetActive(false);
     }
 
@@ -66,8 +57,16 @@ public class Skill_Warrior : MonoBehaviour
     {
         if (GetComponent<PhotonView>().IsMine)
         {
-            if (isCanMove)
+            if (PlayerMovement.isCanMove)
             {
+                if (timer > 0)
+                {
+                    timer -= Time.deltaTime;
+                }
+                else
+                {
+                    PlayerMovement.isCanMove = true; 
+                }
                 // Skill 1
                 if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
                 {
@@ -87,7 +86,7 @@ public class Skill_Warrior : MonoBehaviour
                         }
                         
                         this.transform.position = chosenObj.transform.position;
-                        animator.SetTrigger("Skill_01");
+                        playerMovement.animator.SetTrigger("Skill_01");
                     }
                     else
                     {
@@ -99,8 +98,9 @@ public class Skill_Warrior : MonoBehaviour
                 if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)))
                 {
                     skill2Trigger = true;
-                    animator.SetTrigger("Skill_02");
+                    playerMovement.animator.SetTrigger("Skill_02");
                     timer = set_timer;
+                    PlayerMovement.isCanMove = false;
                 }
 
                 // Skill 3
@@ -159,8 +159,8 @@ public class Skill_Warrior : MonoBehaviour
 
     public void Tremor()
     {
-        float x = animator.GetFloat("moveX");
-        float y = animator.GetFloat("moveY");
+        float x = playerMovement.animator.GetFloat("moveX");
+        float y = playerMovement.animator.GetFloat("moveY");
 
         if (y == 0f && x > 0f) // Phải
         {

@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviourPun
 
     public LayerMask enemyLayers;
     public Transform attackPoint;
-    public bool isCanMove = true;
+    public static bool isCanMove = true;
     public float attackRange = 0.5f;
 
     public int damage = 30;

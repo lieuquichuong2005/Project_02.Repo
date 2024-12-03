@@ -19,6 +19,7 @@ public class PlayerInventoryManager : MonoBehaviour
     public Button throwItemButton;
     public TMP_Text itemNameText;
     public TMP_Text itemDescriptionText;
+    public Image itemImage;
 
     private void Awake()
     {
@@ -104,7 +105,8 @@ public class PlayerInventoryManager : MonoBehaviour
         if (item.itemName != null)
         {
             itemNameText.text = item.itemName; 
-            itemDescriptionText.text = item.itemDescription; 
+            itemDescriptionText.text = item.itemDescription;
+            itemImage.sprite = item.itemSprite;
             Debug.Log($"Clicked on item: {item.itemName}, Description: {item.itemDescription}");
             informationPanel.gameObject.SetActive(true); 
         }
