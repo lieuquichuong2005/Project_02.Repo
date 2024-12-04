@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1432374001546522356}
   - component: {fileID: 8743018583481850443}
   - component: {fileID: 5828262825591187983}
-  - component: {fileID: -587277571132866098}
   m_Layer: 0
   m_Name: Copper Chest
   m_TagString: Item
@@ -182,16 +181,3 @@ MonoBehaviour:
   itemSprite: {fileID: -5971942374765049077, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}
   armorAdded: 30
   durability: 100
---- !u!114 &-587277571132866098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7615775617018078114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8125f4c68c44d74fa9a9f42903e9810, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 0}

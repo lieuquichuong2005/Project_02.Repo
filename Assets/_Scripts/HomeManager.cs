@@ -90,16 +90,12 @@ public class HomeManager : MonoBehaviour
 
     void Start()
     {
-
-        // Kiểm tra người dùng đã đăng nhập hay chưa
         if (auth.CurrentUser != null)
         {
             displayName = auth.CurrentUser.Email.Split('@')[0];
             DisplayPlayerName(displayName);
             logOutButton.gameObject.SetActive(true);
             nameTextPanel.SetActive(true);
-
-            //OnStartButton();
         }
         else
         {

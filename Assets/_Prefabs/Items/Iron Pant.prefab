@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 250594987221113647}
   - component: {fileID: 5867605577884471936}
   - component: {fileID: 3898560810872527401}
-  - component: {fileID: 2016884174120221028}
   m_Layer: 0
   m_Name: Iron Pant
   m_TagString: Item
@@ -182,16 +181,3 @@ MonoBehaviour:
   itemSprite: {fileID: 3719068211130651045, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}
   armorAdded: 40
   durability: 100
---- !u!114 &2016884174120221028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516691410429659513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8125f4c68c44d74fa9a9f42903e9810, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 0}

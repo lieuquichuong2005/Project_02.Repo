@@ -21,13 +21,14 @@ public class PlayerInventoryManager : MonoBehaviour
     public TMP_Text itemDescriptionText;
     public Image itemImage;
 
+    public Item selectedItem;
     private void Awake()
     {
         useItemButton.onClick.AddListener(OnUseItemButton);
         upgradeItemButton.onClick.AddListener(OnUpgradeItemButton);
         throwItemButton.onClick.AddListener(OnThrowItemButton);
     }
-    public void AddItem(Item item)
+    public void AddItem(Item item)   
     {
         
         var checkItem = itemInventory.Find(x => x.item.itemID == item.itemID);
@@ -51,6 +52,7 @@ public class PlayerInventoryManager : MonoBehaviour
             button.onClick.RemoveAllListeners(); 
             oneItemButton.transform.GetChild(0).gameObject.SetActive(false);
             oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = " ";
+            oneItemButton.gameObject.SetActive(false);
         }
 
         for (int i = 0; i < itemInventory.Count; i++)
@@ -59,6 +61,7 @@ public class PlayerInventoryManager : MonoBehaviour
             var button = oneItemButton.GetComponent<Button>();
             var currentItem = itemInventory[i];
 
+            oneItemButton.SetActive(true);
             itemSlotUI = oneItemButton.GetComponent<ItemSlotUI>();
             itemSlotUI.SetItem(currentItem.item);
 
@@ -69,6 +72,7 @@ public class PlayerInventoryManager : MonoBehaviour
             oneItemButton.transform.GetChild(0).gameObject.SetActive(true);
             oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = currentItem.item.itemSprite;
             oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = currentItem.quantity.ToString();
+
         }
     }
 
@@ -77,9 +81,7 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         if (item is ConsumeItems consumable)
         {
-            playerStats.currentHealth += consumable.healthAdded;
-            playerStats.currentMana += consumable.manaAdded;
-            playerStats.moveSpeed += consumable.moveSpeedAdded;
+            playerStats.UpdateStatsByUsingConsumeItem(consumable.healthAdded, consumable.manaAdded, consumable.moveSpeedAdded);
 
             var inventoryEntry = itemInventory.Find(x => x.item.itemID == consumable.itemID);
             if (inventoryEntry != null)
@@ -90,12 +92,38 @@ public class PlayerInventoryManager : MonoBehaviour
                     itemInventory.Remove(inventoryEntry);
                 }
 
-                Debug.Log($"Used item: {item.itemName}, Remaining: {inventoryEntry.quantity}");
+                Debug.Log($"Used item: {item.itemName},Current Health: {playerStats.currentHealth}, Remaining: {inventoryEntry.quantity}");
                 ShowItemInInventory();
             }
         }
     }
+    public void ThrowItem(Item item)
+    {
+        if (item != null)
+        {
+            GameObject thrownItem = Instantiate(item.gameObject, transform.position, Quaternion.identity);
+            Rigidbody2D rb = thrownItem.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.AddForce(Vector2.right * 5f, ForceMode2D.Impulse);
+                Debug.Log($"Thrown item: {item.itemName}");
+            }
+        }
 
+        var inventoryEntry = itemInventory.Find(x => x.item.itemID == item.itemID);
+        if (inventoryEntry != null)
+        {
+            inventoryEntry.quantity--;
+            if (inventoryEntry.quantity <= 0)
+            {
+                itemInventory.Remove(inventoryEntry);
+            }
+
+            Debug.Log($"Thrơw item: {item.itemName}, Remaining: {inventoryEntry.quantity}");
+            ShowItemInInventory();
+        }
+        ShowItemInInventory();
+    }
     public void ShowItemDetails(int  index)
     {
 
@@ -106,6 +134,7 @@ public class PlayerInventoryManager : MonoBehaviour
             itemNameText.text = item.itemName; 
             itemDescriptionText.text = item.itemDescription;
             itemImage.sprite = item.itemSprite;
+            selectedItem = item; 
             Debug.Log($"Clicked on item: {item.itemName}, Description: {item.itemDescription}");
             informationPanel.gameObject.SetActive(true); 
         }
@@ -118,7 +147,7 @@ public class PlayerInventoryManager : MonoBehaviour
     }
     void OnUseItemButton()
     {
-        ShowItemInInventory();
+        UseItem(selectedItem);
     }
     public void OnUpgradeItemButton()
     {
@@ -126,7 +155,7 @@ public class PlayerInventoryManager : MonoBehaviour
     }
     void OnThrowItemButton()
     {
-        ShowItemInInventory();
+        ThrowItem(selectedItem);
     }
 
 }

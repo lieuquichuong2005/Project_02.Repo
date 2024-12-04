@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3978694011154289397}
   - component: {fileID: 9006703761008374797}
   - component: {fileID: 7954912484337329410}
-  - component: {fileID: -33607022469909032}
   m_Layer: 0
   m_Name: Fire Sword
   m_TagString: Item
@@ -196,16 +195,3 @@ MonoBehaviour:
   damageAdded: 120
   rangeAdded: 5
   attackSpeedAdded: 4
---- !u!114 &-33607022469909032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6864988780901690698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8125f4c68c44d74fa9a9f42903e9810, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 0}

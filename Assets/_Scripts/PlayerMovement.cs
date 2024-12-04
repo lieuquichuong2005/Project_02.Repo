@@ -59,6 +59,11 @@ public class PlayerMovement : MonoBehaviourPun
         {
             if (isCanMove)
             {
+                if (Input.GetKeyDown(KeyCode.G))
+                {
+                    playerStats.EarnDamage(10);
+                    Debug.Log("Máu bị trừ thành công.");
+                }
                 moveX = Input.GetAxisRaw("Horizontal");
                 moveY = Input.GetAxisRaw("Vertical");
                 if (moveX == 1 || moveX == -1 || moveY == 1 || moveY == -1)

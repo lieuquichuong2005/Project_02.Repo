@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,10 +27,6 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        //healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
-        //manaSlider = GameObject.FindWithTag("ManaSlider").GetComponent <Slider>();
-        //expMount = GameObject.FindWithTag("ExpMount").GetComponent<Image>();
-        //levelText = GameObject.FindWithTag("LevelText").GetComponent <TMP_Text>();
         levelStats = new List<LevelStats>
         {
             new LevelStats(1, 100, 50, 10, 10, 3, 2),
@@ -47,25 +44,26 @@ public class PlayerStats : MonoBehaviour
         {
             level = 1; 
         }
-        UpdateStats(levelStats[level - 1]);
+        UpdateStatsData(levelStats[level - 1]);
+        UpdateStatsUI();
     }
-    public void UpdateStats(LevelStats stats)
+    public void UpdateStatsData(LevelStats stats)
     {
         level = stats.level;
         maxHealth = stats.maxHealth;
+        currentHealth = maxHealth;
         maxMana = stats.maxMana;
+        currentMana = maxMana;
         damage = stats.damage;
         armor = stats.armor;
         moveSpeed = stats.moveSpeed;
         attackSpeed = stats.attackSpeed;
         experienceToLevelUp = CalculateExperienceToLevelUp(level);
-
-        healthSlider.maxValue = maxHealth;
-        currentHealth = maxHealth; 
-        manaSlider.maxValue = maxMana;
-        currentMana = maxMana;
-        healthSlider.value = currentHealth;
-        manaSlider.value = currentMana;
+    }
+    public void UpdateStatsUI()
+    {
+        healthSlider.value = currentHealth/maxHealth;
+        manaSlider.value = currentMana/maxMana;
         levelText.text = level.ToString();
         expMount.fillAmount = (float)currentExperience / experienceToLevelUp;
     }
@@ -96,8 +94,22 @@ public class PlayerStats : MonoBehaviour
         if (level - 1 < levelStats.Count)
         {
             LevelStats stats = levelStats[level - 1];
-            UpdateStats(stats);
+            UpdateStatsData(stats);
+            UpdateStatsUI();
             Debug.Log($"Level Up! Level: {level}, Health: {maxHealth}, Mana: {maxMana}");
         }
     }
+    public void UpdateStatsByUsingConsumeItem(int hp, int mp, int speed)
+    {
+        this.currentHealth += hp;
+        this.currentMana += mp;
+        this.currentExperience += speed;
+    }
+    public void EarnDamage(int damage)
+    {
+        this.currentHealth -= damage;
+        Debug.Log($"Máu hiện tại: {currentHealth}");
+        UpdateStatsUI();
+    }
+    
 }
