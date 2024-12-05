@@ -4,10 +4,10 @@ using UnityEngine;
 public class PositionAfterLoadScene : MonoBehaviour
 {
     public GameObject player;
-    public Vector2[] position; // Thiết lập trong Inspector
+    public Vector2[] position; 
     public string thisSceneName;
     public CinemachineVirtualCamera cinemachineVirtual;
-    public string[] oldScene; // Thiết lập trong Inspector
+    public string[] oldScene; 
 
     void Start()
     {

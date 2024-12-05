@@ -140,6 +140,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\_Scripts\PlayerPanelManager.cs" />
+    <Compile Include="Assets\_Scripts\LoadingSceneEffect.cs" />
     <Compile Include="Assets\_Scripts\Timer Scripts\Timer_7.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\_Scripts\PlayerStats.cs" />

@@ -22,9 +22,6 @@ public class HomeManager : MonoBehaviour
     public Button closeButton;
     public Button logOutButton;
 
-    //public Button chooseCharacterButton;
-
-
     public GameObject listButton;
 
     public TMP_Text notifyText;
@@ -32,6 +29,8 @@ public class HomeManager : MonoBehaviour
     private string displayName;
 
     [Header("Panel")]
+    public GameObject loadingPanel;
+    public GameObject menuPanel;
     public List<GameObject> panels;
     public GameObject logInPanel;
     public GameObject registerPanel;
@@ -83,9 +82,13 @@ public class HomeManager : MonoBehaviour
         logInButton.onClick.AddListener(LoginAccout);
         registerButton.onClick.AddListener(RegisterAccout);
 
+        menuPanel.gameObject.SetActive(false);
+        loadingPanel.gameObject.SetActive(true);
+
         InitializeFirebase();
         Debug.Log(displayName);
 
+        StartCoroutine(HideLoadingEffect());
     }
 
     void Start()
@@ -371,6 +374,12 @@ void OnCloseButton()
         notifyPanel.SetActive(false);
         notifyText.text = " ";
     }
-
+    IEnumerator HideLoadingEffect()
+    {
+        yield return new WaitForSeconds(2);
+        loadingPanel.gameObject.SetActive(false);
+        menuPanel.gameObject.SetActive(true);
+    }
+        
         
 }
