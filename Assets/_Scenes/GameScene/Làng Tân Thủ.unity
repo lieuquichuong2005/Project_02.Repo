@@ -5992,6 +5992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Khu farm 16
+  level_limit: 3
 --- !u!1 &700524434
 GameObject:
   m_ObjectHideFlags: 0
@@ -6244,6 +6245,9 @@ MonoBehaviour:
   min_damage: 0
   max_damage: 0
   damage: 0
+  min_exp: 0
+  max_exp: 0
+  exp: 0
 --- !u!1 &716495585
 GameObject:
   m_ObjectHideFlags: 0
@@ -6947,6 +6951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "R\u1EEBng Xanh"
+  level_limit: 1
 --- !u!1 &870792316
 GameObject:
   m_ObjectHideFlags: 0
@@ -16277,6 +16282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 
+  level_limit: 2
 --- !u!1 &1253034793
 GameObject:
   m_ObjectHideFlags: 0
@@ -23962,6 +23968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Khu farm 2
+  level_limit: 4
 --- !u!1 &1682963234
 GameObject:
   m_ObjectHideFlags: 0
@@ -28386,6 +28393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Khu farm 11
+  level_limit: 10
 --- !u!1 &2138651108
 GameObject:
   m_ObjectHideFlags: 0

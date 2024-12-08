@@ -65,11 +65,12 @@ public class PlayerStats : MonoBehaviour
         healthSlider.value = currentHealth/maxHealth;
         manaSlider.value = currentMana/maxMana;
         levelText.text = level.ToString();
-        expMount.fillAmount = (float)currentExperience / experienceToLevelUp;
+        expMount.fillAmount = (float)currentExperience / (float)experienceToLevelUp;
     }
     public void GainExperience(int amount)
     {
         currentExperience += amount;
+        UpdateStatsUI();
         CheckLevelUp();
     }
 
@@ -112,4 +113,8 @@ public class PlayerStats : MonoBehaviour
         UpdateStatsUI();
     }
     
+    public int GetLevel()
+    {
+        return level;
+    }
 }

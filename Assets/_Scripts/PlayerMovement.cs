@@ -131,6 +131,8 @@ public class PlayerMovement : MonoBehaviourPun
             }
 
             isCanMove = playerInformationPanel.activeSelf ? false : true;
+
+            
         }
     }
 
@@ -144,6 +146,12 @@ public class PlayerMovement : MonoBehaviourPun
             {
                 Debug.Log("Hit");
                 enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(playerStats.damage);
+                if (enemy.gameObject.GetComponent<MonsterInteract>().GetHealth() <= 0)
+                {
+                    int exp = enemy.gameObject.GetComponent<MonsterInteract>().GetEXP();
+                    playerStats.GainExperience(exp);
+                    
+                }
             }
         }
     }

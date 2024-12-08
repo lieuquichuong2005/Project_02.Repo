@@ -4155,6 +4155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "L\xE0ng T\xE2n Th\u1EE7"
+  level_limit: 0
 --- !u!1 &958819554
 GameObject:
   m_ObjectHideFlags: 0
@@ -5453,6 +5454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "L\xE0ng B\u1ECF Hoang"
+  level_limit: 7
 --- !u!1 &1198474678
 GameObject:
   m_ObjectHideFlags: 0
