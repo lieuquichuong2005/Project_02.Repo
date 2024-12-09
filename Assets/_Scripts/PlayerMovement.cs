@@ -131,6 +131,8 @@ public class PlayerMovement : MonoBehaviourPun
             }
 
             isCanMove = playerInformationPanel.activeSelf ? false : true;
+
+            
         }
     }
 
@@ -144,6 +146,12 @@ public class PlayerMovement : MonoBehaviourPun
             {
                 Debug.Log("Hit");
                 enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(playerStats.damage);
+                if (enemy.gameObject.GetComponent<MonsterInteract>().GetHealth() <= 0)
+                {
+                    int exp = enemy.gameObject.GetComponent<MonsterInteract>().GetEXP();
+                    playerStats.GainExperience(exp);
+                    
+                }
             }
         }
     }
@@ -175,6 +183,15 @@ public class PlayerMovement : MonoBehaviourPun
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "enemy")
+        {
+            playerStats.EarnDamage(collision.gameObject.GetComponent<MonsterInteract>().GetDamage());
+        }
     }
 
 }

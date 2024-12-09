@@ -10,6 +10,9 @@ public class MonsterInteract : MonoBehaviour
 {
     public HealthBar healthBar;
 
+    public GameObject SlowEffect;
+    public GameObject StunEffect;
+
     //public int current_health;
     public int min_randHealth;
     public int max_randHealth;
@@ -18,6 +21,10 @@ public class MonsterInteract : MonoBehaviour
     public int min_damage;
     public int max_damage;
     public int damage;
+
+    public int min_exp;
+    public int max_exp;
+    public int exp;
 
     bool isDead = false;
     bool isAIenabled = false;
@@ -36,13 +43,16 @@ public class MonsterInteract : MonoBehaviour
     {
         current_health = random.Next(min_randHealth, max_randHealth);
         damage = random.Next(min_damage, max_damage);
+        exp = random.Next(min_exp, max_exp);
         healthBar.SetMaxHealth(current_health);
         speed = this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed;
+        SlowEffect.SetActive(false);
+        StunEffect.SetActive(false);
     }
 
     void Update()
     {
-        if (current_health < 0)
+        if (current_health <= 0)
         {
             this.transform.parent.gameObject.SetActive(false);
             this.transform.parent.gameObject.GetComponent<Seeker>().enabled = false;
@@ -57,6 +67,7 @@ public class MonsterInteract : MonoBehaviour
 
             if (timer <= 0f)
             {
+                SlowEffect.SetActive(false);
                 UnSlowDown();
             }
         }
@@ -67,6 +78,7 @@ public class MonsterInteract : MonoBehaviour
 
             if (timer2 <= 0f)
             {
+                StunEffect.SetActive(false);
                 UnFreeze();
             }
         }
@@ -76,6 +88,16 @@ public class MonsterInteract : MonoBehaviour
     public int GetDamage()
     {
         return damage;
+    }
+
+    public int GetHealth()
+    {
+        return current_health;
+    }
+
+    public int GetEXP()
+    {
+        return exp;
     }
 
     public bool Status()
@@ -100,6 +122,7 @@ public class MonsterInteract : MonoBehaviour
 
     public void SlowDown()
     {
+        SlowEffect.SetActive(true);
         isSlowedDown = true;
         timer = 3f;
         this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed /= 2f;
@@ -113,6 +136,7 @@ public class MonsterInteract : MonoBehaviour
 
     public void Freeze()
     {
+        StunEffect.SetActive(true);
         isFrozen = true;
         timer2 = 4f;
         this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed = 0f;
