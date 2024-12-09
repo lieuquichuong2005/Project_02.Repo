@@ -108,6 +108,7 @@
     <Compile Include="Assets\_Scripts\TeleportManager.cs" />
     <Compile Include="Assets\_Scripts\Monster Spawner Scripts\Spawner_5.cs" />
     <Compile Include="Assets\_Scripts\Item.cs" />
+    <Compile Include="Assets\_Scripts\SettingInGameManager.cs" />
     <Compile Include="Assets\_Scripts\Timer Scripts\Timer_1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
