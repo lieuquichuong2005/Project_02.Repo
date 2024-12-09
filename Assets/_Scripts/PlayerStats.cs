@@ -39,6 +39,17 @@ public class PlayerStats : MonoBehaviour
             new LevelStats(8, 850, 310, 170, 45, 6, 4),
             new LevelStats(9, 1050, 390, 220, 59, 6, 4),
             new LevelStats(10, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(11, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(12, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(13, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(14, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(15, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(16, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(17, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(18, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(19, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(20, 1300, 500, 300, 70, 6, 4),
+            new LevelStats(21, 1300, 500, 300, 70, 6, 4),
         };
         if (level < 1 || level > levelStats.Count)
         {

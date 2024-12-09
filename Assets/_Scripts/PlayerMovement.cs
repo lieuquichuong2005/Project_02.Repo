@@ -185,4 +185,13 @@ public class PlayerMovement : MonoBehaviourPun
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "enemy")
+        {
+            playerStats.EarnDamage(collision.gameObject.GetComponent<MonsterInteract>().GetDamage());
+        }
+    }
+
 }
