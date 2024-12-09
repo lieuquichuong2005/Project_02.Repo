@@ -39,12 +39,14 @@ public class Skill_Warrior : MonoBehaviour
     public int circular_damage = 20;
     public float set_timer2 = 5f;
     public float timer2 = 0f;
-    public float rotate_speed = 60f;
+    public float rotate_speed;
     public bool skill3Activated = false;
     public Transform player_obj;
 
     bool skill2Trigger = false;
     bool skill3Trigger = false;
+
+    public PlayerStats playerStats;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -120,6 +122,15 @@ public class Skill_Warrior : MonoBehaviour
                         GameObject[] knives = GameObject.FindGameObjectsWithTag("warrior_skill2");
                         foreach (GameObject knife in knives)
                         {
+                            if (knife.gameObject.transform.GetChild(0).gameObject.GetComponent<WarriorKnifeScript>().ReturnState())
+                            {
+                                GameObject enemyHit = knife.gameObject.transform.GetChild(0).gameObject.GetComponent<WarriorKnifeScript>().ReturnObj();
+                                if (enemyHit.gameObject.GetComponent<MonsterInteract>().GetHealth() <= 0)
+                                {
+                                    int exp = enemyHit.gameObject.GetComponent<MonsterInteract>().GetEXP();
+                                    playerStats.GainExperience(exp);
+                                }
+                            }
                             Destroy(knife);
                         }
                         skill2Activated = false;
@@ -153,14 +164,19 @@ public class Skill_Warrior : MonoBehaviour
             if (enemy.tag == "enemy")
             {
                 enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(slash_damage);
+                if (enemy.gameObject.GetComponent<MonsterInteract>().GetHealth() <= 0)
+                {
+                    int exp = enemy.gameObject.GetComponent<MonsterInteract>().GetEXP();
+                    playerStats.GainExperience(exp);
+                }
             }
         }
     }
 
     public void Tremor()
     {
-        float x = playerMovement.animator.GetFloat("moveX");
-        float y = playerMovement.animator.GetFloat("moveY");
+        float x = playerMovement.animator.GetFloat("MoveX");
+        float y = playerMovement.animator.GetFloat("MoveY");
 
         if (y == 0f && x > 0f) // Phải
         {
@@ -211,10 +227,16 @@ public class Skill_Warrior : MonoBehaviour
     {
         if (collider.gameObject.tag == "enemy")
         {
+
             if (skill3Trigger)
             {
                 collider.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(circular_damage);
                 collider.gameObject.GetComponent<MonsterInteract>().SlowDown();
+                if (collider.gameObject.GetComponent<MonsterInteract>().GetHealth() <= 0)
+                {
+                    int exp = collider.gameObject.GetComponent<MonsterInteract>().GetEXP();
+                    playerStats.GainExperience(exp);
+                }
             }
         }
     }

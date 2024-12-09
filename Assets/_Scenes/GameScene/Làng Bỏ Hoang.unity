@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Khu farm 5
+  level_limit: 20
 --- !u!1 &65513688
 GameObject:
   m_ObjectHideFlags: 0
@@ -5666,6 +5667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Khu farm 10
+  level_limit: 35
 --- !u!1 &117390504
 GameObject:
   m_ObjectHideFlags: 0
@@ -25283,6 +25285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "R\u1EEBng Xanh"
+  level_limit: 1
 --- !u!1 &2076400053
 GameObject:
   m_ObjectHideFlags: 0

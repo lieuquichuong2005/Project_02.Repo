@@ -2927,6 +2927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Khu farm 11
+  level_limit: 10
 --- !u!61 &344377087
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16353,6 +16354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Khu farm 9
+  level_limit: 60
 --- !u!61 &1795947773
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17291,6 +17293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: "L\xE0ng B\u1ECF Hoang"
+  level_limit: 7
 --- !u!61 &1968633292
 BoxCollider2D:
   m_ObjectHideFlags: 0
