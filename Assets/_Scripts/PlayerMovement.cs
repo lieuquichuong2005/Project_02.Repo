@@ -150,7 +150,8 @@ public class PlayerMovement : MonoBehaviourPun
                 {
                     int exp = enemy.gameObject.GetComponent<MonsterInteract>().GetEXP();
                     playerStats.GainExperience(exp);
-                    
+                    int coin = enemy.gameObject.GetComponent<MonsterInteract>().GetCoin();
+                    playerStats.GainCoin(coin);
                 }
             }
         }
