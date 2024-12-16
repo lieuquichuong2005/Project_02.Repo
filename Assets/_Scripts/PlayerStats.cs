@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     public Slider manaSlider;
     public Image expMount;
     public TMP_Text levelText;
+    public TMP_Text coinText;
  
     public int level = 1;
     public int maxHealth;
@@ -24,6 +25,7 @@ public class PlayerStats : MonoBehaviour
     public int armor;
     public int attackSpeed;
     public int moveSpeed;
+    public int coin = 0;
 
     private void Awake()
     {
@@ -77,6 +79,7 @@ public class PlayerStats : MonoBehaviour
         manaSlider.value = currentMana/maxMana;
         levelText.text = level.ToString();
         expMount.fillAmount = (float)currentExperience / (float)experienceToLevelUp;
+        coinText.text = coin.ToString();
     }
     public void GainExperience(int amount)
     {
@@ -127,5 +130,11 @@ public class PlayerStats : MonoBehaviour
     public int GetLevel()
     {
         return level;
+    }
+
+    public void GainCoin(int amount)
+    {
+        coin += amount;
+        UpdateStatsUI();
     }
 }

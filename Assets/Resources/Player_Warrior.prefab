@@ -3292,6 +3292,7 @@ MonoBehaviour:
   manaSlider: {fileID: 7023303520412261221}
   expMount: {fileID: 8253811166526814737}
   levelText: {fileID: 4219019889478969407}
+  coinText: {fileID: 6176492117118637661}
   level: 1
   maxHealth: 0
   currentHealth: 0
@@ -3303,6 +3304,7 @@ MonoBehaviour:
   armor: 0
   attackSpeed: 0
   moveSpeed: 0
+  coin: 0
 --- !u!114 &5426768442655003834
 MonoBehaviour:
   m_ObjectHideFlags: 0

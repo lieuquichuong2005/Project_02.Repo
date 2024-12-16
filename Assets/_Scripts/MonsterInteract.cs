@@ -28,6 +28,8 @@ public class MonsterInteract : MonoBehaviour
     public int max_exp;
     public int exp;
 
+    public int coin = 10;
+
     bool isDead = false;
     float timeAnim = 0.5f;
     bool isAIenabled = false;
@@ -133,6 +135,11 @@ public class MonsterInteract : MonoBehaviour
     public int GetEXP()
     {
         return exp;
+    }
+
+    public int GetCoin()
+    {
+        return coin;
     }
 
     public bool Status()
