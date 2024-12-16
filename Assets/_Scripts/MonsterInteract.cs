@@ -8,6 +8,8 @@ using System;
 
 public class MonsterInteract : MonoBehaviour
 {
+    public GameObject deadAnim;
+
     public HealthBar healthBar;
 
     public GameObject SlowEffect;
@@ -27,6 +29,7 @@ public class MonsterInteract : MonoBehaviour
     public int exp;
 
     bool isDead = false;
+    float timeAnim = 0.5f;
     bool isAIenabled = false;
 
     bool isSlowedDown = false;
@@ -41,6 +44,7 @@ public class MonsterInteract : MonoBehaviour
 
     void Start()
     {
+        deadAnim.SetActive(false);
         current_health = random.Next(min_randHealth, max_randHealth);
         damage = random.Next(min_damage, max_damage);
         exp = random.Next(min_exp, max_exp);
@@ -52,13 +56,31 @@ public class MonsterInteract : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(deadAnim.gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime);
         if (current_health <= 0)
         {
-            this.transform.parent.gameObject.SetActive(false);
-            this.transform.parent.gameObject.GetComponent<Seeker>().enabled = false;
+            deadAnim.SetActive(true);
+            this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed = 0f;
+            //Debug.Log("Error 1");
+            //StartCoroutine(WaitDeadAnim());
+            //Debug.Log("Error 5");
+            //this.transform.parent.gameObject.SetActive(false);
+            /*this.transform.parent.gameObject.GetComponent<Seeker>().enabled = false;
             this.transform.parent.gameObject.GetComponent<AIPath>().enabled = false;
             this.transform.parent.gameObject.GetComponent<AIDestinationSetter>().enabled = false;
-            isAIenabled = false;
+            isAIenabled = false;*/
+
+            timeAnim -= Time.deltaTime;
+            if (timeAnim <= 0f)
+            {
+                this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed = speed;
+                this.transform.parent.gameObject.GetComponent<Seeker>().enabled = false;
+                this.transform.parent.gameObject.GetComponent<AIPath>().enabled = false;
+                this.transform.parent.gameObject.GetComponent<AIDestinationSetter>().enabled = false;
+                isAIenabled = false;
+                this.transform.parent.gameObject.SetActive(false);
+                deadAnim.SetActive(false);
+            }
         }
 
         if (isSlowedDown)
@@ -84,6 +106,19 @@ public class MonsterInteract : MonoBehaviour
         }
     }
 
+    /*IEnumerator WaitDeadAnim()
+    {
+        Debug.Log("Error 2");
+        Animator anim = deadAnim.gameObject.GetComponent<Animator>();
+        anim.Play("dead");
+        yield return new WaitForSeconds(5);
+        Debug.Log("Error 3");
+        while (anim.GetCurrentAnimatorStateInfo(0).IsName("dead") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+        {
+            Debug.Log("Error 4");
+            yield return null;
+        }
+    }*/
 
     public int GetDamage()
     {
@@ -154,6 +189,7 @@ public class MonsterInteract : MonoBehaviour
         damage = random.Next(min_damage, max_damage);
         healthBar.SetMaxHealth(current_health);
         healthBar.SetHealth(current_health);
+        timeAnim = 0.5f;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
