@@ -101,7 +101,7 @@ public class PlayerStats : MonoBehaviour
 
     private int CalculateExperienceToLevelUp(int currentLevel)
     {
-        return 95 * currentLevel;
+        return 215 * currentLevel;
     }
 
     private void IncreaseStats()
