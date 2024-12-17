@@ -15022,7 +15022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MonsterSpawner: {fileID: 1869577099}
-  spawnTime: 60
+  spawnTime: 20
   currentTime: 0
 --- !u!114 &1869577101
 MonoBehaviour:
