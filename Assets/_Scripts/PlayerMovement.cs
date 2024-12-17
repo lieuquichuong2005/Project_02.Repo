@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviourPun
     public static bool isCanMove = true;
     public float attackRange = 0.5f;
 
-    public int damage = 30;
+    public int damage = 20;
     private string direction;
     float moveX;
     float moveY;

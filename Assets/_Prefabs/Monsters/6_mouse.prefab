@@ -553,9 +553,10 @@ MonoBehaviour:
   min_damage: 100
   max_damage: 120
   damage: 0
-  min_exp: 175
-  max_exp: 200
+  min_exp: 127
+  max_exp: 129
   exp: 0
+  coin: 10
 --- !u!95 &4775997675111627460
 Animator:
   serializedVersion: 7
