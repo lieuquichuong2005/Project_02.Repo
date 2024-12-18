@@ -107,7 +107,6 @@ public class MonsterInteract : MonoBehaviour
 
             if (timer <= 0f)
             {
-                SlowEffect.SetActive(false);
                 UnSlowDown();
             }
         }
@@ -118,7 +117,6 @@ public class MonsterInteract : MonoBehaviour
 
             if (timer2 <= 0f)
             {
-                StunEffect.SetActive(false);
                 UnFreeze();
             }
         }
@@ -169,8 +167,9 @@ public class MonsterInteract : MonoBehaviour
 
     public void UnSlowDown()
     {
+        SlowEffect.SetActive(false);
         isSlowedDown = false;
-        this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed *= 2f;
+        this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed = speed;
     }
 
     public void Freeze()
@@ -183,6 +182,7 @@ public class MonsterInteract : MonoBehaviour
 
     public void UnFreeze()
     {
+        StunEffect.SetActive(false);
         isFrozen = false;
         this.transform.parent.gameObject.GetComponent<AIPath>().maxSpeed = speed;
     }
