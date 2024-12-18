@@ -75,11 +75,14 @@ public class PlayerStats : MonoBehaviour
     }
     public void UpdateStatsUI()
     {
-        healthSlider.value = currentHealth/maxHealth;
-        manaSlider.value = currentMana/maxMana;
+        healthSlider.value = (float)currentHealth / maxHealth;
+        manaSlider.value = (float)currentMana / maxMana;
         levelText.text = level.ToString();
-        expMount.fillAmount = (float)currentExperience / (float)experienceToLevelUp;
+        expMount.fillAmount = (float)currentExperience / experienceToLevelUp;
         coinText.text = coin.ToString();
+
+        float expPercentage = (float)currentExperience/ experienceToLevelUp;
+        expMount.GetComponent<Image>().color = Color.Lerp(Color.yellow, Color.green, expPercentage);
     }
     public void GainExperience(int amount)
     {
@@ -136,5 +139,10 @@ public class PlayerStats : MonoBehaviour
     {
         coin += amount;
         UpdateStatsUI();
+    }
+    private void ShowLevelUpEffect()
+    {
+        
+        Invoke("HideLevelUpText", 2f); 
     }
 }
