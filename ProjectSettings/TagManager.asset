@@ -22,6 +22,9 @@ TagManager:
   - board
   - warrior_skill3
   - warrior_skill2
+  - enemy
+  - Coin
+  - weapon
   layers:
   - Default
   - TransparentFX

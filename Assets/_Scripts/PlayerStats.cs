@@ -75,8 +75,10 @@ public class PlayerStats : MonoBehaviour
     }
     public void UpdateStatsUI()
     {
-        healthSlider.value = (float)currentHealth / maxHealth;
-        manaSlider.value = (float)currentMana / maxMana;
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = currentHealth;
+        manaSlider.maxValue = maxMana;
+        manaSlider.value = currentMana;
         levelText.text = level.ToString();
         expMount.fillAmount = (float)currentExperience / experienceToLevelUp;
         coinText.text = coin.ToString();

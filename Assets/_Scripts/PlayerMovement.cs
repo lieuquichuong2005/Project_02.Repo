@@ -23,9 +23,11 @@ public class PlayerMovement : MonoBehaviourPun
 
 
     public LayerMask enemyLayers;
+    public GameObject AttackPointObj;
     public Transform attackPoint;
     public static bool isCanMove = true;
-    public float attackRange = 0.5f;
+    public float attackRangeDefault;
+    public float attackRange = 0f;
 
     public int damage = 20;
     private string direction;
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviourPun
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         //animator = GetComponent<Animator>();
+        AttackPointObj.SetActive(false);
 
         DontDestroyOnLoad(this.gameObject);
         //DontDestroyOnLoad(playerStats.gameObject);
@@ -84,6 +87,7 @@ public class PlayerMovement : MonoBehaviourPun
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                AttackPointObj.SetActive(true);
                 animator.SetTrigger("Attack");
                 /*Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -138,6 +142,7 @@ public class PlayerMovement : MonoBehaviourPun
 
     public void Attack()
     {
+        attackRange = attackRangeDefault;
         Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitenemies)
@@ -150,11 +155,12 @@ public class PlayerMovement : MonoBehaviourPun
                 {
                     int exp = enemy.gameObject.GetComponent<MonsterInteract>().GetEXP();
                     playerStats.GainExperience(exp);
-                    int coin = enemy.gameObject.GetComponent<MonsterInteract>().GetCoin();
-                    playerStats.GainCoin(coin);
                 }
             }
         }
+
+        attackRange = 0f;
+        AttackPointObj.SetActive(false);
     }
 
     /*private void OnTriggerEnter2D(Collider2D other)
@@ -183,16 +189,15 @@ public class PlayerMovement : MonoBehaviourPun
         {
             return;
         }
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, attackRangeDefault);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    /*void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "enemy")
         {
             playerStats.EarnDamage(collision.gameObject.GetComponent<MonsterInteract>().GetDamage());
         }
-    }
+    }*/
 
 }
