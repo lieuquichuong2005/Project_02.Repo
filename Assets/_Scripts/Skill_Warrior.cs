@@ -129,8 +129,6 @@ public class Skill_Warrior : MonoBehaviour
                                 {
                                     int exp = enemyHit.gameObject.GetComponent<MonsterInteract>().GetEXP();
                                     playerStats.GainExperience(exp);
-                                    int coin = enemyHit.gameObject.GetComponent<MonsterInteract>().GetCoin();
-                                    playerStats.GainCoin(coin);
                                 }
                             }
                             Destroy(knife);
@@ -170,8 +168,6 @@ public class Skill_Warrior : MonoBehaviour
                 {
                     int exp = enemy.gameObject.GetComponent<MonsterInteract>().GetEXP();
                     playerStats.GainExperience(exp);
-                    int coin = enemy.gameObject.GetComponent<MonsterInteract>().GetCoin();
-                    playerStats.GainCoin(coin);
                 }
             }
         }
@@ -240,8 +236,6 @@ public class Skill_Warrior : MonoBehaviour
                 {
                     int exp = collider.gameObject.GetComponent<MonsterInteract>().GetEXP();
                     playerStats.GainExperience(exp);
-                    int coin = collider.gameObject.GetComponent<MonsterInteract>().GetCoin();
-                    playerStats.GainCoin(coin);
                 }
             }
         }

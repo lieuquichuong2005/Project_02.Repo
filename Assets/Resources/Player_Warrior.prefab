@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1300,7 +1300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -31.987497, y: 1.906}
+  m_AnchoredPosition: {x: -31.987518, y: 1.9060001}
   m_SizeDelta: {x: -63.9748, y: -10.1799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6027618598152366127
@@ -3190,7 +3190,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0065259933, y: -0.54566455}
+  m_Offset: {x: -0.0123669505, y: -0.24010001}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3200,7 +3200,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.490983, y: 0.2450971}
+  m_Size: {x: 0.93685615, y: 0.88645506}
   m_EdgeRadius: 0
 --- !u!50 &1805131665778888962
 Rigidbody2D:
@@ -3214,7 +3214,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.12033853
+  m_Mass: 0.8304809
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -3326,8 +3326,10 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1
+  AttackPointObj: {fileID: 3332570626566059414}
   attackPoint: {fileID: 59631049484152801}
-  attackRange: 2
+  attackRangeDefault: 2
+  attackRange: 0
   damage: 30
 --- !u!114 &6412064007862911908
 MonoBehaviour:
@@ -6517,7 +6519,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
