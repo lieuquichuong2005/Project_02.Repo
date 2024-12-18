@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviourPun
     private Rigidbody2D rb2d;
     public Animator animator;
 
-
     public LayerMask enemyLayers;
     public GameObject AttackPointObj;
     public Transform attackPoint;
@@ -40,9 +39,6 @@ public class PlayerMovement : MonoBehaviourPun
             instance = this;
         else
             Destroy(instance);
-        //playerStats = GameObject.FindWithTag("PlayerStats");
-        //playerCollider = GetComponent<PlayerCollider>();
-        //marker = GameObject.FindWithTag("PlayerMarker");
         marker.SetActive(true);
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -162,26 +158,23 @@ public class PlayerMovement : MonoBehaviourPun
         attackRange = 0f;
         AttackPointObj.SetActive(false);
     }
-
-    /*private void OnTriggerEnter2D(Collider2D other)
+    public IEnumerator FlashMarkerColor()
     {
-        if (other.gameObject.CompareTag("Items"))
-        
-            var item = other.gameObject.GetComponent<GameItem>();
+        float duration = 10f;
+        float interval = 0.2f; 
+        float elapsed = 0f;
 
-            var check = items.Find(x => x.item.itemID == item.itemID);
-
-            if (check == null)
-                items.Add(new PlayerItems { item = item, quantity = 1 });
-            else
-            {
-                check.quantity += 1;
-                Debug.Log("Cộng Số Lượng");
-            }
-
-            Destroy(other.gameObject);
+        while (elapsed < duration)
+        {
+            marker.GetComponent<Renderer>().material.color = Color.white;
+            yield return new WaitForSeconds(interval);
+            marker.GetComponent<Renderer>().material.color = Color.blue; 
+            yield return new WaitForSeconds(interval);
+            elapsed += interval * 2; 
         }
-    }*/
+
+        marker.GetComponent<Renderer>().material.color = Color.white;
+    }
 
     void OnDrawGizmosSelected()
     {
@@ -191,13 +184,4 @@ public class PlayerMovement : MonoBehaviourPun
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRangeDefault);
     }
-
-    /*void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "enemy")
-        {
-            playerStats.EarnDamage(collision.gameObject.GetComponent<MonsterInteract>().GetDamage());
-        }
-    }*/
-
 }

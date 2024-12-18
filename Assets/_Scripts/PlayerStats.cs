@@ -1,11 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    public PlayerMovement playerMovement;
+
     public List<LevelStats> levelStats;
 
     public Slider healthSlider;
@@ -101,6 +105,7 @@ public class PlayerStats : MonoBehaviour
             level++;
             experienceToLevelUp = CalculateExperienceToLevelUp(level);
             IncreaseStats();
+            StartCoroutine(playerMovement.FlashMarkerColor());
         }
     }
 
@@ -147,4 +152,5 @@ public class PlayerStats : MonoBehaviour
         
         Invoke("HideLevelUpText", 2f); 
     }
+    
 }

@@ -128,6 +128,7 @@
     <Compile Include="Assets\_Scripts\WeaponItems.cs" />
     <Compile Include="Assets\_Scripts\Monster Spawner Scripts\Pool_3.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
+    <Compile Include="Assets\_Scripts\Coin.cs" />
     <Compile Include="Assets\_Scripts\PositionAfterLoadScene.cs" />
     <Compile Include="Assets\_Scripts\Timer Scripts\Timer_5.cs" />
     <Compile Include="Assets\_Scripts\Monster Spawner Scripts\Spawner_2.cs" />
