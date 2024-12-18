@@ -401,7 +401,10 @@ MonoBehaviour:
   min_exp: 285
   max_exp: 290
   exp: 0
-  coin: 10
+  coinPrefab: {fileID: 2123532365823409558, guid: da81164810cb0d547981ccbbcaaa1ae3, type: 3}
+  min_coin: 8
+  max_coin: 10
+  isCreateCoin: 0
 --- !u!95 &4857916315761177131
 Animator:
   serializedVersion: 7
