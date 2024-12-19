@@ -310,6 +310,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 2123532365823409558, guid: da81164810cb0d547981ccbbcaaa1ae3, type: 3}
   min_coin: 10
   max_coin: 15
+  coin: 0
   isCreateCoin: 0
 --- !u!95 &2249137303110764439
 Animator:
@@ -606,7 +607,7 @@ MonoBehaviour:
   radius: 1
   height: 2
   canMove: 1
-  maxSpeed: 2
+  maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
