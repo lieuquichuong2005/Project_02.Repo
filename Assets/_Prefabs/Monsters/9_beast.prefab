@@ -385,6 +385,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 2123532365823409558, guid: da81164810cb0d547981ccbbcaaa1ae3, type: 3}
   min_coin: 8
   max_coin: 10
+  coin: 0
   isCreateCoin: 0
 --- !u!95 &8912678557083656052
 Animator:
