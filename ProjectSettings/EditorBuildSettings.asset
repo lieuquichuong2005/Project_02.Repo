@@ -27,16 +27,22 @@ EditorBuildSettings:
     path: Assets/_Scenes/GameScene/Khu farm 2.unity
     guid: 312d094c93ef0804bb764253cfba89df
   - enabled: 1
+    path: Assets/_Scenes/GameScene/Khu farm 4.unity
+    guid: 06c6136568181014088ef57ad33f0804
+  - enabled: 1
+    path: Assets/_Scenes/GameScene/Khu farm 9.unity
+    guid: 09fa60f4e7496954c90819cde4991955
+  - enabled: 1
+    path: Assets/_Scenes/GameScene/Khu farm 10.unity
+    guid: 6846db1fbb3c3084faa31f52c5fce098
+  - enabled: 1
     path: Assets/_Scenes/GameScene/Khu farm 11.unity
     guid: 4cb36efb790db8a468ab6a5596264484
   - enabled: 1
     path: Assets/_Scenes/GameScene/Khu farm 16.unity
     guid: 906cf4761e65580439ecc89ce568490a
   - enabled: 1
-    path: Assets/_Scenes/GameScene/Khu farm 4.unity
-    guid: 06c6136568181014088ef57ad33f0804
-  - enabled: 1
-    path: Assets/_Scenes/GameScene/Khu farm 10.unity
-    guid: 6846db1fbb3c3084faa31f52c5fce098
+    path: Assets/_Scenes/GameScene/Khu farm Boss.unity
+    guid: ade336f7a438a874b85a6297e94ad1d4
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
