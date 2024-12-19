@@ -10,24 +10,25 @@ using UnityEngine.EventSystems;
 public class PlayerMovement : MonoBehaviourPun
 {
     public static PlayerMovement instance;
-    public PlayerInventoryManager inventoryManager;
     public static string currentScene;
 
-    public GameObject playerInformationPanel;
-    public GameObject marker;
+    public PlayerInventoryManager inventoryManager;
     public PlayerStats playerStats;
     public PlayerCollider playerCollider;
 
-    private Rigidbody2D rb2d;
-    public Animator animator;
-
-    public LayerMask enemyLayers;
+    public GameObject playerInformationPanel;
+    public GameObject settingInGamePanel;
+    public GameObject marker;
     public GameObject AttackPointObj;
     public Transform attackPoint;
+
+    private Rigidbody2D rb2d;
+    public Animator animator;
+    public LayerMask enemyLayers;
+
     public static bool isCanMove = true;
     public float attackRangeDefault;
     public float attackRange = 0f;
-
     public int damage = 20;
     private string direction;
     float moveX;
@@ -58,17 +59,17 @@ public class PlayerMovement : MonoBehaviourPun
         {
             if (isCanMove)
             {
-                if (Input.GetKeyDown(KeyCode.G))
-                {
-                    playerStats.EarnDamage(10);
-                    Debug.Log("Máu bị trừ thành công.");
-                }
                 moveX = Input.GetAxisRaw("Horizontal");
                 moveY = Input.GetAxisRaw("Vertical");
                 if (moveX == 1 || moveX == -1 || moveY == 1 || moveY == -1)
                 {
                     animator.SetFloat("LastMoveX", moveX);
                     animator.SetFloat("LastMoveY", moveY);
+                }
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    AttackPointObj.SetActive(true);
+                    animator.SetTrigger("Attack");
                 }
             }
             else
@@ -80,23 +81,12 @@ public class PlayerMovement : MonoBehaviourPun
 
             animator.SetFloat("MoveX", moveX);
             animator.SetFloat("MoveY", moveY);
-
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                AttackPointObj.SetActive(true);
-                animator.SetTrigger("Attack");
-                /*Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-                foreach(Collider2D enemy in hitenemies)
-                {
-                    if (enemy.tag == "enemy")
-                    {
-                        Debug.Log("Hello");
-                        enemy.gameObject.GetComponent<MonsterInteract>().ReceiveDamage(damage);
-                        break;
-                    }
-                }*/
+                settingInGamePanel.SetActive(!settingInGamePanel.activeSelf);           
             }
+
+            
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
@@ -130,7 +120,7 @@ public class PlayerMovement : MonoBehaviourPun
 
             }
 
-            isCanMove = playerInformationPanel.activeSelf ? false : true;
+            isCanMove = (playerInformationPanel.activeSelf || settingInGamePanel.activeSelf) ? false : true;
 
             
         }
