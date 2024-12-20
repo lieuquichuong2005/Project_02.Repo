@@ -6445,6 +6445,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 4264393594522691947}
   playerStats: {fileID: 3891956901735826230}
   playerCollider: {fileID: 7010458750164547897}
+  settingInGame: {fileID: 8096410676585173754}
   playerInformationPanel: {fileID: 6197735247512304082}
   settingInGamePanel: {fileID: 3131788740717947296}
   marker: {fileID: 5329544188995951614}

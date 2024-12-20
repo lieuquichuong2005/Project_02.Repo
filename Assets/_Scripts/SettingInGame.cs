@@ -24,11 +24,7 @@ public class SettingInGame : MonoBehaviour
 
     void Start()
     {
-        foreach (GameObject panel in panels)
-        {
-            panel.SetActive(false);
-            Debug.Log("Đã Tắt Tất Cả Panel");
-        }
+        InactivePanel();
 
         settingPanelButton.onClick.AddListener(OnSettingButtonClick);
         accountPanelButton.onClick.AddListener(OnAccountButtonClick);
@@ -96,4 +92,11 @@ public class SettingInGame : MonoBehaviour
         PlayerPrefs.SetInt("Fullscreen", isFullscreen ? 1 : 0);
         PlayerPrefs.Save();
     }
+    public void InactivePanel()
+    {
+        foreach (GameObject panel in panels)
+        {
+            panel.gameObject.SetActive(false);
+        }
+    }    
 }

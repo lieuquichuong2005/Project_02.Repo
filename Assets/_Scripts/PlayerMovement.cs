@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviourPun
     public PlayerInventoryManager inventoryManager;
     public PlayerStats playerStats;
     public PlayerCollider playerCollider;
+    public SettingInGame settingInGame;
 
     public GameObject playerInformationPanel;
     public GameObject settingInGamePanel;
@@ -84,6 +85,8 @@ public class PlayerMovement : MonoBehaviourPun
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 settingInGamePanel.SetActive(!settingInGamePanel.activeSelf);
+                if(settingInGamePanel.activeSelf)
+                    settingInGame.InactivePanel();
             }
 
             
