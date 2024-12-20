@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviourPun
             animator.SetFloat("MoveY", moveY);
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                settingInGamePanel.SetActive(!settingInGamePanel.activeSelf);           
+                settingInGamePanel.SetActive(!settingInGamePanel.activeSelf);
             }
 
             

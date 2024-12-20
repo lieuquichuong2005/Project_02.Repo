@@ -1,6 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingInGame : MonoBehaviour
 {
@@ -14,10 +15,21 @@ public class SettingInGame : MonoBehaviour
     public Button cancelHomeButton;
     public Button cancelExitGameButton;
 
+    public Slider musicSettingSlider;
+    public Slider sfxSettingSlider;
+    public Toggle fullscreenToggle;
+    public TMP_Dropdown languageDropdown;
+
     public GameObject[] panels;
 
     void Start()
     {
+        foreach (GameObject panel in panels)
+        {
+            panel.SetActive(false);
+            Debug.Log("Đã Tắt Tất Cả Panel");
+        }
+
         settingPanelButton.onClick.AddListener(OnSettingButtonClick);
         accountPanelButton.onClick.AddListener(OnAccountButtonClick);
         helpPanelButton.onClick.AddListener(OnHelpButtonClick);
@@ -26,10 +38,21 @@ public class SettingInGame : MonoBehaviour
         confirmHomeButton.onClick.AddListener(OnConfirmHomeButtonClick);
         confirmExitGameButton.onClick.AddListener(OnConfirmExitGameButtonClick);
 
-        foreach (GameObject panel in panels)
-        {
-            panel.SetActive(false);
-        }
+        fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
+        fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggle);
+
+        float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        float soundEffectVolume = PlayerPrefs.GetFloat("SoundEffectVolume", 1f);
+
+        AudioManager.instance.SetMusicVolume(musicVolume);
+        AudioManager.instance.SetSoundEffectVolume(soundEffectVolume);
+
+        musicSettingSlider.value = musicVolume;
+        sfxSettingSlider.value = soundEffectVolume;
+
+        musicSettingSlider.onValueChanged.AddListener(AudioManager.instance.SetMusicVolume);
+        sfxSettingSlider.onValueChanged.AddListener(AudioManager.instance.SetSoundEffectVolume);
+
     }
 
     void OnSettingButtonClick()
@@ -66,5 +89,11 @@ public class SettingInGame : MonoBehaviour
         {
             panel.SetActive(panel ==  panelToActive);
         }    
+    }
+    public void OnFullscreenToggle(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+        PlayerPrefs.SetInt("Fullscreen", isFullscreen ? 1 : 0);
+        PlayerPrefs.Save();
     }
 }
