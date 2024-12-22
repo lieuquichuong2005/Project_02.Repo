@@ -25,6 +25,7 @@ TagManager:
   - enemy
   - Coin
   - weapon
+  - BlacksmithNPC
   layers:
   - Default
   - TransparentFX
