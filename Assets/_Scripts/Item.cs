@@ -6,7 +6,8 @@ public class Item : MonoBehaviour
     public string itemName;
     public string itemDescription;
     public Sprite itemSprite;
-
+    public int itemPrice;
+    public int levelToUse;
     public override string ToString()
     {
         return $"id: {itemID} name: {itemName}";
