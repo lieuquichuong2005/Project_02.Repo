@@ -5,9 +5,11 @@ using System.Collections.Generic;
 
 public class ShopManager : MonoBehaviour
 {
+    public List<Item> itemsInShop;
+    public Button[] itemsShopButton;
+
     public GameObject itemInformationPanel;
 
-    public Button[] itemsShopButton;
     public Button closeButton;
     public Button buyButton;
 
@@ -19,7 +21,6 @@ public class ShopManager : MonoBehaviour
     public TMP_Text itemDescriptionText;
 
     private int amountItemBuy;
-    public Item selectItem;
     private void Start()
     {
         buyButton.onClick.AddListener(OnBuyButtonClick);
@@ -28,9 +29,14 @@ public class ShopManager : MonoBehaviour
         foreach (Button itemButton in itemsShopButton)
         {
             itemButton.onClick.AddListener(() => OnItemButtonClick(itemButton));
-            Debug.Log("Ấn Nút");
         }
+        for(int i = 0; i < itemsInShop.Count; i++)
+        {
+            var oneItemButton = itemsShopButton[i];
 
+            oneItemButton.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = itemsInShop[i].itemSprite;
+            oneItemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = itemsInShop[i].itemName;
+        }
 
         // Ẩn panel thông tin sản phẩm ban đầu
         itemInformationPanel.SetActive(false);
@@ -38,6 +44,11 @@ public class ShopManager : MonoBehaviour
 
     void OnItemButtonClick(Button clickedButton)
     {
+        if(clickedButton == null) 
+        {
+            Debug.LogError("Button Trống");
+            return;
+        }
         Debug.Log("Hiện Thông Tin");
         itemImage.sprite = clickedButton.GetComponent<Item>()?.itemSprite;
         itemNameText.text = clickedButton.GetComponent<Item>()?.itemName;
