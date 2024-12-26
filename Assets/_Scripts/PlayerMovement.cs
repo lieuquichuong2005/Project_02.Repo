@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviourPun
     public GameObject settingInGamePanel;
     public GameObject marker;
     public GameObject AttackPointObj;
+    public GameObject shopPanel;
     public Transform attackPoint;
 
     private Rigidbody2D rb2d;
@@ -44,14 +45,14 @@ public class PlayerMovement : MonoBehaviourPun
         marker.SetActive(true);
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        //animator = GetComponent<Animator>();
         AttackPointObj.SetActive(false);
 
-        DontDestroyOnLoad(this.gameObject);
-        //DontDestroyOnLoad(playerStats.gameObject);
         currentScene = "Làng Tân Thủ";
         playerInformationPanel.gameObject.SetActive(false);
+        shopPanel.gameObject.SetActive(false);
         Debug.Log(currentScene);
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Update()

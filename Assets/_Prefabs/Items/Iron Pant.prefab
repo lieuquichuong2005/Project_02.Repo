@@ -179,5 +179,8 @@ MonoBehaviour:
   itemName: Iron Pant
   itemDescription: "S\u1EED d\u1EE5ng \u0111\u1EC3 t\u0103ng ph\xF2ng th\u1EE7."
   itemSprite: {fileID: 3719068211130651045, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}
+  itemPrice: 45
+  levelToUse: 0
+  itemType: Armor Item
   armorAdded: 40
   durability: 100

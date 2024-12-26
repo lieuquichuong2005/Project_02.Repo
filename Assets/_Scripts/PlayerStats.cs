@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     public PlayerMovement playerMovement;
+    public ShopManager shopManager;
 
     public List<LevelStats> levelStats;
 
@@ -29,7 +30,7 @@ public class PlayerStats : MonoBehaviour
     public int armor;
     public int attackSpeed;
     public int moveSpeed;
-    public int coin = 0;
+    public static int coin = 0;
 
     private void Awake()
     {
@@ -145,8 +146,16 @@ public class PlayerStats : MonoBehaviour
     public void GainCoin(int amount)
     {
         coin += amount;
+        shopManager.coinText.text = coin.ToString();
         UpdateStatsUI();
     }
+    public void UseCoin(int amount)
+    {
+        coin -= amount;
+        shopManager.coinText.text = coin.ToString();
+        UpdateStatsUI();
+    }
+        
     private void ShowLevelUpEffect()
     {
         

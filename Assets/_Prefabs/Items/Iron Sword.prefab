@@ -192,6 +192,9 @@ MonoBehaviour:
   itemName: Iron Sword
   itemDescription: "Trang b\u1ECB \u0111\u1EC3 t\u0103ng s\xE1t th\u01B0\u01A1ng."
   itemSprite: {fileID: -3074023447068413781, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}
+  itemPrice: 200
+  levelToUse: 0
+  itemType: Weapon Item
   damageAdded: 75
   rangeAdded: 3
   attackSpeedAdded: 2

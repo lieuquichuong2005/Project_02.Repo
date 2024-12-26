@@ -179,5 +179,8 @@ MonoBehaviour:
   itemName: Iron Chest
   itemDescription: "S\u1EED d\u1EE5ng \u0111\u1EC3 t\u0103ng ph\xF2ng th\u1EE7."
   itemSprite: {fileID: -6099050445329199328, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}
+  itemPrice: 50
+  levelToUse: 0
+  itemType: Armor Item
   armorAdded: 50
   durability: 100

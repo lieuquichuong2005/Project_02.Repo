@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class ShopManager : MonoBehaviour
 {
+    public PlayerStats playerStats;
+    public PlayerInventoryManager playerInventoryManager; 
+
     public List<Item> itemsInShop;
     public Button[] itemsShopButton;
 
@@ -16,62 +19,79 @@ public class ShopManager : MonoBehaviour
     public TMP_InputField amountInputField;
     public Image itemImage;
     public TMP_Text itemNameText;
-    public TMP_Text itemTypeText;
+    public TMP_Text itemTypeText; 
     public TMP_Text itemPriceText;
     public TMP_Text itemDescriptionText;
+    public TMP_Text coinText;
 
-    private int amountItemBuy;
+    private Item selectedItem; 
+
     private void Start()
     {
         buyButton.onClick.AddListener(OnBuyButtonClick);
         closeButton.onClick.AddListener(OnCloseButtonClick);
 
-        foreach (Button itemButton in itemsShopButton)
-        {
-            itemButton.onClick.AddListener(() => OnItemButtonClick(itemButton));
-        }
-        for(int i = 0; i < itemsInShop.Count; i++)
+        for (int i = 0; i < itemsInShop.Count; i++)
         {
             var oneItemButton = itemsShopButton[i];
+            int index = i;
 
-            oneItemButton.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = itemsInShop[i].itemSprite;
-            oneItemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = itemsInShop[i].itemName;
+            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = itemsInShop[i].itemSprite;
+            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = itemsInShop[i].itemName;
 
+            oneItemButton.onClick.AddListener(() => OnItemButtonClick(itemsInShop[index]));
         }
-
-        // Ẩn panel thông tin sản phẩm ban đầu
+        coinText.text = "Coin: " + PlayerStats.coin.ToString();
         itemInformationPanel.SetActive(false);
     }
 
-    void OnItemButtonClick(Button clickedButton)
+    void OnItemButtonClick(Item clickedItem)
     {
-        if(clickedButton == null) 
+        if (clickedItem == null)
         {
-            Debug.LogError("Button Trống");
+            Debug.LogError("Item Trống");
             return;
         }
-        Debug.Log("Hiện Thông Tin");
-        itemImage.sprite = clickedButton.GetComponent<Item>()?.itemSprite;
-        itemNameText.text = clickedButton.GetComponent<Item>()?.itemName;
-        //itemTypeText.text = clickedButton.GetComponent<Item>()?.itemType;
-        itemPriceText.text = clickedButton.GetComponent<Item>()?.itemPrice.ToString();
-        itemDescriptionText.text = clickedButton.GetComponent<Item>()?.itemDescription.ToString();
-        amountInputField.text = "1";
-        if (itemImage == null || itemNameText == null)
-            Debug.LogError("Null");
 
+        selectedItem = clickedItem;
+        itemImage.sprite = clickedItem.itemSprite;
+        itemNameText.text = clickedItem.itemName;
+        itemTypeText.text = clickedItem.itemType; 
+        itemPriceText.text = "Giá: " + clickedItem.itemPrice.ToString();
+        itemDescriptionText.text = clickedItem.itemDescription;
+
+        amountInputField.text = "1"; 
         itemInformationPanel.SetActive(true);
     }
 
     void OnBuyButtonClick()
     {
-        if (amountInputField != null) amountInputField.text = "1";
-        amountItemBuy = int.Parse(amountInputField.text);
-        Debug.Log($"Mua {amountInputField.text} sản phẩm: {itemNameText} số lượng {amountItemBuy} với giá { int.Parse(itemPriceText.text) * amountItemBuy}" );
+        if (selectedItem == null)
+        {
+            Debug.LogError("Chưa chọn món đồ để mua");
+            return;
+        }
+
+        if (int.TryParse(amountInputField.text, out int amountItemBuy) && amountItemBuy > 0)
+        {
+            int totalPrice = selectedItem.itemPrice * amountItemBuy;
+            if (PlayerStats.coin > totalPrice)
+            {
+                playerInventoryManager.AddItem(selectedItem);
+                playerStats.UseCoin(20);
+                Debug.Log($"Mua {amountItemBuy} sản phẩm: {selectedItem.itemName} với tổng giá {totalPrice}");
+            }
+            else
+                Debug.Log("Tài sản hiện có không đủ");
+        }
+        else
+        {
+            Debug.LogError("Số lượng không hợp lệ");
+        }
     }
 
     void OnCloseButtonClick()
     {
         this.gameObject.SetActive(false);
-    }    
+    }
 }

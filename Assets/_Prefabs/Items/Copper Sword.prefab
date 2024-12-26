@@ -192,6 +192,9 @@ MonoBehaviour:
   itemName: Copper Sword
   itemDescription: "Trang b\u1ECB \u0111\u1EC3 t\u0103ng s\xE1t th\u01B0\u01A1ng."
   itemSprite: {fileID: -2178467043915682464, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}
+  itemPrice: 75
+  levelToUse: 0
+  itemType: Weapon Item
   damageAdded: 40
   rangeAdded: 2
   attackSpeedAdded: 1

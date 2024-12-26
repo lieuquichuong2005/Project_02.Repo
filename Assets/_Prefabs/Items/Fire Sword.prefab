@@ -192,6 +192,9 @@ MonoBehaviour:
   itemName: Fire Sword
   itemDescription: "Trang b\u1ECB \u0111\u1EC3 t\u0103ng s\xE1t th\u01B0\u01A1ng."
   itemSprite: {fileID: 712035800519618848, guid: d788fdea84801b840982c1fb9171c406, type: 3}
+  itemPrice: 500
+  levelToUse: 0
+  itemType: Weapon Item
   damageAdded: 120
   rangeAdded: 5
   attackSpeedAdded: 4
