@@ -36,6 +36,7 @@ public class ShopManager : MonoBehaviour
 
             oneItemButton.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = itemsInShop[i].itemSprite;
             oneItemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = itemsInShop[i].itemName;
+
         }
 
         // Ẩn panel thông tin sản phẩm ban đầu
@@ -56,6 +57,8 @@ public class ShopManager : MonoBehaviour
         itemPriceText.text = clickedButton.GetComponent<Item>()?.itemPrice.ToString();
         itemDescriptionText.text = clickedButton.GetComponent<Item>()?.itemDescription.ToString();
         amountInputField.text = "1";
+        if (itemImage == null || itemNameText == null)
+            Debug.LogError("Null");
 
         itemInformationPanel.SetActive(true);
     }

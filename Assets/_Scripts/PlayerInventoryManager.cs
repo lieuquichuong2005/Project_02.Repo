@@ -92,7 +92,6 @@ public class PlayerInventoryManager : MonoBehaviour
                     itemInventory.Remove(inventoryEntry);
                 }
 
-                Debug.Log($"Used item: {item.itemName},Current Health: {playerStats.currentHealth}, Remaining: {inventoryEntry.quantity}");
                 ShowItemInInventory();
             }
         }
@@ -106,7 +105,6 @@ public class PlayerInventoryManager : MonoBehaviour
             if (rb != null)
             {
                 rb.AddForce(Vector2.right * 5f, ForceMode2D.Impulse);
-                Debug.Log($"Thrown item: {item.itemName}");
             }
         }
 
@@ -119,7 +117,6 @@ public class PlayerInventoryManager : MonoBehaviour
                 itemInventory.Remove(inventoryEntry);
             }
 
-            Debug.Log($"Thrơw item: {item.itemName}, Remaining: {inventoryEntry.quantity}");
             ShowItemInInventory();
         }
         ShowItemInInventory();
@@ -135,7 +132,6 @@ public class PlayerInventoryManager : MonoBehaviour
             itemDescriptionText.text = item.itemDescription;
             itemImage.sprite = item.itemSprite;
             selectedItem = item; 
-            Debug.Log($"Clicked on item: {item.itemName}, Description: {item.itemDescription}");
             informationPanel.gameObject.SetActive(true); 
         }
         else
