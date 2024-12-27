@@ -10,8 +10,6 @@ public class Spawner_Boss : MonoBehaviour
     public GameObject Pool;
 
     public int max_spawn;
-    int current_num = 0;
-
     bool doneGenerated = false;
 
     public IEnumerator Start()

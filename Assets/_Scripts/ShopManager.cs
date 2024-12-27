@@ -6,61 +6,74 @@ using System.Collections.Generic;
 public class ShopManager : MonoBehaviour
 {
     public PlayerStats playerStats;
-    public PlayerInventoryManager playerInventoryManager; 
+    public PlayerInventoryManager playerInventoryManager;
 
-    public List<Item> itemsInShop;
-    public Button[] itemsShopButton;
+    public List<Item> armorItemsInShop;
+    public List<Item> consumeItemsOutShop; 
+    public List<Item> weaponItemsOutShop;
+    public GameObject itemButtonPrefab;
+    public Transform contentPanel;
 
+    public GameObject[] shopPanels;
     public GameObject itemInformationPanel;
 
     public Button closeButton;
     public Button buyButton;
 
+    public TMP_Text shopNameText;
     public TMP_InputField amountInputField;
     public Image itemImage;
     public TMP_Text itemNameText;
-    public TMP_Text itemTypeText; 
+    public TMP_Text itemTypeText;
     public TMP_Text itemPriceText;
     public TMP_Text itemDescriptionText;
     public TMP_Text coinText;
 
-    private Item selectedItem; 
+    private Item selectedItem;
 
     private void Start()
     {
         buyButton.onClick.AddListener(OnBuyButtonClick);
         closeButton.onClick.AddListener(OnCloseButtonClick);
 
-        for (int i = 0; i < itemsInShop.Count; i++)
-        {
-            var oneItemButton = itemsShopButton[i];
-            int index = i;
-
-            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = itemsInShop[i].itemSprite;
-            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = itemsInShop[i].itemName;
-
-            oneItemButton.onClick.AddListener(() => OnItemButtonClick(itemsInShop[index]));
-        }
-        coinText.text = "Coin: " + PlayerStats.coin.ToString();
+        PopulateShop(armorItemsInShop); 
+        UpdateCoinText();
         itemInformationPanel.SetActive(false);
+    }
+
+    public void PopulateShop(List<Item> shopItems)
+    {
+        foreach (Transform child in contentPanel)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Item item in shopItems)
+        {
+            GameObject oneItemButton = Instantiate(itemButtonPrefab, contentPanel);
+            oneItemButton.transform.GetChild(0).GetComponent<Image>().sprite = item.itemSprite;
+            oneItemButton.transform.GetChild(1).GetComponent<TMP_Text>().text = item.itemName;
+
+            oneItemButton.GetComponent<Button>().onClick.AddListener(() => OnItemButtonClick(item));
+        }
     }
 
     void OnItemButtonClick(Item clickedItem)
     {
         if (clickedItem == null)
         {
-            Debug.LogError("Item Trống");
+            Debug.LogError("Item trống");
             return;
         }
 
         selectedItem = clickedItem;
         itemImage.sprite = clickedItem.itemSprite;
         itemNameText.text = clickedItem.itemName;
-        itemTypeText.text = clickedItem.itemType; 
+        itemTypeText.text = clickedItem.itemType;
         itemPriceText.text = "Giá: " + clickedItem.itemPrice.ToString();
         itemDescriptionText.text = clickedItem.itemDescription;
 
-        amountInputField.text = "1"; 
+        amountInputField.text = "1";
         itemInformationPanel.SetActive(true);
     }
 
@@ -75,14 +88,17 @@ public class ShopManager : MonoBehaviour
         if (int.TryParse(amountInputField.text, out int amountItemBuy) && amountItemBuy > 0)
         {
             int totalPrice = selectedItem.itemPrice * amountItemBuy;
-            if (PlayerStats.coin > totalPrice)
+            if (PlayerStats.coin >= totalPrice)
             {
                 playerInventoryManager.AddItem(selectedItem);
-                playerStats.UseCoin(20);
+                playerStats.UseCoin(totalPrice);
                 Debug.Log($"Mua {amountItemBuy} sản phẩm: {selectedItem.itemName} với tổng giá {totalPrice}");
+                UpdateCoinText();
             }
             else
+            {
                 Debug.Log("Tài sản hiện có không đủ");
+            }
         }
         else
         {
@@ -92,6 +108,42 @@ public class ShopManager : MonoBehaviour
 
     void OnCloseButtonClick()
     {
-        this.gameObject.SetActive(false);
+        itemInformationPanel.SetActive(false);
+        this.gameObject.SetActive(false); 
+    }
+
+    void UpdateCoinText()
+    {
+        coinText.text = "Coin: " + PlayerStats.coin.ToString(); 
+    }
+
+    public void PanelToActive(GameObject panelToActive)
+    {
+        foreach (GameObject panel in shopPanels)
+        {
+            panel.SetActive(panelToActive == panel);
+        }
+    }
+
+    public void SwitchShop(string shopType)
+    {
+        switch (shopType)
+        {
+            case "Armor":
+                shopNameText.text = "Armor Shop"; 
+                PopulateShop(armorItemsInShop);
+                break;
+            case "Consume":
+                shopNameText.text = "Herbal Shop";
+                PopulateShop(consumeItemsOutShop);
+                break;
+            case "Weapon":
+                shopNameText.text = "Weapon Shop";
+                PopulateShop(weaponItemsOutShop);
+                break;
+            default:
+                Debug.LogError("Loại shop không hợp lệ");
+                break;
+        }
     }
 }

@@ -9,11 +9,6 @@ public class MonsterMovement : MonoBehaviour
     public Animator animator;
     public AIPath aiPath;
 
-    bool isUp = false;
-    bool isLeft = false;
-    bool isRight = false;
-    bool isDown = false;
-
     float random_timer = 3f;
     int random_move = 0;
 
