@@ -7,6 +7,7 @@ public class PlayerCollider : MonoBehaviour
     public PlayerInventoryManager inventoryManager;
     public PlayerMovement playerMovement;
     public ShopManager shopManager;
+    public NotificationManager notificationManager;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +15,7 @@ public class PlayerCollider : MonoBehaviour
         {
             var item = other.gameObject.GetComponent<Item>();
             inventoryManager.AddItem(item);
+            notificationManager.ShowNotification(item.itemSprite, item.itemName);
             Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("Monster"))
