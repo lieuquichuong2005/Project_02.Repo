@@ -59,7 +59,7 @@ public class Skill_Warrior : MonoBehaviour
     {
         if (GetComponent<PhotonView>().IsMine)
         {
-            if (PlayerMovement.isCanMove)
+            if (playerMovement.isCanMove)
             {
                 if (timer > 0)
                 {
@@ -67,7 +67,7 @@ public class Skill_Warrior : MonoBehaviour
                 }
                 else
                 {
-                    PlayerMovement.isCanMove = true; 
+                    playerMovement.isCanMove = true; 
                 }
                 // Skill 1
                 if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
@@ -102,7 +102,7 @@ public class Skill_Warrior : MonoBehaviour
                     skill2Trigger = true;
                     playerMovement.animator.SetTrigger("Skill_02");
                     timer = set_timer;
-                    PlayerMovement.isCanMove = false;
+                    playerMovement.isCanMove = false;
                 }
 
                 // Skill 3

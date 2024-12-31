@@ -9,8 +9,8 @@ public class ShopManager : MonoBehaviour
     public PlayerInventoryManager playerInventoryManager;
 
     public List<Item> armorItemsInShop;
-    public List<Item> consumeItemsOutShop; 
-    public List<Item> weaponItemsOutShop;
+    public List<Item> consumeItemsInShop; 
+    public List<Item> weaponItemsInShop;
     public GameObject itemButtonPrefab;
     public Transform contentPanel;
 
@@ -36,7 +36,6 @@ public class ShopManager : MonoBehaviour
         buyButton.onClick.AddListener(OnBuyButtonClick);
         closeButton.onClick.AddListener(OnCloseButtonClick);
 
-        PopulateShop(armorItemsInShop); 
         UpdateCoinText();
         itemInformationPanel.SetActive(false);
     }
@@ -135,11 +134,10 @@ public class ShopManager : MonoBehaviour
                 break;
             case "Consume":
                 shopNameText.text = "Herbal Shop";
-                PopulateShop(consumeItemsOutShop);
-                break;
+                PopulateShop(consumeItemsInShop);
+                 break;
             case "Weapon":
-                shopNameText.text = "Weapon Shop";
-                PopulateShop(weaponItemsOutShop);
+                PopulateShop(weaponItemsInShop);
                 break;
             default:
                 Debug.LogError("Loại shop không hợp lệ");

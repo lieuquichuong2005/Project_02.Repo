@@ -32,21 +32,23 @@ public class PlayerCollider : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("BlacksmithNPC"))
         {
-            OpenShop("Armor"); 
+            playerMovement.isNearToBlacksmithNPC = true;
         }
         else if (collision.gameObject.CompareTag("HerbalistNPC"))
         {
-            OpenShop("Consume");
+            playerMovement.isNearToHerbalistNPC = true;
         }
-        /*else if (collision.gameObject.CompareTag("WeaponNPC"))
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("BlacksmithNPC"))
         {
-            OpenShop("Weapon"); 
-        }*/
+            playerMovement.isNearToBlacksmithNPC = false;
+        }
+        if (collision.gameObject.CompareTag("HerbalistNPC"))
+        {
+            playerMovement.isNearToHerbalistNPC = false;
+        }
     }
 
-    private void OpenShop(string shopType)
-    {
-        playerMovement.shopPanel.SetActive(true);
-        shopManager.SwitchShop(shopType); 
-    }
 }
