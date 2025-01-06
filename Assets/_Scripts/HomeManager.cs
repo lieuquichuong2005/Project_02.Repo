@@ -123,7 +123,6 @@ public class HomeManager : MonoBehaviour
     {
         AudioManager.instance.PlayClickSound();
 
-        Debug.Log("Current user: " + (auth.CurrentUser != null ? auth.CurrentUser.Email : "No user logged in"));
         if (auth.CurrentUser != null)
         {
             accountNameText.text = $"Logged in as: {displayName}"; 
@@ -223,7 +222,6 @@ public void SetActivePanel(GameObject panelToActivate)
     }
 }
 
-// Phương thức để tìm nút tương ứng với mỗi panel
 private Button GetButtonForPanel(GameObject panel)
 {
     if (panel == panels[0]) return accountManagerButton;
@@ -231,7 +229,7 @@ private Button GetButtonForPanel(GameObject panel)
     if (panel == panels[2]) return helpButton;
     if (panel == panels[3]) return creditButton;
 
-    return null; // Trả về null nếu không tìm thấy
+    return null; 
 }
 void OnCloseButton()
     {
@@ -285,8 +283,8 @@ void OnCloseButton()
             if (task.IsCompleted)
             {
                 Debug.Log("Đăng ký thành công");
-                FirebaseUser newUser = task.Result.User; // Sửa ở đây
-                displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
+                FirebaseUser newUser = task.Result.User; 
+                displayName = newUser.Email.Split('@')[0];
                 DisplayPlayerName(displayName);
 
                 logOutButton.gameObject.SetActive(true);
@@ -317,8 +315,8 @@ void OnCloseButton()
             if (task.IsCompleted)
             {
                 Debug.Log("Đăng ký thành công");
-                FirebaseUser newUser = task.Result.User; // Sửa ở đây
-                displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
+                FirebaseUser newUser = task.Result.User; 
+                displayName = newUser.Email.Split('@')[0]; 
                 DisplayPlayerName(displayName);
 
                 logOutButton.gameObject.SetActive(true);
@@ -343,7 +341,7 @@ void OnCloseButton()
     }
     private void InitializeFirebase()
     {
-        Firebase.FirebaseApp.LogLevel = Firebase.LogLevel.Debug; // Tùy chọn để xem log
+        Firebase.FirebaseApp.LogLevel = Firebase.LogLevel.Debug;
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
             if (task.IsFaulted)
             {
