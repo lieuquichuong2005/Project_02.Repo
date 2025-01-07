@@ -69,6 +69,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
     <Compile Include="Assets\_Scripts\HomeManager.cs" />
+    <Compile Include="Assets\_Scripts\DialogueManager.cs" />
     <Compile Include="Assets\_Scripts\Monster Spawner Scripts\Spawner_3.cs" />
     <Compile Include="Assets\_Scripts\MonsterSpawnLimit.cs" />
     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />

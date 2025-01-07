@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviourPun
     public PlayerStats playerStats;
     public ShopManager shopManager;
     public PlayerCollider playerCollider;
+    public DialogueManager dialogueManager;
     public SettingInGame settingInGame;
 
     public GameObject playerInformationPanel;
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviourPun
     public GameObject AttackPointObj;
     public GameObject shopPanel;
     public GameObject notifyPanel;
+
     public TMP_Text notifyText;
     public Transform attackPoint;
 
@@ -31,6 +33,8 @@ public class PlayerMovement : MonoBehaviourPun
     public Animator animator;
     public LayerMask enemyLayers;
 
+    public string playerName;
+    public Sprite playerAvatar;
     public bool isCanMove = true;
     public float attackRangeDefault;
     public float attackRange = 0f;
@@ -44,6 +48,7 @@ public class PlayerMovement : MonoBehaviourPun
 
     void Awake()
     {
+        playerName = "Player";
         if (instance == null)
             instance = this;
         else
@@ -130,11 +135,13 @@ public class PlayerMovement : MonoBehaviourPun
     {
         if(isNearToBlacksmithNPC && Input.GetKeyDown(KeyCode.Space))
         {
-            OpenShop("Armor");
+            CommunicateWithNPC();
+            //OpenShop("Armor");
         }
         if(isNearToHerbalistNPC && Input.GetKeyDown(KeyCode.Space))
         {
-            OpenShop("Consume");
+            CommunicateWithNPC();
+            //OpenShop("Consume");
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -216,4 +223,13 @@ public class PlayerMovement : MonoBehaviourPun
         yield return new WaitForSeconds(time);
         notifyPanel.gameObject.SetActive(false);
     }
+    public void Speak(string dialogue)
+    {
+        //dialogueManager.DisplayDialogue(playerName, dialogue);
+    }
+    public void CommunicateWithNPC()
+    {
+        dialogueManager.StartDialogue();
+    }
+        
 }

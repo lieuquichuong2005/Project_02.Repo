@@ -7720,6 +7720,7 @@ GameObject:
   - component: {fileID: 944542947}
   - component: {fileID: 944542946}
   - component: {fileID: 944542945}
+  - component: {fileID: 944542949}
   m_Layer: 0
   m_Name: HerbalistNPC
   m_TagString: HerbalistNPC
@@ -7870,6 +7871,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &944542949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944542944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eedbc58103cdd34abdd7006d2854a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueManager: {fileID: 0}
+  npcAvatar: {fileID: 0}
+  npcName: Herbalist
+  dialogues: []
 --- !u!1 &948661109
 GameObject:
   m_ObjectHideFlags: 0
@@ -18088,7 +18105,7 @@ GameObject:
   - component: {fileID: 1570204872}
   - component: {fileID: 1570204871}
   - component: {fileID: 1570204870}
-  - component: {fileID: 1570204869}
+  - component: {fileID: 1570204874}
   m_Layer: 0
   m_Name: BlacksmithNPC
   m_TagString: BlacksmithNPC
@@ -18096,18 +18113,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1570204869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570204868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e09e3fce2d84a514482d80283f35d0c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1570204870
 Rigidbody2D:
   serializedVersion: 5
@@ -18251,6 +18256,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1570204874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570204868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09e3fce2d84a514482d80283f35d0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueManager: {fileID: 0}
+  npcAvatar: {fileID: 0}
+  npcName: Blacksmith
+  dialogues: []
 --- !u!1 &1645402675
 GameObject:
   m_ObjectHideFlags: 0
