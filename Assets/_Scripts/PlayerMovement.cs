@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviourPun
     float moveX;
     float moveY;
 
+    public AudioSource sword_sound;
+
     void Awake()
     {
         if (instance == null)
@@ -70,6 +72,7 @@ public class PlayerMovement : MonoBehaviourPun
                 }
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    sword_sound.Play();
                     AttackPointObj.SetActive(true);
                     animator.SetTrigger("Attack");
                 }
