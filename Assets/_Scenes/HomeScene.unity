@@ -11229,6 +11229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b25c077e01a9054ba59984493b7b306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firebaseManager: {fileID: 0}
   startGameButton: {fileID: 2090234969}
   accountManagerButton: {fileID: 1195208956}
   settingButton: {fileID: 2072229334}
@@ -11240,6 +11241,7 @@ MonoBehaviour:
   listButton: {fileID: 113167996}
   notifyText: {fileID: 1766698465}
   accountNameText: {fileID: 2064619566}
+  displayName: 
   loadingPanel: {fileID: 303628900}
   menuPanel: {fileID: 571536906}
   panels:

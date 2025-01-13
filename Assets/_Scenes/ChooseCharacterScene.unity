@@ -1596,16 +1596,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSprites:
-  - {fileID: 5546671543968653177, guid: 3ea47b16ba2f4854599605721f8f69bf, type: 3}
-  - {fileID: 5546671543968653177, guid: 930059dfe64a29748ad9db22bf5d3725, type: 3}
-  - {fileID: 5546671543968653177, guid: f6f604d18107c8d44be8a6ded20cf62b, type: 3}
-  - {fileID: 5546671543968653177, guid: c9d42ac9334d1734dba90dd6465be085, type: 3}
-  - {fileID: 5546671543968653177, guid: 01e00ef6f98fde249b3f76e02bbe8146, type: 3}
-  - {fileID: 5546671543968653177, guid: 384395771ba97d44da773e50ccdf4e31, type: 3}
-  - {fileID: 5546671543968653177, guid: c6436ffb918d90441a60780b7de1e021, type: 3}
-  - {fileID: 5546671543968653177, guid: 5325c46dcc62f2e4285734cc9c170163, type: 3}
-  - {fileID: 5546671543968653177, guid: 9c99f429d7d8cef4bb4a4c1fa14b8585, type: 3}
-  - {fileID: 5546671543968653177, guid: 082fe207d8069dd4199b0e242114c119, type: 3}
+  - {fileID: -9079778248075870987, guid: 2a59cf166ba8d044ca4ce39c215ddbe2, type: 3}
+  - {fileID: -6723126826379405151, guid: 1aac9b632a8a8d94a80c06769a4d7eb1, type: 3}
+  - {fileID: 1967112827789767629, guid: 3df96fe23f10e8843bb5d6917d8bf740, type: 3}
   characterImage: {fileID: 366286241}
   confirmButton: {fileID: 1621323667}
   nextButton: {fileID: 1478774256}

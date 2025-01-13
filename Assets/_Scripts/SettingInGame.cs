@@ -6,6 +6,7 @@ using TMPro;
 public class SettingInGame : MonoBehaviour
 {
     public Button settingPanelButton;
+    public Button saveGameButton;
     public Button accountPanelButton;
     public Button helpPanelButton;
     public Button homeButton;
@@ -33,6 +34,7 @@ public class SettingInGame : MonoBehaviour
         exitGameButton.onClick.AddListener(OnExitGameButtonClick);
         confirmHomeButton.onClick.AddListener(OnConfirmHomeButtonClick);
         confirmExitGameButton.onClick.AddListener(OnConfirmExitGameButtonClick);
+        saveGameButton.onClick.AddListener(OnSaveGameButtonClick);
 
         fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
         fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggle);
@@ -55,6 +57,11 @@ public class SettingInGame : MonoBehaviour
     {
         PanelToActive(panels[0]);
     }   
+    void OnSaveGameButtonClick()
+    {
+        //FirebareManager.Instance.SavePlayerData();
+    }
+        
     void OnAccountButtonClick()
     {
         PanelToActive(panels[1]);

@@ -3,15 +3,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using TMPro;
-using Firebase.Auth;
-using Firebase;
-using Firebase.Extensions;
 using System.Collections;
+using Photon.Pun.Demo.PunBasics;
 
 public class HomeManager : MonoBehaviour
 {
-    FirebaseAuth auth;
-
+    public FirebareManager firebaseManager;
     [Header("Button")]
     public Button startGameButton;
     public Button accountManagerButton;
@@ -26,7 +23,7 @@ public class HomeManager : MonoBehaviour
 
     public TMP_Text notifyText;
     public TMP_Text accountNameText;
-    private string displayName;
+    public string displayName;
 
     [Header("Panel")]
     public GameObject loadingPanel;
@@ -57,14 +54,6 @@ public class HomeManager : MonoBehaviour
 
     private void Awake()
     {
-        // Khởi tạo Firebase
-        auth = FirebaseAuth.DefaultInstance;
-        // Kiểm tra xem auth đã được khởi tạo chưa
-        if (auth == null)
-        {
-            Debug.LogError("FirebaseAuth has not been initialized.");
-        }
-
         startGameButton.onClick.AddListener(OnStartButton);
         accountManagerButton.onClick.AddListener(OnAccountManagementButton);
         settingButton.onClick.AddListener(OnSettingsButton);
@@ -72,20 +61,19 @@ public class HomeManager : MonoBehaviour
         creditButton.onClick.AddListener(OnCreditsButton);
         quitButton.onClick.AddListener(OnQuitButton);
         closeButton.onClick.AddListener(OnCloseButton);
-        logOutButton.onClick.AddListener(LogOutAccount);
+        logOutButton.onClick.AddListener(firebaseManager.LogOutAccount);
 
         //chooseCharacterButton.onClick.AddListener(OnChooseCharacterScene);
 
 
         switchToLogInButton.onClick.AddListener(OnSwitchToLogin);
         switchToRegisterButton.onClick.AddListener(OnSwitchToRegister);
-        logInButton.onClick.AddListener(LoginAccout);
-        registerButton.onClick.AddListener(RegisterAccout);
+        logInButton.onClick.AddListener(firebaseManager.LoginAccout);
+        registerButton.onClick.AddListener(firebaseManager.RegisterAccout);
 
         menuPanel.gameObject.SetActive(false);
         loadingPanel.gameObject.SetActive(true);
 
-        InitializeFirebase();
         Debug.Log(displayName);
 
         StartCoroutine(HideLoadingEffect());
@@ -93,9 +81,9 @@ public class HomeManager : MonoBehaviour
 
     void Start()
     {
-        if (auth.CurrentUser != null)
+        if (firebaseManager.auth.CurrentUser != null)
         {
-            displayName = auth.CurrentUser.Email.Split('@')[0];
+            displayName = firebaseManager.auth.CurrentUser.Email.Split('@')[0];
             DisplayPlayerName(displayName);
             logOutButton.gameObject.SetActive(true);
             nameTextPanel.SetActive(true);
@@ -105,7 +93,6 @@ public class HomeManager : MonoBehaviour
             logOutButton.gameObject.SetActive(false);
             nameTextPanel.SetActive(false);
         }
-
 
         graphicsDropdown.value = PlayerPrefs.GetInt("GraphicsQuality", 1); 
         fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
@@ -123,7 +110,7 @@ public class HomeManager : MonoBehaviour
     {
         AudioManager.instance.PlayClickSound();
 
-        if (auth.CurrentUser != null)
+        if (firebaseManager.auth.CurrentUser != null)
         {
             accountNameText.text = $"Logged in as: {displayName}"; 
             nameTextPanel.gameObject.SetActive(true);
@@ -195,7 +182,7 @@ public class HomeManager : MonoBehaviour
         AudioManager.instance.PlayClickSound();
     }
 
-public void SetActivePanel(GameObject panelToActivate)
+    public void SetActivePanel(GameObject panelToActivate)
 {
     foreach (GameObject panel in panels)
     {
@@ -222,7 +209,7 @@ public void SetActivePanel(GameObject panelToActivate)
     }
 }
 
-private Button GetButtonForPanel(GameObject panel)
+    private Button GetButtonForPanel(GameObject panel)
 {
     if (panel == panels[0]) return accountManagerButton;
     if (panel == panels[1]) return settingButton;
@@ -231,7 +218,7 @@ private Button GetButtonForPanel(GameObject panel)
 
     return null; 
 }
-void OnCloseButton()
+    void OnCloseButton()
     {
         AudioManager.instance.PlayClickSound();
         SetActivePanel(null);
@@ -262,103 +249,7 @@ void OnCloseButton()
         // Ví dụ: sử dụng một bảng từ điển để lấy văn bản
     }*/
 
-    public void RegisterAccout()
-    {
-        string email = emailInputRegister.text;
-        string password = passwordInputRegister.text;
-        string confirmpassword = confirmPasswordInputRegister.text;
-
-        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
-        {
-            if (task.IsFaulted)
-            {
-                Debug.LogError("Đăng ký thất bại: " + task.Exception);
-                return;
-            }
-            if(task.IsCanceled)
-            {
-                Debug.LogError("Đăng ký bị từ chối: " + task.Exception);
-                return;
-            }
-            if (task.IsCompleted)
-            {
-                Debug.Log("Đăng ký thành công");
-                FirebaseUser newUser = task.Result.User; 
-                displayName = newUser.Email.Split('@')[0];
-                DisplayPlayerName(displayName);
-
-                logOutButton.gameObject.SetActive(true);
-
-            }
-                
-
-        });
-    }
-
-    public void LoginAccout()
-    {
-        string email = emailInputLogIn.text;
-        string password = passwordInputLogIn.text;
-
-        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
-        {
-            if (task.IsFaulted)
-            {
-                Debug.LogError("Đăng ký thất bại: " + task.Exception);
-                return;
-            }
-            if (task.IsCanceled)
-            {
-                Debug.LogError("Đăng ký bị từ chối: " + task.Exception);
-                return;
-            }
-            if (task.IsCompleted)
-            {
-                Debug.Log("Đăng ký thành công");
-                FirebaseUser newUser = task.Result.User; 
-                displayName = newUser.Email.Split('@')[0]; 
-                DisplayPlayerName(displayName);
-
-                logOutButton.gameObject.SetActive(true);
-
-            }
-
-        });
-    }
-    public void LogOutAccount()
-    {
-        auth.SignOut(); // Đăng xuất khỏi Firebase
-        displayName = null; // Xóa tên tài khoản
-        nameTextPanel.gameObject.SetActive(false);
-        accountNameText.gameObject.SetActive(false); // Ẩn tên tài khoản
-        logOutButton.gameObject.SetActive(false); // Ẩn nút đăng xuất
-        Debug.Log("Logged out successfully.");
-        emailInputLogIn.text = null;
-
-        passwordInputLogIn.text = null;
-
-
-    }
-    private void InitializeFirebase()
-    {
-        Firebase.FirebaseApp.LogLevel = Firebase.LogLevel.Debug;
-        Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
-            if (task.IsFaulted)
-            {
-                Debug.LogError("Failed to initialize Firebase: " + task.Exception);
-            }
-            else
-            {
-                // Khởi tạo FirebaseAuth
-                auth = FirebaseAuth.DefaultInstance;
-                if (auth == null)
-                {
-                    Debug.LogError("FirebaseAuth has not been initialized.");
-                }
-            }
-        });
-    }
-    private void DisplayPlayerName(string name)
+    public void DisplayPlayerName(string name)
     {
         nameTextPanel.SetActive(true);
 
@@ -378,6 +269,4 @@ void OnCloseButton()
         loadingPanel.gameObject.SetActive(false);
         menuPanel.gameObject.SetActive(true);
     }
-        
-        
 }
