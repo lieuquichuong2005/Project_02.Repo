@@ -46,6 +46,8 @@ public class PlayerMovement : MonoBehaviourPun
     public bool isNearToBlacksmithNPC;
     public bool isNearToHerbalistNPC;
 
+    public AudioSource sword_sound;
+
     void Awake()
     {
         playerName = "Player";
@@ -82,6 +84,7 @@ public class PlayerMovement : MonoBehaviourPun
                 }
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    sword_sound.Play();
                     AttackPointObj.SetActive(true);
                     animator.SetTrigger("Attack");
                 }

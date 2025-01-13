@@ -748,7 +748,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NPC Characters_0: 8631269386824879595
+      NPC Characters_1: 6610015202153852503
+      NPC Characters_10: -5120537357335614496
+      NPC Characters_11: 576885579934124041
+      NPC Characters_12: 1687940770836616375
+      NPC Characters_13: 2439700200336932075
+      NPC Characters_14: 8093293255776627846
+      NPC Characters_15: -8526117855678659934
+      NPC Characters_16: 7758943322866322770
+      NPC Characters_17: -2151689662765738149
+      NPC Characters_18: -87346906579721405
+      NPC Characters_19: 5238495188100216442
+      NPC Characters_2: 2140832259286623340
+      NPC Characters_20: -1470921148523717938
+      NPC Characters_21: 4877709730863859454
+      NPC Characters_22: 4651061002074934479
+      NPC Characters_23: -3763078526767242141
+      NPC Characters_3: -1596342142439857335
+      NPC Characters_4: 5231510931379762447
+      NPC Characters_5: 3830475944223242837
+      NPC Characters_6: -5144308867996007919
+      NPC Characters_7: -3155271461072190107
+      NPC Characters_8: 3713795202796432
+      NPC Characters_9: -7426982183413531617
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
