@@ -31,7 +31,6 @@
 *.fbx
 *.jpeg
 *.tga
-*.dll
 *.exe
 *.so
 *.dylib
