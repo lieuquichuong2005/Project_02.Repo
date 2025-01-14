@@ -9,12 +9,17 @@ public class TeleportManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        int isTester = PlayerPrefs.GetInt("isTester");
+        Debug.Log(isTester);
         if (collision.gameObject.tag == "Player")
         {
             int current_level = collision.gameObject.GetComponent<PlayerStats>().GetLevel();
-            if (current_level >= level_limit)
+            if (current_level >= level_limit || isTester == 1)
             {
-                SceneManager.LoadScene(sceneToLoad);
+                if (sceneToLoad != "")
+                {
+                    SceneManager.LoadScene(sceneToLoad);
+                }
             }
             else
             {

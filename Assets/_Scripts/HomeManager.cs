@@ -57,6 +57,7 @@ public class HomeManager : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.SetInt("isTester", 0);
         // Khởi tạo Firebase
         auth = FirebaseAuth.DefaultInstance;
         // Kiểm tra xem auth đã được khởi tạo chưa
@@ -96,6 +97,10 @@ public class HomeManager : MonoBehaviour
         if (auth.CurrentUser != null)
         {
             displayName = auth.CurrentUser.Email.Split('@')[0];
+            if (displayName == "test")
+            {
+                PlayerPrefs.SetInt("isTester", 1);
+            }
             DisplayPlayerName(displayName);
             logOutButton.gameObject.SetActive(true);
             nameTextPanel.SetActive(true);
