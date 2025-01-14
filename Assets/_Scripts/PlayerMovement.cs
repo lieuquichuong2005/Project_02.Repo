@@ -14,7 +14,9 @@ public class PlayerMovement : MonoBehaviourPun
 
     public PlayerInventoryManager inventoryManager;
     public PlayerStats playerStats;
+    public ShopManager shopManager;
     public PlayerCollider playerCollider;
+    public DialogueManager dialogueManager;
     public SettingInGame settingInGame;
 
     public GameObject playerInformationPanel;
@@ -22,13 +24,18 @@ public class PlayerMovement : MonoBehaviourPun
     public GameObject marker;
     public GameObject AttackPointObj;
     public GameObject shopPanel;
+    public GameObject notifyPanel;
+
+    public TMP_Text notifyText;
     public Transform attackPoint;
 
     private Rigidbody2D rb2d;
     public Animator animator;
     public LayerMask enemyLayers;
 
-    public static bool isCanMove = true;
+    public string playerName;
+    public Sprite playerAvatar;
+    public bool isCanMove = true;
     public float attackRangeDefault;
     public float attackRange = 0f;
     public int damage = 20;
@@ -36,10 +43,14 @@ public class PlayerMovement : MonoBehaviourPun
     float moveX;
     float moveY;
 
+    public bool isNearToBlacksmithNPC;
+    public bool isNearToHerbalistNPC;
+
     public AudioSource sword_sound;
 
     void Awake()
     {
+        playerName = "Player";
         if (instance == null)
             instance = this;
         else
@@ -55,6 +66,7 @@ public class PlayerMovement : MonoBehaviourPun
         Debug.Log(currentScene);
 
         DontDestroyOnLoad(this.gameObject);
+        Debug.Log(isCanMove);
     }
 
     void Update()
@@ -86,20 +98,9 @@ public class PlayerMovement : MonoBehaviourPun
 
             animator.SetFloat("MoveX", moveX);
             animator.SetFloat("MoveY", moveY);
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                settingInGamePanel.SetActive(!settingInGamePanel.activeSelf);
-                if(settingInGamePanel.activeSelf)
-                    settingInGame.InactivePanel();
-            }
 
-            
-            if (Input.GetKeyDown(KeyCode.Tab))
-            {
-                playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
-                inventoryManager.ShowItemInInventory();
-
-            }
+            CheckGetKey();
+  
             // Kiểm tra xem có item nào dưới con trỏ chuột không
             if (playerInformationPanel.activeSelf) // Nếu panel đang mở
             {
@@ -127,9 +128,37 @@ public class PlayerMovement : MonoBehaviourPun
 
             }
 
-            isCanMove = (playerInformationPanel.activeSelf || settingInGamePanel.activeSelf) ? false : true;
+            isCanMove = (playerInformationPanel.activeSelf || settingInGamePanel.activeSelf || shopPanel.activeSelf) ? false : true;
 
             
+        }
+    }
+
+    void CheckGetKey()
+    {
+        if(isNearToBlacksmithNPC && Input.GetKeyDown(KeyCode.Space))
+        {
+            CommunicateWithNPC();
+            //OpenShop("Armor");
+        }
+        if(isNearToHerbalistNPC && Input.GetKeyDown(KeyCode.Space))
+        {
+            CommunicateWithNPC();
+            //OpenShop("Consume");
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            settingInGamePanel.SetActive(!settingInGamePanel.activeSelf);
+            if (settingInGamePanel.activeSelf)
+                settingInGame.InactivePanel();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            playerInformationPanel.SetActive(!playerInformationPanel.activeSelf);
+            inventoryManager.ShowItemInInventory();
+
         }
     }
 
@@ -181,4 +210,29 @@ public class PlayerMovement : MonoBehaviourPun
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRangeDefault);
     }
+    private void OpenShop(string shopType)
+    {
+        shopPanel.SetActive(true);
+        shopManager.SwitchShop(shopType);
+    }
+    public void Notity(string textNotify)
+    {
+        notifyPanel.gameObject.SetActive(true);
+        notifyText.text = notifyText.ToString();
+        StartCoroutine(WaitToTurnOffNotify(2));
+    }
+    IEnumerator WaitToTurnOffNotify(int time)
+    {
+        yield return new WaitForSeconds(time);
+        notifyPanel.gameObject.SetActive(false);
+    }
+    public void Speak(string dialogue)
+    {
+        //dialogueManager.DisplayDialogue(playerName, dialogue);
+    }
+    public void CommunicateWithNPC()
+    {
+        dialogueManager.StartDialogue();
+    }
+        
 }

@@ -28,6 +28,7 @@ TagManager:
   - BlacksmithNPC
   - ItemShop
   - HerbalistNPC
+  - DialogueBox
   layers:
   - Default
   - TransparentFX

@@ -182,7 +182,7 @@ MonoBehaviour:
   itemDescription: "S\u1EED d\u1EE5ng \u0111\u1EC3 h\u1ED3i lai m\u1ED9t ph\u1EA7n
     m\xE1u \u0111\xE3 m\u1EA5t."
   itemSprite: {fileID: 8033092973025764044, guid: f491a444acfe79f4d9007fc45b3b142e, type: 3}
-  itemPrice: 0
+  itemPrice: 5
   levelToUse: 0
   healthAdded: 20
   manaAdded: 0
