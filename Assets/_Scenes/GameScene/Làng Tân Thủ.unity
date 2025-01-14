@@ -7883,10 +7883,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eedbc58103cdd34abdd7006d2854a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 0}
-  npcAvatar: {fileID: 0}
-  npcName: Herbalist
-  dialogues: []
 --- !u!1 &948661109
 GameObject:
   m_ObjectHideFlags: 0
@@ -18268,10 +18264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09e3fce2d84a514482d80283f35d0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 0}
-  npcAvatar: {fileID: 0}
-  npcName: Blacksmith
-  dialogues: []
 --- !u!1 &1645402675
 GameObject:
   m_ObjectHideFlags: 0

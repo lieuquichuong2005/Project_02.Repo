@@ -6457,6 +6457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanelButton: {fileID: 1202971407928168046}
+  saveGameButton: {fileID: 7433253785775459847}
   accountPanelButton: {fileID: 8284926417888310492}
   helpPanelButton: {fileID: 455228365426144516}
   homeButton: {fileID: 2458896202879130885}
