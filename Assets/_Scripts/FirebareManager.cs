@@ -16,6 +16,8 @@ public class FirebareManager : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
+        else 
+            Destroy(this.gameObject);
         // Khởi tạo Firebase
         auth = FirebaseAuth.DefaultInstance;
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
@@ -28,6 +30,7 @@ public class FirebareManager : MonoBehaviour
             Debug.LogError("FirebaseAuth has not been initialized.");
         }
         InitializeFirebase();
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void InitializeFirebase()
