@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviourPun
 
             }
 
-            isCanMove = (playerInformationPanel.activeSelf || settingInGamePanel.activeSelf || shopPanel.activeSelf) ? false : true;
+            isCanMove = (playerInformationPanel.activeSelf || settingInGamePanel.activeSelf || shopPanel.activeSelf || dialogueManager.dialogueSystem.activeSelf) ? false : true;
 
             
         }
@@ -207,7 +207,7 @@ public class PlayerMovement : MonoBehaviourPun
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRangeDefault);
     }
-    private void OpenShop(string shopType)
+    public void OpenShop(string shopType)
     {
         shopPanel.SetActive(true);
         shopManager.SwitchShop(shopType);
