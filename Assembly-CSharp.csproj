@@ -123,7 +123,6 @@
     <Compile Include="Assets\_Scripts\MonsterInteract.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\_Scripts\PlayerDialogueManager.cs" />
     <Compile Include="Assets\_Scripts\Timer Scripts\Timer_8.cs" />
     <Compile Include="Assets\_Scripts\AudioManager.cs" />
     <Compile Include="Assets\_Scripts\Monster Spawner Scripts\Pool_5.cs" />

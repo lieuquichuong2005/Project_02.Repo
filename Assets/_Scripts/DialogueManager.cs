@@ -5,24 +5,38 @@ using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
-    [Header("UI References")]
-    public Image playerAvatar;               // Khung avatar của Player
-    public Image npcAvatar;                  // Khung avatar của NPC
-    public GameObject dialogueSystem;        // Panel nền chính
-    public Transform dialogueContents;       // Container chứa các câu thoại
-    public GameObject dialoguePrefab;        // Prefab hiển thị câu thoại
-    public ScrollRect scrollRect;            // Để cuộn tự động
+    public ShopManager shopManager;
 
-    private bool isDialogueActive = false;   // Trạng thái đối thoại
-    private bool isTyping = false;           // Kiểm tra xem có đang gõ chữ không
+    [Header("UI References")]
+    public Image playerAvatar;               
+    public Image npcAvatar;                  
+    public GameObject dialogueSystem;        
+    public Transform dialogueContents;       
+    public GameObject dialoguePrefab;        
+    public ScrollRect scrollRect;
+
+    public GameObject buttonDialogue;
+    public Button shopButton;
+    public Button missonButton;
+    public Button talkButton;
+    public Button closeDialogueButton;
+
+    private bool isDialogueActive = false;   
+    private bool isTyping = false;         
 
     private void Start()
     {
         // Đặt avatar cho Player và NPC khi bắt đầu trò chơi
         SetAvatars(PlayerMovement.instance.playerAvatar, PlayerMovement.instance.playerAvatar);
 
+        buttonDialogue.SetActive(false);
         // Bắt đầu hội thoại mẫu
         //StartCoroutine(TestDialogue());
+
+        shopButton.onClick.AddListener(OnShopButtonClick);
+        missonButton.onClick.AddListener(OnMissonButtonClick);
+        talkButton.onClick.AddListener(OnTalkButtonClick);
+        closeDialogueButton.onClick.AddListener(OnCloseDialogueButtonClick);
     }
 
     public void SetAvatars(Sprite playerSprite, Sprite npcSprite)
@@ -36,7 +50,6 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue()
     {
-        // Bật panel nền khi bắt đầu nói chuyện
         if (!isDialogueActive)
         {
             dialogueSystem.SetActive(true);
@@ -47,20 +60,18 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        // Tắt panel nền khi kết thúc nói chuyện
         dialogueSystem.SetActive(false);
         isDialogueActive = false;
 
-        // Xóa các câu thoại trong container
         foreach (Transform child in dialogueContents)
         {
             Destroy(child.gameObject);
         }
+        buttonDialogue.SetActive(false);
     }
 
     public IEnumerator DisplayDialogueCoroutine(string characterName, string dialogue)
     {
-        // Đợi nếu đang gõ chữ
         while (isTyping)
         {
             yield return null;
@@ -68,96 +79,85 @@ public class DialogueManager : MonoBehaviour
 
         isTyping = true;
 
-        // Tạo prefab hiển thị câu thoại
         GameObject dialogueInstance = Instantiate(dialoguePrefab, dialogueContents);
+        ScrollToBottom();
 
-        // Cấu hình hiển thị của prefab
         TextMeshProUGUI dialogueText = dialogueInstance.GetComponentInChildren<TextMeshProUGUI>();
-        dialogueText.text = ""; // Khởi tạo văn bản trống
+        dialogueText.text = "";
 
         RectTransform rectTransform = dialogueInstance.GetComponent<RectTransform>();
 
-        // Căn chỉnh và vị trí câu thoại tùy thuộc vào nhân vật nói
         if (characterName == "Player")
         {
-            dialogueText.alignment = TextAlignmentOptions.Left; // Căn trái
-            rectTransform.localPosition = new Vector3(200, rectTransform.localPosition.y, 0); // Đẩy sang phải
+            dialogueText.alignment = TextAlignmentOptions.Left;
+            rectTransform.localPosition = new Vector3(200, rectTransform.localPosition.y, 0);
         }
         else if (characterName == "NPC")
         {
-            dialogueText.alignment = TextAlignmentOptions.Right;  // Căn phải
-            rectTransform.localPosition = new Vector3(-200, rectTransform.localPosition.y, 0); // Đẩy sang trái
+            dialogueText.alignment = TextAlignmentOptions.Right;
+            rectTransform.localPosition = new Vector3(-200, rectTransform.localPosition.y, 0);
         }
 
-        // Gọi coroutine để thực hiện hiệu ứng gõ chữ
         yield return StartCoroutine(TypewriterEffect(dialogueText, dialogue));
 
-        isTyping = false;  // Đánh dấu kết thúc việc gõ chữ
-        ScrollToBottom();
+        isTyping = false; 
     }
 
     private void ScrollToBottom()
     {
-        Canvas.ForceUpdateCanvases(); // Bắt Unity cập nhật layout ngay lập tức
-        scrollRect.verticalNormalizedPosition = 0f; // Đặt cuộn ở đáy (0f là dưới cùng)
+        Canvas.ForceUpdateCanvases(); 
+        scrollRect.verticalNormalizedPosition = 0f; 
     }
 
     private IEnumerator TypewriterEffect(TextMeshProUGUI dialogueText, string dialogue)
     {
         for (int i = 0; i < dialogue.Length; i++)
         {
-            dialogueText.text += dialogue[i];  // Thêm từng ký tự vào text
-            yield return new WaitForSeconds(0.05f);  // Thời gian giữa các ký tự (thay đổi nếu cần)
+            dialogueText.text += dialogue[i];
+            yield return new WaitForSeconds(0.05f);  
         }
     }
 
-    // Hội thoại mẫu để kiểm tra
     private IEnumerator TestDialogue()
     {
         yield return new WaitForSeconds(1);
 
-        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Chào mừng bạn đến ngôi làng Thanh Bình!"));
+        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Chào mừng bạn đến với Làng Tân Thủ, đây sẽ là nơi bạn bắt đầu."));
         yield return new WaitForSeconds(1f);
 
-        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Ngôi làng này nổi tiếng với sự yên bình và những cảnh quan tuyệt đẹp."));
+        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Tôi là thợ rèn của ngôi làng này, bạn có thể mua bán trao đổi các loại giáp và nhận nhiệm vụ với tôi."));
         yield return new WaitForSeconds(1f);
 
-        yield return StartCoroutine(DisplayDialogueCoroutine("Player", "Ngôi làng này có gì đặc biệt?"));
-        yield return new WaitForSeconds(1f);
-
-        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Chúng tôi có một lễ hội mùa xuân nổi tiếng diễn ra hàng năm."));
-        yield return new WaitForSeconds(1f);
-
-        yield return StartCoroutine(DisplayDialogueCoroutine("Player", "Lễ hội đó diễn ra thế nào?"));
+        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Phía trên có một thầy thuốc, hãy thử làm quen với mọi người trong ngôi làng này."));
         yield return new WaitForSeconds(2f);
 
-        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Bạn sẽ thấy múa lân, hội chợ, và các hoạt động văn hóa truyền thống."));
-        yield return new WaitForSeconds(2.5f);
-
-        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Ngoài ra, còn có những món ăn ngon mà bạn không thể bỏ lỡ!"));
-        yield return new WaitForSeconds(2.5f);
-
-        yield return StartCoroutine(DisplayDialogueCoroutine("Player", "Nghe thú vị quá. Người dân ở đây thế nào?"));
-        yield return new WaitForSeconds(2f);
-
-        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Mọi người rất thân thiện và sẵn lòng giúp đỡ nhau."));
-        yield return new WaitForSeconds(2.5f);
-
-        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Chúng tôi còn làm nghề thủ công truyền thống, như gốm sứ và dệt vải."));
-        yield return new WaitForSeconds(2.5f);
-
-        yield return StartCoroutine(DisplayDialogueCoroutine("Player", "Bạn có thể chỉ đường đến nơi tôi có thể xem những sản phẩm đó không?"));
-        yield return new WaitForSeconds(2f);
-
-        yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Tất nhiên! Đi thẳng đến chợ làng, bạn sẽ thấy rất nhiều sản phẩm thủ công."));
-        yield return new WaitForSeconds(2.5f);
-
-        yield return StartCoroutine(DisplayDialogueCoroutine("Player", "Cảm ơn bạn. Tôi rất muốn khám phá thêm."));
+        yield return StartCoroutine(DisplayDialogueCoroutine("Player", "Cảm ơn bạn."));
         yield return new WaitForSeconds(2f);
 
         yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Không có gì. Chào mừng bạn đến thăm làng!"));
         yield return new WaitForSeconds(2.5f);
 
+        buttonDialogue.SetActive(true);
+    }
+    void OnShopButtonClick()
+    {
+        if (PlayerMovement.instance.isNearToBlacksmithNPC)
+            PlayerMovement.instance.OpenShop("Armor");
+        else if (PlayerMovement.instance.isNearToHerbalistNPC)
+            PlayerMovement.instance.OpenShop("Consume");
         EndDialogue();
+    }
+    void OnMissonButtonClick()
+    {
+        Debug.Log("Misson Button Clicked");
+    }
+    void OnTalkButtonClick()
+    {
+        Debug.Log("Talk Button Click");
+    }
+    void OnCloseDialogueButtonClick()
+    {
+        EndDialogue();
+
     }
 }
