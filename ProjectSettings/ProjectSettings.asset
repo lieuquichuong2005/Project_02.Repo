@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: Project-02
+  companyName: Nhom08
+  productName: Blade of Valor
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -897,11 +897,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 358d01a5-1af0-4236-ac33-9bbab4a0f5de
+  cloudProjectId: f6a909d6-6664-401c-b50b-cee570e64e1c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Project-02
-  organizationId: quichuong2005
+  projectName: Blade of Valor
+  organizationId: kris_the_amateur_gamedev
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

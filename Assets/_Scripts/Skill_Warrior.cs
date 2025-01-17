@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Cinemachine;
-using UnityEditor.UI;
+//using UnityEditor.UI;
 using TMPro;
 using UnityEngine.UI;
 

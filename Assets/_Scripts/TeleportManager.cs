@@ -11,10 +11,14 @@ public class TeleportManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            int isTester = PlayerPrefs.GetInt("isTester");
             int current_level = collision.gameObject.GetComponent<PlayerStats>().GetLevel();
-            if (current_level >= level_limit)
+            if (current_level >= level_limit || isTester == 1)
             {
-                SceneManager.LoadScene(sceneToLoad);
+                if (sceneToLoad != "")
+                {
+                    SceneManager.LoadScene(sceneToLoad);
+                }
             }
             else
             {

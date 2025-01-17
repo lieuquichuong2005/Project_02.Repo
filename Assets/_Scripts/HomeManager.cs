@@ -93,9 +93,14 @@ public class HomeManager : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetInt("isTester", 0);
         if (auth.CurrentUser != null)
         {
             displayName = auth.CurrentUser.Email.Split('@')[0];
+            if (displayName == "test")
+            {
+                PlayerPrefs.SetInt("isTester", 1);
+            }
             DisplayPlayerName(displayName);
             logOutButton.gameObject.SetActive(true);
             nameTextPanel.SetActive(true);
@@ -287,6 +292,10 @@ void OnCloseButton()
                 Debug.Log("Đăng ký thành công");
                 FirebaseUser newUser = task.Result.User; // Sửa ở đây
                 displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
+                if (displayName == "test")
+                {
+                    PlayerPrefs.SetInt("isTester", 1);
+                }
                 DisplayPlayerName(displayName);
 
                 logOutButton.gameObject.SetActive(true);
@@ -319,6 +328,10 @@ void OnCloseButton()
                 Debug.Log("Đăng ký thành công");
                 FirebaseUser newUser = task.Result.User; // Sửa ở đây
                 displayName = newUser.Email.Split('@')[0]; // Lấy tên người chơi
+                if (displayName == "test")
+                {
+                    PlayerPrefs.SetInt("isTester", 1);
+                }
                 DisplayPlayerName(displayName);
 
                 logOutButton.gameObject.SetActive(true);
@@ -339,7 +352,7 @@ void OnCloseButton()
 
         passwordInputLogIn.text = null;
 
-
+        PlayerPrefs.SetInt("isTester", 0);
     }
     private void InitializeFirebase()
     {
