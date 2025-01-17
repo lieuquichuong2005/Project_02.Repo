@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
 public class CreateAndJoinSever : MonoBehaviourPunCallbacks
 {
     public Button createRoom;
@@ -23,7 +24,13 @@ public class CreateAndJoinSever : MonoBehaviourPunCallbacks
             Debug.LogWarning("Tên Phòng Không Thể Trống.");
             return;
         }
-        PhotonNetwork.CreateRoom(roomNameCreatedInput.text);
+        RoomOptions roomOptions = new RoomOptions
+        {
+            IsOpen = true, 
+            IsVisible = false, 
+            MaxPlayers = 6 
+        };
+        PhotonNetwork.CreateRoom(roomNameCreatedInput.text, roomOptions);
     }
 
     void OnJoinRoomButton()

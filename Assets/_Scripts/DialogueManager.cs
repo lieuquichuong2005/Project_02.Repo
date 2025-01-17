@@ -114,13 +114,13 @@ public class DialogueManager : MonoBehaviour
         for (int i = 0; i < dialogue.Length; i++)
         {
             dialogueText.text += dialogue[i];
-            yield return new WaitForSeconds(0.05f);  
+            yield return new WaitForSeconds(0.03f);  
         }
     }
 
     private IEnumerator TestDialogue()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
         yield return StartCoroutine(DisplayDialogueCoroutine("NPC", "Chào mừng bạn đến với Làng Tân Thủ, đây sẽ là nơi bạn bắt đầu."));
         yield return new WaitForSeconds(1f);

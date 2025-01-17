@@ -63,10 +63,8 @@ public class PlayerMovement : MonoBehaviourPun
         currentScene = "Làng Tân Thủ";
         playerInformationPanel.gameObject.SetActive(false);
         shopPanel.gameObject.SetActive(false);
-        Debug.Log(currentScene);
 
         DontDestroyOnLoad(this.gameObject);
-        Debug.Log(isCanMove);
     }
 
     void Update()

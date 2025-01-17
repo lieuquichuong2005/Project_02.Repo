@@ -1,7 +1,15 @@
 fileFormatVersion: 2
-guid: 1130bdd1ca8f7a84eb61ddd366fe92db
+guid: df7489a71de8f19459a0e9da5ee23ab8
+timeCreated: 1460035811
+licenseType: Store
 DefaultImporter:
-  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119922
+  packageName: PUN 2 - FREE
+  packageVersion: 2.49
+  assetPath: Assets/Photon/PhotonLibs/Metro/Photon3Unity3D.pdb
+  uploadId: 722643

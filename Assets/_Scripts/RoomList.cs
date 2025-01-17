@@ -2,10 +2,16 @@
 using Photon.Pun;
 using System.Collections.Generic;
 using Photon.Realtime;
+using System.Linq;
 public class RoomList : MonoBehaviourPunCallbacks
 {
     public GameObject roomPrefab;
     public GameObject[] allRooms;
+
+    private void Start()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+    }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
@@ -17,7 +23,7 @@ public class RoomList : MonoBehaviourPunCallbacks
             {
                 if (allRooms[i] != null)
                     Destroy(allRooms[i]);
-            }
+        }
 
         allRooms = new GameObject[roomList.Count];
 
@@ -31,6 +37,14 @@ public class RoomList : MonoBehaviourPunCallbacks
                 allRooms[i] = room;
             }
         }
+        foreach (var room in roomList)
+        {
+            Debug.Log($"Room: {room.Name}, IsOpen: {room.IsOpen}, IsVisible: {room.IsVisible}, PlayerCount: {room.PlayerCount}");
+        }
+    }
+    void OnDestroy()
+    {
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
 
 }
