@@ -56,12 +56,6 @@ public class HomeManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("isTester", 0);
         // Khởi tạo Firebase
-        auth = FirebaseAuth.DefaultInstance;
-        // Kiểm tra xem auth đã được khởi tạo chưa
-        if (auth == null)
-        {
-            Debug.LogError("FirebaseAuth has not been initialized.");
-        }
         
         startGameButton.onClick.AddListener(OnStartButton);
         accountManagerButton.onClick.AddListener(OnAccountManagementButton);
