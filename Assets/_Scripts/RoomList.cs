@@ -6,6 +6,7 @@ using System.Linq;
 public class RoomList : MonoBehaviourPunCallbacks
 {
     public GameObject roomPrefab;
+    public Transform roomTransformPos;
     public GameObject[] allRooms;
 
     private void Start()
@@ -15,9 +16,10 @@ public class RoomList : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        Debug.Log("Số phòng đang có: " + roomList.Count);
         if (allRooms == null)
         {
-            allRooms = new GameObject[0]; // Khởi tạo với mảng rỗng nếu chưa có
+            allRooms = new GameObject[0];
         }
         for (int i = 0; i < allRooms.Length; i++)
             {
@@ -31,7 +33,7 @@ public class RoomList : MonoBehaviourPunCallbacks
         {
             if (roomList[i].IsOpen && roomList[i].IsVisible && roomList[i].PlayerCount >= 1)
             {
-                GameObject room = Instantiate(roomPrefab, Vector3.zero, Quaternion.identity, GameObject.Find("Content").transform);
+                GameObject room = Instantiate(roomPrefab, Vector3.zero, Quaternion.identity, roomTransformPos);
                 room.GetComponent<Room>().nameRoom.text = roomList[i].Name;
 
                 allRooms[i] = room;

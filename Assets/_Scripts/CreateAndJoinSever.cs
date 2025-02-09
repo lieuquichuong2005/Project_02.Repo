@@ -42,9 +42,5 @@ public class CreateAndJoinSever : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel(3);
     }
-    public void JoinRoomInList(string roomName)
-    {
-        PhotonNetwork.JoinRoom(roomName);
-    }
 }
 

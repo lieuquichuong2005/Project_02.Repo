@@ -27,7 +27,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         // Đặt avatar cho Player và NPC khi bắt đầu trò chơi
-        SetAvatars(PlayerMovement.instance.playerAvatar, PlayerMovement.instance.playerAvatar);
+        //SetAvatars(PlayerMovement.instance.playerAvatar, PlayerMovement.instance.playerAvatar);
 
         buttonDialogue.SetActive(false);
         // Bắt đầu hội thoại mẫu

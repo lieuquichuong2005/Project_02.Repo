@@ -1726,7 +1726,6 @@ GameObject:
   - component: {fileID: 908571255}
   - component: {fileID: 908571254}
   - component: {fileID: 908571253}
-  - component: {fileID: 908571256}
   m_Layer: 5
   m_Name: RoomList
   m_TagString: Untagged
@@ -1822,20 +1821,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908571251}
   m_CullTransparentMesh: 1
---- !u!114 &908571256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908571251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a56c595136ea7f54f9356456c11426e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 3595928039221739252, guid: 61e4c0970ca4d934b856bd87ffd894b5, type: 3}
-  allRooms: []
 --- !u!1 &935991419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,6 +2524,7 @@ GameObject:
   - component: {fileID: 1695469369}
   - component: {fileID: 1695469368}
   - component: {fileID: 1695469370}
+  - component: {fileID: 1695469371}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -2591,6 +2577,20 @@ MonoBehaviour:
   joinRoom: {fileID: 591647131}
   roomNameCreatedInput: {fileID: 55003667}
   roomNameJoinedInput: {fileID: 935991421}
+--- !u!114 &1695469371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695469367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56c595136ea7f54f9356456c11426e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomPrefab: {fileID: 3595928039221739252, guid: 61e4c0970ca4d934b856bd87ffd894b5, type: 3}
+  roomTransformPos: {fileID: 87538889}
 --- !u!1 &1889257439
 GameObject:
   m_ObjectHideFlags: 0

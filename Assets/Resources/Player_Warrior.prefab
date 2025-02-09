@@ -9433,13 +9433,13 @@ GameObject:
   - component: {fileID: 3891956901735826230}
   - component: {fileID: 5426768442655003834}
   - component: {fileID: 6412064007862911908}
-  - component: {fileID: 3228851544407329784}
   - component: {fileID: 7010458750164547897}
   - component: {fileID: 6494324856906399353}
   - component: {fileID: 4264393594522691947}
   - component: {fileID: 8643645646826779314}
   - component: {fileID: 4253991143612653845}
   - component: {fileID: 2301616523989269439}
+  - component: {fileID: 1541260718955764666}
   m_Layer: 0
   m_Name: Player_Warrior
   m_TagString: Player
@@ -9637,7 +9637,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 6412064007862911908}
-  - {fileID: 3228851544407329784}
+  - {fileID: 1541260718955764666}
   sceneViewId: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
@@ -9727,51 +9727,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &3228851544407329784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4742731876713005804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 1
-    SynchronizeType: 0
-    Name: MoveX
-  - Type: 1
-    SynchronizeType: 0
-    Name: MoveY
-  - Type: 1
-    SynchronizeType: 0
-    Name: LastMoveX
-  - Type: 1
-    SynchronizeType: 0
-    Name: LastMoveY
-  - Type: 9
-    SynchronizeType: 0
-    Name: Attack
-  - Type: 1
-    SynchronizeType: 0
-    Name: moveX
-  - Type: 1
-    SynchronizeType: 0
-    Name: moveY
-  - Type: 9
-    SynchronizeType: 0
-    Name: Skill_01
-  - Type: 9
-    SynchronizeType: 0
-    Name: Skill_02
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-    LayerIndex: 0
 --- !u!114 &7010458750164547897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10145,6 +10100,51 @@ MonoBehaviour:
   missonButton: {fileID: 8431217019785674748}
   talkButton: {fileID: 9036166683031512037}
   closeDialogueButton: {fileID: 4001349386342119460}
+--- !u!114 &1541260718955764666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4742731876713005804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 1
+    Name: MoveX
+  - Type: 1
+    SynchronizeType: 1
+    Name: MoveY
+  - Type: 1
+    SynchronizeType: 1
+    Name: LastMoveX
+  - Type: 1
+    SynchronizeType: 1
+    Name: LastMoveY
+  - Type: 9
+    SynchronizeType: 0
+    Name: Attack
+  - Type: 1
+    SynchronizeType: 1
+    Name: moveX
+  - Type: 1
+    SynchronizeType: 1
+    Name: moveY
+  - Type: 9
+    SynchronizeType: 0
+    Name: Skill_01
+  - Type: 9
+    SynchronizeType: 0
+    Name: Skill_02
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
 --- !u!1 &4788780890166061499
 GameObject:
   m_ObjectHideFlags: 0
@@ -11654,7 +11654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6276657294950862502
 Transform:
   m_ObjectHideFlags: 0

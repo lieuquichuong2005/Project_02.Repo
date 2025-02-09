@@ -51,10 +51,10 @@ public class PlayerMovement : MonoBehaviourPun
     void Awake()
     {
         playerName = "Player";
-        if (instance == null)
+        /*&if (instance == null)
             instance = this;
         else
-            Destroy(instance);
+            Destroy(instance);*/
         marker.SetActive(true);
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();

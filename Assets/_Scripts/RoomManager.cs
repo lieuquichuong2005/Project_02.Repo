@@ -1,3 +1,4 @@
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class Room : MonoBehaviour
 
     public void JoinRoom()
     {
-        GameObject.Find("NetworkManager").GetComponent<CreateAndJoinSever>().JoinRoomInList(nameRoom.text);
+        //GameObject.Find("NetworkManager").GetComponent<CreateAndJoinSever>().JoinRoomInList(nameRoom.text);
+        PhotonNetwork.JoinRoom(nameRoom.text);
     }    
 }

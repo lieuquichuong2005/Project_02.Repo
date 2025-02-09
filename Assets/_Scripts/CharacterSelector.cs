@@ -20,26 +20,24 @@ public class CharacterSelector : MonoBehaviourPunCallbacks
         confirmButton.onClick.AddListener(ConfirmSelection);
         nextButton.onClick.AddListener(NextCharacter);
         previousButton.onClick.AddListener(PreviousCharacter); 
-        UpdateDisplay(); // Cập nhật hình ảnh ban đầu
+        UpdateDisplay(); 
     }
 
     public void NextCharacter()
     {
-        currentIndex = (currentIndex + 1) % characterSprites.Length; // Chuyển đến nhân vật tiếp theo
+        currentIndex = (currentIndex + 1) % characterSprites.Length; 
         UpdateDisplay();
     }
 
     public void PreviousCharacter()
     {
-        currentIndex = (currentIndex - 1 + characterSprites.Length) % characterSprites.Length; // Quay lại nhân vật trước
+        currentIndex = (currentIndex - 1 + characterSprites.Length) % characterSprites.Length; 
         UpdateDisplay();
     }
 
     public void ConfirmSelection()
     {
-        Debug.Log($"Bạn đã chọn nhân vật thứ {currentIndex + 1}"); // Xác nhận nhân vật đã chọn
-        // Có thể thêm hành động khác ở đây
-        PlayerPrefs.SetInt("SelectedCharacter", currentIndex); // Lưu lựa chọn nhân vật
+        PlayerPrefs.SetInt("SelectedCharacter", currentIndex); 
 
         SceneManager.LoadScene("LobbyScene"); 
 
@@ -47,7 +45,7 @@ public class CharacterSelector : MonoBehaviourPunCallbacks
 
     private void UpdateDisplay()
     {
-        characterImage.sprite = characterSprites[currentIndex]; // Cập nhật hình ảnh nhân vật
+        characterImage.sprite = characterSprites[currentIndex]; 
     }
     public override void OnJoinedLobby()
     {
